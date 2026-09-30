@@ -1,0 +1,568 @@
+{
+  "id": "binary-search",
+  "name": "Binary Search",
+  "sourceUrl": "https://maurya29.github.io/DSA-Pattern-Workbook/pages/binary-search.html",
+  "retrievedOn": "2026-09-30",
+  "problems": [
+    {
+      "name": "Binary Search",
+      "question": "Given an array nums sorted in strictly increasing order and an integer target, return the index of target if it is present. If target is not present, return -1. The required optimized solution must run in O(log n) time.",
+      "constraints": "1 <= nums.length <= 10000; -10000 < nums[i], target < 10000; nums is sorted in strictly increasing order.",
+      "examples": [
+        {
+          "input": "nums = [-1,0,3,5,9,12], target = 9",
+          "output": "4",
+          "explanation": "nums[4] is 9."
+        },
+        {
+          "input": "nums = [-1,0,3,5,9,12], target = 2",
+          "output": "-1",
+          "explanation": "2 is not present in nums."
+        },
+        {
+          "input": "nums = [5], target = -5",
+          "output": "-1",
+          "explanation": "The only value does not match target."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Each loop removes half of the remaining search window.",
+      "optimizedCode": "class Solution {\n  public int search(int[] nums, int target) {\n    int left = 0;\n    int right = nums.length - 1;\n\n    while (left <= right) {\n      int mid = left + (right - left) / 2;\n\n      if (nums[mid] == target) return mid;\n      if (nums[mid] < target) {\n        left = mid + 1;\n      } else {\n        right = mid - 1;\n      }\n    }\n\n    return -1;\n  }\n}",
+      "source": {
+        "label": "Binary Search - LeetCode 704",
+        "url": "https://leetcode.com/problems/binary-search/"
+      }
+    },
+    {
+      "name": "First Bad Version",
+      "question": "You are given versions 1 through n and an API isBadVersion(version). All versions after a bad version are also bad. Return the first bad version while calling the API as few times as possible.",
+      "constraints": "1 <= bad <= n <= 2^31 - 1; isBadVersion(version) returns false before bad and true from bad onward.",
+      "examples": [
+        {
+          "input": "n = 5, bad = 4",
+          "output": "4",
+          "explanation": "Versions 1, 2, and 3 are good; versions 4 and 5 are bad."
+        },
+        {
+          "input": "n = 1, bad = 1",
+          "output": "1",
+          "explanation": "The only version is the first bad version."
+        },
+        {
+          "input": "n = 7, bad = 1",
+          "output": "1",
+          "explanation": "Every version is bad, so the first version is the answer."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n) API calls; Space O(1). Binary search finds the first true predicate value.",
+      "optimizedCode": "class VersionControl {\n  private final int firstBad;\n\n  VersionControl(int firstBad) {\n    this.firstBad = firstBad;\n  }\n\n  boolean isBadVersion(int version) {\n    return version >= firstBad;\n  }\n}\n\nclass Solution extends VersionControl {\n  Solution(int firstBad) {\n    super(firstBad);\n  }\n\n  public int firstBadVersion(int n) {\n    int left = 1;\n    int right = n;\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (isBadVersion(mid)) {\n        right = mid;\n      } else {\n        left = mid + 1;\n      }\n    }\n\n    return left;\n  }\n}",
+      "source": {
+        "label": "First Bad Version - LeetCode 278",
+        "url": "https://leetcode.com/problems/first-bad-version/"
+      }
+    },
+    {
+      "name": "Search Insert Position",
+      "question": "Given a sorted array of distinct integers nums and an integer target, return the index if target is found. Otherwise return the index where target should be inserted to keep nums sorted. The optimized solution must run in O(log n) time.",
+      "constraints": "1 <= nums.length <= 10000; -10000 <= nums[i], target <= 10000; nums is sorted in ascending order with distinct values.",
+      "examples": [
+        {
+          "input": "nums = [1,3,5,6], target = 5",
+          "output": "2",
+          "explanation": "5 already exists at index 2."
+        },
+        {
+          "input": "nums = [1,3,5,6], target = 2",
+          "output": "1",
+          "explanation": "2 belongs between 1 and 3."
+        },
+        {
+          "input": "nums = [1,3,5,6], target = 7",
+          "output": "4",
+          "explanation": "7 should be inserted after all existing values."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Lower-bound binary search halves the candidate index range.",
+      "optimizedCode": "class Solution {\n  public int searchInsert(int[] nums, int target) {\n    int left = 0;\n    int right = nums.length;\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (nums[mid] < target) {\n        left = mid + 1;\n      } else {\n        right = mid;\n      }\n    }\n\n    return left;\n  }\n}",
+      "source": {
+        "label": "Search Insert Position - LeetCode 35",
+        "url": "https://leetcode.com/problems/search-insert-position/"
+      }
+    },
+    {
+      "name": "Find First and Last Position of Element in Sorted Array",
+      "question": "Given an array nums sorted in non-decreasing order and an integer target, return the first and last index of target. If target is not found, return [-1, -1]. The optimized solution must run in O(log n) time.",
+      "constraints": "0 <= nums.length <= 100000; -1000000000 <= nums[i], target <= 1000000000; nums is sorted in non-decreasing order.",
+      "examples": [
+        {
+          "input": "nums = [5,7,7,8,8,10], target = 8",
+          "output": "[3,4]",
+          "explanation": "8 starts at index 3 and ends at index 4."
+        },
+        {
+          "input": "nums = [5,7,7,8,8,10], target = 6",
+          "output": "[-1,-1]",
+          "explanation": "6 is not present."
+        },
+        {
+          "input": "nums = [], target = 0",
+          "output": "[-1,-1]",
+          "explanation": "The array is empty."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Two binary searches locate the lower and upper boundaries.",
+      "optimizedCode": "class Solution {\n  public int[] searchRange(int[] nums, int target) {\n    int first = findFirst(nums, target);\n    int last = findLast(nums, target);\n    return new int[] {first, last};\n  }\n\n  private int findFirst(int[] nums, int target) {\n    int left = 0;\n    int right = nums.length - 1;\n    int answer = -1;\n\n    while (left <= right) {\n      int mid = left + (right - left) / 2;\n\n      if (nums[mid] >= target) {\n        if (nums[mid] == target) answer = mid;\n        right = mid - 1;\n      } else {\n        left = mid + 1;\n      }\n    }\n\n    return answer;\n  }\n\n  private int findLast(int[] nums, int target) {\n    int left = 0;\n    int right = nums.length - 1;\n    int answer = -1;\n\n    while (left <= right) {\n      int mid = left + (right - left) / 2;\n\n      if (nums[mid] <= target) {\n        if (nums[mid] == target) answer = mid;\n        left = mid + 1;\n      } else {\n        right = mid - 1;\n      }\n    }\n\n    return answer;\n  }\n}",
+      "source": {
+        "label": "Find First and Last Position - LeetCode 34",
+        "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+      }
+    },
+    {
+      "name": "Sqrt(x)",
+      "question": "Given a non-negative integer x, return the floor of its square root. You must not use built-in exponent functions or square-root functions.",
+      "constraints": "0 <= x <= 2^31 - 1; built-in exponent and square-root functions are not allowed.",
+      "examples": [
+        {
+          "input": "x = 4",
+          "output": "2",
+          "explanation": "2 * 2 equals 4."
+        },
+        {
+          "input": "x = 8",
+          "output": "2",
+          "explanation": "The real square root is about 2.828, so the floor is 2."
+        },
+        {
+          "input": "x = 2147395599",
+          "output": "46339",
+          "explanation": "46339 is the largest integer whose square does not exceed x."
+        }
+      ],
+      "optimizedComplexity": "Time O(log x); Space O(1). Binary search over candidate roots from 1 to x / 2.",
+      "optimizedCode": "class Solution {\n  public int mySqrt(int x) {\n    if (x < 2) return x;\n\n    int left = 1;\n    int right = x / 2;\n    int answer = 1;\n\n    while (left <= right) {\n      int mid = left + (right - left) / 2;\n      long square = (long) mid * mid;\n\n      if (square <= x) {\n        answer = mid;\n        left = mid + 1;\n      } else {\n        right = mid - 1;\n      }\n    }\n\n    return answer;\n  }\n}",
+      "source": {
+        "label": "Sqrt(x) - LeetCode 69",
+        "url": "https://leetcode.com/problems/sqrtx/"
+      }
+    },
+    {
+      "name": "Valid Perfect Square",
+      "question": "Given a positive integer num, return true if num is a perfect square. Otherwise return false. You must not use built-in square-root functions.",
+      "constraints": "1 <= num <= 2^31 - 1; do not use built-in square-root functions.",
+      "examples": [
+        {
+          "input": "num = 16",
+          "output": "true",
+          "explanation": "4 * 4 equals 16."
+        },
+        {
+          "input": "num = 14",
+          "output": "false",
+          "explanation": "No integer squared equals 14."
+        },
+        {
+          "input": "num = 1",
+          "output": "true",
+          "explanation": "1 * 1 equals 1."
+        }
+      ],
+      "optimizedComplexity": "Time O(log num); Space O(1). Binary search halves the candidate root range.",
+      "optimizedCode": "class Solution {\n  public boolean isPerfectSquare(int num) {\n    if (num == 1) return true;\n\n    int left = 1;\n    int right = num / 2;\n\n    while (left <= right) {\n      int mid = left + (right - left) / 2;\n      long square = (long) mid * mid;\n\n      if (square == num) return true;\n      if (square < num) left = mid + 1;\n      else right = mid - 1;\n    }\n\n    return false;\n  }\n}",
+      "source": {
+        "label": "Valid Perfect Square - LeetCode 367",
+        "url": "https://leetcode.com/problems/valid-perfect-square/"
+      }
+    },
+    {
+      "name": "Search in Rotated Sorted Array",
+      "question": "Given a sorted array of distinct integers that has been rotated at an unknown pivot and an integer target, return the index of target if it exists. Otherwise return -1. The optimized solution must run in O(log n) time.",
+      "constraints": "1 <= nums.length <= 5000; -10000 <= nums[i], target <= 10000; nums contains distinct values and is rotated from ascending order.",
+      "examples": [
+        {
+          "input": "nums = [4,5,6,7,0,1,2], target = 0",
+          "output": "4",
+          "explanation": "0 is at index 4 after the rotation pivot."
+        },
+        {
+          "input": "nums = [4,5,6,7,0,1,2], target = 3",
+          "output": "-1",
+          "explanation": "3 is not in the array."
+        },
+        {
+          "input": "nums = [1], target = 0",
+          "output": "-1",
+          "explanation": "The only element does not match target."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Each step discards one sorted or impossible half.",
+      "optimizedCode": "class Solution {\n  public int search(int[] nums, int target) {\n    int left = 0;\n    int right = nums.length - 1;\n\n    while (left <= right) {\n      int mid = left + (right - left) / 2;\n      if (nums[mid] == target) return mid;\n\n      if (nums[left] <= nums[mid]) {\n        if (nums[left] <= target && target < nums[mid]) {\n          right = mid - 1;\n        } else {\n          left = mid + 1;\n        }\n      } else {\n        if (nums[mid] < target && target <= nums[right]) {\n          left = mid + 1;\n        } else {\n          right = mid - 1;\n        }\n      }\n    }\n\n    return -1;\n  }\n}",
+      "source": {
+        "label": "Search in Rotated Sorted Array - LeetCode 33",
+        "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+      }
+    },
+    {
+      "name": "Find Minimum in Rotated Sorted Array",
+      "question": "Given a sorted array of unique integers rotated between 1 and n times, return the minimum element. The optimized solution must run in O(log n) time.",
+      "constraints": "1 <= nums.length <= 5000; -5000 <= nums[i] <= 5000; all integers are unique; nums is a rotated ascending array.",
+      "examples": [
+        {
+          "input": "nums = [3,4,5,1,2]",
+          "output": "1",
+          "explanation": "1 is the rotation boundary and the minimum value."
+        },
+        {
+          "input": "nums = [4,5,6,7,0,1,2]",
+          "output": "0",
+          "explanation": "0 is smaller than every other value."
+        },
+        {
+          "input": "nums = [11,13,15,17]",
+          "output": "11",
+          "explanation": "The array is effectively already sorted."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Binary search moves toward the rotation boundary.",
+      "optimizedCode": "class Solution {\n  public int findMin(int[] nums) {\n    int left = 0;\n    int right = nums.length - 1;\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (nums[mid] > nums[right]) {\n        left = mid + 1;\n      } else {\n        right = mid;\n      }\n    }\n\n    return nums[left];\n  }\n}",
+      "source": {
+        "label": "Find Minimum in Rotated Sorted Array - LeetCode 153",
+        "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
+      }
+    },
+    {
+      "name": "Find Peak Element",
+      "question": "A peak element is an element strictly greater than its neighbors. Given an integer array nums where adjacent values are not equal, return the index of any peak element. Treat nums[-1] and nums[n] as negative infinity. The optimized solution must run in O(log n) time.",
+      "constraints": "1 <= nums.length <= 1000; -2^31 <= nums[i] <= 2^31 - 1; nums[i] != nums[i + 1].",
+      "examples": [
+        {
+          "input": "nums = [1,2,3,1]",
+          "output": "2",
+          "explanation": "3 is greater than both neighbors."
+        },
+        {
+          "input": "nums = [1,2,1,3,5,6,4]",
+          "output": "5",
+          "explanation": "Index 5 is valid because 6 is a peak; index 1 is also a valid peak."
+        },
+        {
+          "input": "nums = [1]",
+          "output": "0",
+          "explanation": "The single element is a peak."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Each slope check discards one side that does not need to be searched.",
+      "optimizedCode": "class Solution {\n  public int findPeakElement(int[] nums) {\n    int left = 0;\n    int right = nums.length - 1;\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (nums[mid] < nums[mid + 1]) {\n        left = mid + 1;\n      } else {\n        right = mid;\n      }\n    }\n\n    return left;\n  }\n}",
+      "source": {
+        "label": "Find Peak Element - LeetCode 162",
+        "url": "https://leetcode.com/problems/find-peak-element/"
+      }
+    },
+    {
+      "name": "Peak Index in a Mountain Array",
+      "question": "Given a mountain array arr, return the index of its peak. A mountain array strictly increases up to one peak and then strictly decreases.",
+      "constraints": "3 <= arr.length <= 100000; 0 <= arr[i] <= 1000000; arr is guaranteed to be a valid mountain array.",
+      "examples": [
+        {
+          "input": "arr = [0,1,0]",
+          "output": "1",
+          "explanation": "1 is greater than both neighbors."
+        },
+        {
+          "input": "arr = [0,2,1,0]",
+          "output": "1",
+          "explanation": "2 is the peak value."
+        },
+        {
+          "input": "arr = [0,10,5,2]",
+          "output": "1",
+          "explanation": "10 is the only turning point."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Binary search follows the slope toward the peak.",
+      "optimizedCode": "class Solution {\n  public int peakIndexInMountainArray(int[] arr) {\n    int left = 0;\n    int right = arr.length - 1;\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (arr[mid] < arr[mid + 1]) {\n        left = mid + 1;\n      } else {\n        right = mid;\n      }\n    }\n\n    return left;\n  }\n}",
+      "source": {
+        "label": "Peak Index in a Mountain Array - LeetCode 852",
+        "url": "https://leetcode.com/problems/peak-index-in-a-mountain-array/"
+      }
+    },
+    {
+      "name": "Single Element in a Sorted Array",
+      "question": "Given a sorted array where every element appears exactly twice except one element that appears once, return the single element. The optimized solution must run in O(log n) time and O(1) space.",
+      "constraints": "1 <= nums.length <= 100000; nums.length is odd; every value appears twice except one; nums is sorted.",
+      "examples": [
+        {
+          "input": "nums = [1,1,2,3,3,4,4,8,8]",
+          "output": "2",
+          "explanation": "2 is the only value that appears once."
+        },
+        {
+          "input": "nums = [3,3,7,7,10,11,11]",
+          "output": "10",
+          "explanation": "10 is the unpaired element."
+        },
+        {
+          "input": "nums = [1]",
+          "output": "1",
+          "explanation": "The only element is single."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Binary search uses pair parity to discard half the array.",
+      "optimizedCode": "class Solution {\n  public int singleNonDuplicate(int[] nums) {\n    int left = 0;\n    int right = nums.length - 1;\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n      if (mid % 2 == 1) mid--;\n\n      if (nums[mid] == nums[mid + 1]) {\n        left = mid + 2;\n      } else {\n        right = mid;\n      }\n    }\n\n    return nums[left];\n  }\n}",
+      "source": {
+        "label": "Single Element in a Sorted Array - LeetCode 540",
+        "url": "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+      }
+    },
+    {
+      "name": "Find Smallest Letter Greater Than Target",
+      "question": "Given a sorted array of lowercase letters and a target letter, return the smallest letter in the array that is strictly greater than target. The letters wrap around, so if no larger letter exists, return letters[0].",
+      "constraints": "2 <= letters.length <= 10000; letters is sorted in non-decreasing order; letters contains lowercase English letters; target is lowercase.",
+      "examples": [
+        {
+          "input": "letters = [\"c\",\"f\",\"j\"], target = \"a\"",
+          "output": "\"c\"",
+          "explanation": "c is the smallest letter greater than a."
+        },
+        {
+          "input": "letters = [\"c\",\"f\",\"j\"], target = \"c\"",
+          "output": "\"f\"",
+          "explanation": "The answer must be strictly greater than c."
+        },
+        {
+          "input": "letters = [\"x\",\"x\",\"y\",\"y\"], target = \"z\"",
+          "output": "\"x\"",
+          "explanation": "No letter is greater than z, so the answer wraps to x."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Upper-bound binary search finds the first greater letter.",
+      "optimizedCode": "class Solution {\n  public char nextGreatestLetter(char[] letters, char target) {\n    int left = 0;\n    int right = letters.length;\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (letters[mid] <= target) {\n        left = mid + 1;\n      } else {\n        right = mid;\n      }\n    }\n\n    return letters[left % letters.length];\n  }\n}",
+      "source": {
+        "label": "Find Smallest Letter Greater Than Target - LeetCode 744",
+        "url": "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
+      }
+    },
+    {
+      "name": "Koko Eating Bananas",
+      "question": "Koko has piles of bananas and h hours. Each hour she chooses one pile and eats up to k bananas from it. Return the minimum integer speed k such that she can eat all bananas within h hours.",
+      "constraints": "1 <= piles.length <= 10000; piles.length <= h <= 1000000000; 1 <= piles[i] <= 1000000000.",
+      "examples": [
+        {
+          "input": "piles = [3,6,7,11], h = 8",
+          "output": "4",
+          "explanation": "At speed 4, total hours are 1 + 2 + 2 + 3 = 8."
+        },
+        {
+          "input": "piles = [30,11,23,4,20], h = 5",
+          "output": "30",
+          "explanation": "Only speed 30 can finish one pile per hour."
+        },
+        {
+          "input": "piles = [30,11,23,4,20], h = 6",
+          "output": "23",
+          "explanation": "Speed 23 finishes within 6 hours; lower speeds do not."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log maxPile); Space O(1). Each binary-search check scans all piles once.",
+      "optimizedCode": "class Solution {\n  public int minEatingSpeed(int[] piles, int h) {\n    int left = 1;\n    int right = 0;\n    for (int pile : piles) right = Math.max(right, pile);\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (canFinish(piles, h, mid)) {\n        right = mid;\n      } else {\n        left = mid + 1;\n      }\n    }\n\n    return left;\n  }\n\n  private boolean canFinish(int[] piles, int h, int speed) {\n    long hours = 0;\n    for (int pile : piles) {\n      hours += (pile + speed - 1L) / speed;\n      if (hours > h) return false;\n    }\n    return true;\n  }\n}",
+      "source": {
+        "label": "Koko Eating Bananas - LeetCode 875",
+        "url": "https://leetcode.com/problems/koko-eating-bananas/"
+      }
+    },
+    {
+      "name": "Capacity To Ship Packages Within D Days",
+      "question": "Given package weights in order and an integer days, return the least ship capacity needed to ship all packages within days days. Packages must be shipped in the given order.",
+      "constraints": "1 <= days <= weights.length <= 50000; 1 <= weights[i] <= 500.",
+      "examples": [
+        {
+          "input": "weights = [1,2,3,4,5,6,7,8,9,10], days = 5",
+          "output": "15",
+          "explanation": "Capacity 15 can ship the packages in 5 days."
+        },
+        {
+          "input": "weights = [3,2,2,4,1,4], days = 3",
+          "output": "6",
+          "explanation": "Capacity 6 is the least feasible capacity."
+        },
+        {
+          "input": "weights = [1,2,3,1,1], days = 4",
+          "output": "3",
+          "explanation": "Capacity 3 ships all packages within 4 days."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log sumWeights); Space O(1). Each feasibility check scans weights once.",
+      "optimizedCode": "class Solution {\n  public int shipWithinDays(int[] weights, int days) {\n    int left = 0;\n    int right = 0;\n\n    for (int weight : weights) {\n      left = Math.max(left, weight);\n      right += weight;\n    }\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (canShip(weights, days, mid)) {\n        right = mid;\n      } else {\n        left = mid + 1;\n      }\n    }\n\n    return left;\n  }\n\n  private boolean canShip(int[] weights, int days, int capacity) {\n    int usedDays = 1;\n    int load = 0;\n\n    for (int weight : weights) {\n      if (load + weight > capacity) {\n        usedDays++;\n        load = 0;\n      }\n      load += weight;\n      if (usedDays > days) return false;\n    }\n\n    return true;\n  }\n}",
+      "source": {
+        "label": "Capacity To Ship Packages Within D Days - LeetCode 1011",
+        "url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+      }
+    },
+    {
+      "name": "Split Array Largest Sum",
+      "question": "Given an integer array nums and an integer k, split nums into k non-empty contiguous subarrays. Return the minimized largest sum among these subarrays.",
+      "constraints": "1 <= nums.length <= 1000; 0 <= nums[i] <= 1000000; 1 <= k <= min(50, nums.length).",
+      "examples": [
+        {
+          "input": "nums = [7,2,5,10,8], k = 2",
+          "output": "18",
+          "explanation": "Split as [7,2,5] and [10,8]; largest sum is 18."
+        },
+        {
+          "input": "nums = [1,2,3,4,5], k = 2",
+          "output": "9",
+          "explanation": "Split as [1,2,3] and [4,5]."
+        },
+        {
+          "input": "nums = [1,4,4], k = 3",
+          "output": "4",
+          "explanation": "Each element can be its own subarray."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log sumNums); Space O(1). Binary search checks each candidate limit with one greedy scan.",
+      "optimizedCode": "class Solution {\n  public int splitArray(int[] nums, int k) {\n    int left = 0;\n    int right = 0;\n\n    for (int num : nums) {\n      left = Math.max(left, num);\n      right += num;\n    }\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (canSplit(nums, k, mid)) {\n        right = mid;\n      } else {\n        left = mid + 1;\n      }\n    }\n\n    return left;\n  }\n\n  private boolean canSplit(int[] nums, int k, int limit) {\n    int parts = 1;\n    int currentSum = 0;\n\n    for (int num : nums) {\n      if (currentSum + num > limit) {\n        parts++;\n        currentSum = 0;\n      }\n      currentSum += num;\n      if (parts > k) return false;\n    }\n\n    return true;\n  }\n}",
+      "source": {
+        "label": "Split Array Largest Sum - LeetCode 410",
+        "url": "https://leetcode.com/problems/split-array-largest-sum/"
+      }
+    },
+    {
+      "name": "Minimized Maximum of Products Distributed to Any Store",
+      "question": "You have n stores and product quantities where quantities[i] is the count of one product type. A store can receive at most one product type, but any amount of that type. Return the minimum possible maximum number of products assigned to any store.",
+      "constraints": "1 <= quantities.length <= n <= 100000; 1 <= quantities[i] <= 100000.",
+      "examples": [
+        {
+          "input": "n = 6, quantities = [11,6]",
+          "output": "3",
+          "explanation": "11 needs 4 stores and 6 needs 2 stores when maximum load is 3."
+        },
+        {
+          "input": "n = 7, quantities = [15,10,10]",
+          "output": "5",
+          "explanation": "Each type can be split so no store gets more than 5 products."
+        },
+        {
+          "input": "n = 1, quantities = [100000]",
+          "output": "100000",
+          "explanation": "The only store must receive all products."
+        }
+      ],
+      "optimizedComplexity": "Time O(m log maxQuantity); Space O(1). Each feasibility check scans all product quantities once.",
+      "optimizedCode": "class Solution {\n  public int minimizedMaximum(int n, int[] quantities) {\n    int left = 1;\n    int right = 0;\n    for (int quantity : quantities) right = Math.max(right, quantity);\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n\n      if (canDistribute(n, quantities, mid)) {\n        right = mid;\n      } else {\n        left = mid + 1;\n      }\n    }\n\n    return left;\n  }\n\n  private boolean canDistribute(int n, int[] quantities, int limit) {\n    long stores = 0;\n    for (int quantity : quantities) {\n      stores += (quantity + limit - 1L) / limit;\n      if (stores > n) return false;\n    }\n    return true;\n  }\n}",
+      "source": {
+        "label": "Minimized Maximum of Products Distributed to Any Store - LeetCode 2064",
+        "url": "https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store/"
+      }
+    },
+    {
+      "name": "Magnetic Force Between Two Balls",
+      "question": "Given basket positions and an integer m, place m balls into baskets so that the minimum magnetic force between any two balls is maximized. Magnetic force is the absolute difference between positions. Return that maximum possible minimum distance.",
+      "constraints": "2 <= position.length <= 100000; 1 <= position[i] <= 1000000000; all positions are distinct; 2 <= m <= position.length.",
+      "examples": [
+        {
+          "input": "position = [1,2,3,4,7], m = 3",
+          "output": "3",
+          "explanation": "Place balls at 1, 4, and 7 for minimum distance 3."
+        },
+        {
+          "input": "position = [5,4,3,2,1,1000000000], m = 2",
+          "output": "999999999",
+          "explanation": "Place balls at positions 1 and 1000000000."
+        },
+        {
+          "input": "position = [1,10,20,30], m = 4",
+          "output": "9",
+          "explanation": "All baskets are used, so the smallest adjacent gap is 9."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n + n log range); Space O(1) excluding sort. Binary search each feasible distance with a greedy scan.",
+      "optimizedCode": "import java.util.Arrays;\n\nclass Solution {\n  public int maxDistance(int[] position, int m) {\n    Arrays.sort(position);\n    int left = 1;\n    int right = position[position.length - 1] - position[0];\n    int answer = 1;\n\n    while (left <= right) {\n      int mid = left + (right - left) / 2;\n\n      if (canPlace(position, m, mid)) {\n        answer = mid;\n        left = mid + 1;\n      } else {\n        right = mid - 1;\n      }\n    }\n\n    return answer;\n  }\n\n  private boolean canPlace(int[] position, int m, int distance) {\n    int count = 1;\n    int last = position[0];\n\n    for (int i = 1; i < position.length; i++) {\n      if (position[i] - last >= distance) {\n        count++;\n        last = position[i];\n        if (count == m) return true;\n      }\n    }\n\n    return false;\n  }\n}",
+      "source": {
+        "label": "Magnetic Force Between Two Balls - LeetCode 1552",
+        "url": "https://leetcode.com/problems/magnetic-force-between-two-balls/"
+      }
+    },
+    {
+      "name": "Aggressive Cows",
+      "question": "Given stall positions and k cows, place the cows in stalls so that the minimum distance between any two cows is as large as possible. Return that largest minimum distance.",
+      "constraints": "2 <= stalls.length <= 100000; 2 <= k <= stalls.length; 0 <= stalls[i] <= 1000000000.",
+      "examples": [
+        {
+          "input": "stalls = [1,2,4,8,9], k = 3",
+          "output": "3",
+          "explanation": "Place cows at 1, 4, and 8 or 9 for minimum distance 3."
+        },
+        {
+          "input": "stalls = [10,1,2,7,5], k = 3",
+          "output": "4",
+          "explanation": "After sorting, place cows at 1, 5, and 10."
+        },
+        {
+          "input": "stalls = [1,2,3], k = 2",
+          "output": "2",
+          "explanation": "Place cows at 1 and 3."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n + n log range); Space O(1) excluding sort. Binary search uses greedy feasibility.",
+      "optimizedCode": "import java.util.Arrays;\n\nclass Solution {\n  public static int aggressiveCows(int[] stalls, int k) {\n    Arrays.sort(stalls);\n    int left = 1;\n    int right = stalls[stalls.length - 1] - stalls[0];\n    int answer = 0;\n\n    while (left <= right) {\n      int mid = left + (right - left) / 2;\n\n      if (canPlace(stalls, k, mid)) {\n        answer = mid;\n        left = mid + 1;\n      } else {\n        right = mid - 1;\n      }\n    }\n\n    return answer;\n  }\n\n  private static boolean canPlace(int[] stalls, int k, int distance) {\n    int cows = 1;\n    int last = stalls[0];\n\n    for (int i = 1; i < stalls.length; i++) {\n      if (stalls[i] - last >= distance) {\n        cows++;\n        last = stalls[i];\n        if (cows == k) return true;\n      }\n    }\n\n    return false;\n  }\n}",
+      "source": {
+        "label": "Aggressive Cows - GeeksforGeeks",
+        "url": "https://www.geeksforgeeks.org/problems/aggressive-cows/1"
+      }
+    },
+    {
+      "name": "Median of Two Sorted Arrays",
+      "question": "Given two sorted arrays nums1 and nums2, return the median of the two sorted arrays. The optimized solution must run in O(log(m + n)) time.",
+      "constraints": "0 <= nums1.length, nums2.length <= 1000; 1 <= nums1.length + nums2.length <= 2000; -1000000 <= nums1[i], nums2[i] <= 1000000.",
+      "examples": [
+        {
+          "input": "nums1 = [1,3], nums2 = [2]",
+          "output": "2.00000",
+          "explanation": "The merged sorted array is [1,2,3]."
+        },
+        {
+          "input": "nums1 = [1,2], nums2 = [3,4]",
+          "output": "2.50000",
+          "explanation": "Median is (2 + 3) / 2."
+        },
+        {
+          "input": "nums1 = [], nums2 = [1]",
+          "output": "1.00000",
+          "explanation": "The second array alone determines the median."
+        }
+      ],
+      "optimizedComplexity": "Time O(log min(m, n)); Space O(1). Binary search only partitions the smaller array.",
+      "optimizedCode": "class Solution {\n  public double findMedianSortedArrays(int[] nums1, int[] nums2) {\n    if (nums1.length > nums2.length) return findMedianSortedArrays(nums2, nums1);\n\n    int m = nums1.length;\n    int n = nums2.length;\n    int leftSize = (m + n + 1) / 2;\n    int left = 0;\n    int right = m;\n\n    while (left <= right) {\n      int cut1 = left + (right - left) / 2;\n      int cut2 = leftSize - cut1;\n\n      int left1 = cut1 == 0 ? Integer.MIN_VALUE : nums1[cut1 - 1];\n      int right1 = cut1 == m ? Integer.MAX_VALUE : nums1[cut1];\n      int left2 = cut2 == 0 ? Integer.MIN_VALUE : nums2[cut2 - 1];\n      int right2 = cut2 == n ? Integer.MAX_VALUE : nums2[cut2];\n\n      if (left1 <= right2 && left2 <= right1) {\n        if ((m + n) % 2 == 1) return Math.max(left1, left2);\n        return (Math.max(left1, left2) + Math.min(right1, right2)) / 2.0;\n      }\n\n      if (left1 > right2) right = cut1 - 1;\n      else left = cut1 + 1;\n    }\n\n    return 0.0;\n  }\n}",
+      "source": {
+        "label": "Median of Two Sorted Arrays - LeetCode 4",
+        "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+      }
+    },
+    {
+      "name": "Kth Missing Positive Number",
+      "question": "Given a strictly increasing positive integer array arr and an integer k, return the kth positive integer missing from arr.",
+      "constraints": "1 <= arr.length <= 1000; 1 <= arr[i] <= 1000; arr is strictly increasing; 1 <= k <= 1000.",
+      "examples": [
+        {
+          "input": "arr = [2,3,4,7,11], k = 5",
+          "output": "9",
+          "explanation": "The missing positives are 1, 5, 6, 8, 9."
+        },
+        {
+          "input": "arr = [1,2,3,4], k = 2",
+          "output": "6",
+          "explanation": "The missing positives are 5 and 6."
+        },
+        {
+          "input": "arr = [5,6,7], k = 1",
+          "output": "1",
+          "explanation": "1 is missing before the first array value."
+        }
+      ],
+      "optimizedComplexity": "Time O(log n); Space O(1). Binary search the first index with at least k missing numbers before it.",
+      "optimizedCode": "class Solution {\n  public int findKthPositive(int[] arr, int k) {\n    int left = 0;\n    int right = arr.length;\n\n    while (left < right) {\n      int mid = left + (right - left) / 2;\n      int missingBeforeMid = arr[mid] - mid - 1;\n\n      if (missingBeforeMid < k) {\n        left = mid + 1;\n      } else {\n        right = mid;\n      }\n    }\n\n    return left + k;\n  }\n}",
+      "source": {
+        "label": "Kth Missing Positive Number - LeetCode 1539",
+        "url": "https://leetcode.com/problems/kth-missing-positive-number/"
+      }
+    }
+  ]
+}

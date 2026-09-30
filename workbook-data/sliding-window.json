@@ -1,0 +1,568 @@
+{
+  "id": "sliding-window",
+  "name": "Sliding Window",
+  "sourceUrl": "https://maurya29.github.io/DSA-Pattern-Workbook/pages/sliding-window.html",
+  "retrievedOn": "2026-09-30",
+  "problems": [
+    {
+      "name": "Maximum Average Subarray I",
+      "question": "Given an integer array nums and an integer k, return the maximum average value among all contiguous subarrays of length k.",
+      "constraints": "1 <= k <= nums.length <= 10^5; -10^4 <= nums[i] <= 10^4.",
+      "examples": [
+        {
+          "input": "nums = [1,12,-5,-6,50,3], k = 4",
+          "output": "12.75000",
+          "explanation": "The best length-4 window is [12,-5,-6,50] with sum 51."
+        },
+        {
+          "input": "nums = [5], k = 1",
+          "output": "5.00000",
+          "explanation": "The only element is the only window."
+        },
+        {
+          "input": "nums = [-1,-2,-3], k = 2",
+          "output": "-1.50000",
+          "explanation": "The maximum sum window is [-1,-2]."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public double findMaxAverage(int[] nums, int k) {\n    int windowSum = 0;\n    for (int i = 0; i < k; i++) {\n      windowSum += nums[i];\n    }\n\n    int bestSum = windowSum;\n    for (int right = k; right < nums.length; right++) {\n      windowSum += nums[right] - nums[right - k];\n      bestSum = Math.max(bestSum, windowSum);\n    }\n\n    return (double) bestSum / k;\n  }\n}",
+      "source": {
+        "label": "LeetCode 643 - Maximum Average Subarray I",
+        "url": "https://leetcode.com/problems/maximum-average-subarray-i/"
+      }
+    },
+    {
+      "name": "Contains Duplicate II",
+      "question": "Given nums and k, return true if there are two distinct indices i and j such that nums[i] == nums[j] and abs(i - j) <= k.",
+      "constraints": "1 <= nums.length <= 10^5; -10^9 <= nums[i] <= 10^9; 0 <= k <= 10^5.",
+      "examples": [
+        {
+          "input": "nums = [1,2,3,1], k = 3",
+          "output": "true",
+          "explanation": "The two 1 values are distance 3 apart."
+        },
+        {
+          "input": "nums = [1,0,1,1], k = 1",
+          "output": "true",
+          "explanation": "The last two 1 values are distance 1 apart."
+        },
+        {
+          "input": "nums = [1,2,3,1,2,3], k = 2",
+          "output": "false",
+          "explanation": "Every duplicate pair is farther than 2."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(min(n, k)).",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public boolean containsNearbyDuplicate(int[] nums, int k) {\n    Set<Integer> window = new HashSet<>();\n\n    for (int i = 0; i < nums.length; i++) {\n      if (i > k) {\n        window.remove(nums[i - k - 1]);\n      }\n      if (!window.add(nums[i])) {\n        return true;\n      }\n    }\n\n    return false;\n  }\n}",
+      "source": {
+        "label": "LeetCode 219 - Contains Duplicate II",
+        "url": "https://leetcode.com/problems/contains-duplicate-ii/"
+      }
+    },
+    {
+      "name": "Longest Substring Without Repeating Characters",
+      "question": "Given a string s, return the length of the longest substring without repeating characters.",
+      "constraints": "0 <= s.length <= 5 * 10^4; s may contain English letters, digits, symbols, and spaces.",
+      "examples": [
+        {
+          "input": "s = \"abcabcbb\"",
+          "output": "3",
+          "explanation": "The longest substring without repeats is \"abc\"."
+        },
+        {
+          "input": "s = \"bbbbb\"",
+          "output": "1",
+          "explanation": "The longest substring is \"b\"."
+        },
+        {
+          "input": "s = \"pwwkew\"",
+          "output": "3",
+          "explanation": "The answer is \"wke\"; subsequences do not count."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(min(n, charset)).",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int lengthOfLongestSubstring(String s) {\n    Map<Character, Integer> lastSeen = new HashMap<>();\n    int left = 0;\n    int best = 0;\n\n    for (int right = 0; right < s.length(); right++) {\n      char current = s.charAt(right);\n      if (lastSeen.containsKey(current)) {\n        left = Math.max(left, lastSeen.get(current) + 1);\n      }\n      lastSeen.put(current, right);\n      best = Math.max(best, right - left + 1);\n    }\n\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 3 - Longest Substring Without Repeating Characters",
+        "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+      }
+    },
+    {
+      "name": "Minimum Size Subarray Sum",
+      "question": "Given an array of positive integers nums and a positive integer target, return the minimum length of a contiguous subarray whose sum is at least target. Return 0 if no such subarray exists.",
+      "constraints": "1 <= target <= 10^9; 1 <= nums.length <= 10^5; 1 <= nums[i] <= 10^4.",
+      "examples": [
+        {
+          "input": "target = 7, nums = [2,3,1,2,4,3]",
+          "output": "2",
+          "explanation": "The shortest valid subarray is [4,3]."
+        },
+        {
+          "input": "target = 4, nums = [1,4,4]",
+          "output": "1",
+          "explanation": "A single 4 is enough."
+        },
+        {
+          "input": "target = 11, nums = [1,1,1,1,1,1,1,1]",
+          "output": "0",
+          "explanation": "No subarray reaches 11."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int minSubArrayLen(int target, int[] nums) {\n    int left = 0;\n    int sum = 0;\n    int best = Integer.MAX_VALUE;\n\n    for (int right = 0; right < nums.length; right++) {\n      sum += nums[right];\n      while (sum >= target) {\n        best = Math.min(best, right - left + 1);\n        sum -= nums[left++];\n      }\n    }\n\n    return best == Integer.MAX_VALUE ? 0 : best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 209 - Minimum Size Subarray Sum",
+        "url": "https://leetcode.com/problems/minimum-size-subarray-sum/"
+      }
+    },
+    {
+      "name": "Permutation in String",
+      "question": "Given strings s1 and s2, return true if s2 contains a permutation of s1 as a contiguous substring.",
+      "constraints": "1 <= s1.length, s2.length <= 10^4; s1 and s2 consist of lowercase English letters.",
+      "examples": [
+        {
+          "input": "s1 = \"ab\", s2 = \"eidbaooo\"",
+          "output": "true",
+          "explanation": "The substring \"ba\" is a permutation of \"ab\"."
+        },
+        {
+          "input": "s1 = \"ab\", s2 = \"eidboaoo\"",
+          "output": "false",
+          "explanation": "No substring has both a and b together."
+        },
+        {
+          "input": "s1 = \"adc\", s2 = \"dcda\"",
+          "output": "true",
+          "explanation": "The substring \"dca\" is a permutation of \"adc\"."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1), using fixed 26-character count arrays.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public boolean checkInclusion(String s1, String s2) {\n    if (s1.length() > s2.length()) {\n      return false;\n    }\n\n    int[] need = new int[26];\n    int[] window = new int[26];\n    for (char c : s1.toCharArray()) {\n      need[c - 'a']++;\n    }\n\n    for (int right = 0; right < s2.length(); right++) {\n      window[s2.charAt(right) - 'a']++;\n      if (right >= s1.length()) {\n        window[s2.charAt(right - s1.length()) - 'a']--;\n      }\n      if (Arrays.equals(need, window)) {\n        return true;\n      }\n    }\n\n    return false;\n  }\n}",
+      "source": {
+        "label": "LeetCode 567 - Permutation in String",
+        "url": "https://leetcode.com/problems/permutation-in-string/"
+      }
+    },
+    {
+      "name": "Find All Anagrams in a String",
+      "question": "Given strings s and p, return all start indices of substrings in s that are anagrams of p. Return the answer in any order.",
+      "constraints": "1 <= s.length, p.length <= 3 * 10^4; s and p consist of lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"cbaebabacd\", p = \"abc\"",
+          "output": "[0,6]",
+          "explanation": "The substrings \"cba\" and \"bac\" are anagrams of \"abc\"."
+        },
+        {
+          "input": "s = \"abab\", p = \"ab\"",
+          "output": "[0,1,2]",
+          "explanation": "The substrings \"ab\", \"ba\", and \"ab\" all qualify."
+        },
+        {
+          "input": "s = \"baa\", p = \"aa\"",
+          "output": "[1]",
+          "explanation": "The substring \"aa\" starts at index 1."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1), using fixed 26-character count arrays.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<Integer> findAnagrams(String s, String p) {\n    List<Integer> answer = new ArrayList<>();\n    if (p.length() > s.length()) {\n      return answer;\n    }\n\n    int[] need = new int[26];\n    int[] window = new int[26];\n    for (char c : p.toCharArray()) {\n      need[c - 'a']++;\n    }\n\n    for (int right = 0; right < s.length(); right++) {\n      window[s.charAt(right) - 'a']++;\n      if (right >= p.length()) {\n        window[s.charAt(right - p.length()) - 'a']--;\n      }\n      if (Arrays.equals(need, window)) {\n        answer.add(right - p.length() + 1);\n      }\n    }\n\n    return answer;\n  }\n}",
+      "source": {
+        "label": "LeetCode 438 - Find All Anagrams in a String",
+        "url": "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+      }
+    },
+    {
+      "name": "Fruit Into Baskets",
+      "question": "Given an integer array fruits where fruits[i] is the type of fruit at tree i, return the length of the longest contiguous subarray containing at most two distinct fruit types.",
+      "constraints": "1 <= fruits.length <= 10^5; 0 <= fruits[i] < fruits.length.",
+      "examples": [
+        {
+          "input": "fruits = [1,2,1]",
+          "output": "3",
+          "explanation": "The entire array has only two fruit types."
+        },
+        {
+          "input": "fruits = [0,1,2,2]",
+          "output": "3",
+          "explanation": "The best window is [1,2,2]."
+        },
+        {
+          "input": "fruits = [1,2,3,2,2]",
+          "output": "4",
+          "explanation": "The best window is [2,3,2,2]."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1) because the map stores at most three types temporarily.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int totalFruit(int[] fruits) {\n    Map<Integer, Integer> count = new HashMap<>();\n    int left = 0;\n    int best = 0;\n\n    for (int right = 0; right < fruits.length; right++) {\n      count.put(fruits[right], count.getOrDefault(fruits[right], 0) + 1);\n\n      while (count.size() > 2) {\n        int fruit = fruits[left++];\n        count.put(fruit, count.get(fruit) - 1);\n        if (count.get(fruit) == 0) {\n          count.remove(fruit);\n        }\n      }\n\n      best = Math.max(best, right - left + 1);\n    }\n\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 904 - Fruit Into Baskets",
+        "url": "https://leetcode.com/problems/fruit-into-baskets/"
+      }
+    },
+    {
+      "name": "Max Consecutive Ones III",
+      "question": "Given a binary array nums and an integer k, return the maximum number of consecutive 1s after flipping at most k zeroes.",
+      "constraints": "1 <= nums.length <= 10^5; nums[i] is 0 or 1; 0 <= k <= nums.length.",
+      "examples": [
+        {
+          "input": "nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2",
+          "output": "6",
+          "explanation": "Flip two zeroes to get six consecutive ones."
+        },
+        {
+          "input": "nums = [0,0,1,1,0,0,1,1,1,0], k = 3",
+          "output": "6",
+          "explanation": "The best valid window has length 6."
+        },
+        {
+          "input": "nums = [1,1,1], k = 0",
+          "output": "3",
+          "explanation": "No flips are needed."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int longestOnes(int[] nums, int k) {\n    int left = 0;\n    int zeroes = 0;\n    int best = 0;\n\n    for (int right = 0; right < nums.length; right++) {\n      if (nums[right] == 0) {\n        zeroes++;\n      }\n      while (zeroes > k) {\n        if (nums[left++] == 0) {\n          zeroes--;\n        }\n      }\n      best = Math.max(best, right - left + 1);\n    }\n\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 1004 - Max Consecutive Ones III",
+        "url": "https://leetcode.com/problems/max-consecutive-ones-iii/"
+      }
+    },
+    {
+      "name": "Longest Repeating Character Replacement",
+      "question": "Given a string s and integer k, return the length of the longest substring that can be turned into all the same character by replacing at most k characters.",
+      "constraints": "1 <= s.length <= 10^5; s consists of uppercase English letters; 0 <= k <= s.length.",
+      "examples": [
+        {
+          "input": "s = \"ABAB\", k = 2",
+          "output": "4",
+          "explanation": "Replace two characters to make the whole string equal."
+        },
+        {
+          "input": "s = \"AABABBA\", k = 1",
+          "output": "4",
+          "explanation": "A window like \"AABA\" can become all A."
+        },
+        {
+          "input": "s = \"AAAA\", k = 0",
+          "output": "4",
+          "explanation": "Already all the same character."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int characterReplacement(String s, int k) {\n    int[] count = new int[26];\n    int left = 0;\n    int maxFrequency = 0;\n    int best = 0;\n\n    for (int right = 0; right < s.length(); right++) {\n      int index = s.charAt(right) - 'A';\n      count[index]++;\n      maxFrequency = Math.max(maxFrequency, count[index]);\n\n      while (right - left + 1 - maxFrequency > k) {\n        count[s.charAt(left) - 'A']--;\n        left++;\n      }\n\n      best = Math.max(best, right - left + 1);\n    }\n\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 424 - Longest Repeating Character Replacement",
+        "url": "https://leetcode.com/problems/longest-repeating-character-replacement/"
+      }
+    },
+    {
+      "name": "Grumpy Bookstore Owner",
+      "question": "Given customers, grumpy, and minutes, return the maximum number of satisfied customers if the owner can suppress grumpiness for exactly one consecutive window of length minutes.",
+      "constraints": "1 <= minutes <= customers.length <= 2 * 10^4; 0 <= customers[i] <= 1000; grumpy[i] is 0 or 1.",
+      "examples": [
+        {
+          "input": "customers = [1,0,1,2,1,1,7,5], grumpy = [0,1,0,1,0,1,0,1], minutes = 3",
+          "output": "16",
+          "explanation": "Base satisfied plus best extra gain window gives 16."
+        },
+        {
+          "input": "customers = [1], grumpy = [0], minutes = 1",
+          "output": "1",
+          "explanation": "The only customer is already satisfied."
+        },
+        {
+          "input": "customers = [4,10,10], grumpy = [1,1,0], minutes = 2",
+          "output": "24",
+          "explanation": "Suppressing first two minutes satisfies all customers."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {\n    int baseSatisfied = 0;\n    int windowGain = 0;\n\n    for (int i = 0; i < customers.length; i++) {\n      if (grumpy[i] == 0) {\n        baseSatisfied += customers[i];\n      } else if (i < minutes) {\n        windowGain += customers[i];\n      }\n    }\n\n    int bestGain = windowGain;\n    for (int right = minutes; right < customers.length; right++) {\n      if (grumpy[right] == 1) {\n        windowGain += customers[right];\n      }\n      if (grumpy[right - minutes] == 1) {\n        windowGain -= customers[right - minutes];\n      }\n      bestGain = Math.max(bestGain, windowGain);\n    }\n\n    return baseSatisfied + bestGain;\n  }\n}",
+      "source": {
+        "label": "LeetCode 1052 - Grumpy Bookstore Owner",
+        "url": "https://leetcode.com/problems/grumpy-bookstore-owner/"
+      }
+    },
+    {
+      "name": "Sliding Window Maximum",
+      "question": "Given nums and k, return an array containing the maximum value in every contiguous window of size k.",
+      "constraints": "1 <= nums.length <= 10^5; -10^4 <= nums[i] <= 10^4; 1 <= k <= nums.length.",
+      "examples": [
+        {
+          "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+          "output": "[3,3,5,5,6,7]",
+          "explanation": "Maximum for each length-3 window."
+        },
+        {
+          "input": "nums = [1], k = 1",
+          "output": "[1]",
+          "explanation": "Only one window exists."
+        },
+        {
+          "input": "nums = [9,8,7], k = 2",
+          "output": "[9,8]",
+          "explanation": "Decreasing windows keep the leftmost value as max."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(k) for the deque.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int[] maxSlidingWindow(int[] nums, int k) {\n    Deque<Integer> deque = new ArrayDeque<>();\n    int[] answer = new int[nums.length - k + 1];\n\n    for (int right = 0; right < nums.length; right++) {\n      while (!deque.isEmpty() && deque.peekFirst() <= right - k) {\n        deque.pollFirst();\n      }\n      while (!deque.isEmpty() && nums[deque.peekLast()] <= nums[right]) {\n        deque.pollLast();\n      }\n      deque.offerLast(right);\n\n      if (right >= k - 1) {\n        answer[right - k + 1] = nums[deque.peekFirst()];\n      }\n    }\n\n    return answer;\n  }\n}",
+      "source": {
+        "label": "LeetCode 239 - Sliding Window Maximum",
+        "url": "https://leetcode.com/problems/sliding-window-maximum/"
+      }
+    },
+    {
+      "name": "Minimum Window Substring",
+      "question": "Given strings s and t, return the smallest substring of s that contains every character of t including duplicates. Return an empty string if no such window exists.",
+      "constraints": "1 <= s.length, t.length <= 10^5; s and t consist of uppercase and lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+          "output": "\"BANC\"",
+          "explanation": "BANC is the shortest substring containing A, B, and C."
+        },
+        {
+          "input": "s = \"a\", t = \"a\"",
+          "output": "\"a\"",
+          "explanation": "The full string is the minimum window."
+        },
+        {
+          "input": "s = \"a\", t = \"aa\"",
+          "output": "\"\"",
+          "explanation": "s does not contain two a characters."
+        }
+      ],
+      "optimizedComplexity": "Time O(n + m), Space O(charset), where n = s.length and m = t.length.",
+      "optimizedCode": "class Solution {\n  public String minWindow(String s, String t) {\n    int[] need = new int[128];\n    for (char c : t.toCharArray()) {\n      need[c]++;\n    }\n\n    int missing = t.length();\n    int left = 0;\n    int start = 0;\n    int best = Integer.MAX_VALUE;\n\n    for (int right = 0; right < s.length(); right++) {\n      if (need[s.charAt(right)]-- > 0) {\n        missing--;\n      }\n\n      while (missing == 0) {\n        if (right - left + 1 < best) {\n          best = right - left + 1;\n          start = left;\n        }\n        if (++need[s.charAt(left++)] > 0) {\n          missing++;\n        }\n      }\n    }\n\n    return best == Integer.MAX_VALUE ? \"\" : s.substring(start, start + best);\n  }\n}",
+      "source": {
+        "label": "LeetCode 76 - Minimum Window Substring",
+        "url": "https://leetcode.com/problems/minimum-window-substring/"
+      }
+    },
+    {
+      "name": "Subarray Product Less Than K",
+      "question": "Given an array of positive integers nums and integer k, return the number of contiguous subarrays where the product of all elements is strictly less than k.",
+      "constraints": "1 <= nums.length <= 3 * 10^4; 1 <= nums[i] <= 1000; 0 <= k <= 10^6.",
+      "examples": [
+        {
+          "input": "nums = [10,5,2,6], k = 100",
+          "output": "8",
+          "explanation": "Eight subarrays have product less than 100."
+        },
+        {
+          "input": "nums = [1,2,3], k = 0",
+          "output": "0",
+          "explanation": "No positive product is less than 0."
+        },
+        {
+          "input": "nums = [1,1,1], k = 2",
+          "output": "6",
+          "explanation": "Every subarray product is 1."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int numSubarrayProductLessThanK(int[] nums, int k) {\n    if (k <= 1) return 0;\n    int left = 0;\n    int count = 0;\n    long product = 1;\n    for (int right = 0; right < nums.length; right++) {\n      product *= nums[right];\n      while (product >= k) {\n        product /= nums[left++];\n      }\n      count += right - left + 1;\n    }\n    return count;\n  }\n}",
+      "source": {
+        "label": "LeetCode 713 - Subarray Product Less Than K",
+        "url": "https://leetcode.com/problems/subarray-product-less-than-k/"
+      }
+    },
+    {
+      "name": "Longest Subarray of 1s After Deleting One Element",
+      "question": "Given a binary array nums, delete exactly one element and return the longest non-empty subarray containing only 1s.",
+      "constraints": "1 <= nums.length <= 10^5; nums[i] is 0 or 1.",
+      "examples": [
+        {
+          "input": "nums = [1,1,0,1]",
+          "output": "3",
+          "explanation": "Delete the zero to join three ones."
+        },
+        {
+          "input": "nums = [0,1,1,1,0,1,1,0,1]",
+          "output": "5",
+          "explanation": "The best window has one zero and length 6, then delete it."
+        },
+        {
+          "input": "nums = [1,1,1]",
+          "output": "2",
+          "explanation": "One element must be deleted."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int longestSubarray(int[] nums) {\n    int left = 0;\n    int zeros = 0;\n    int best = 0;\n    for (int right = 0; right < nums.length; right++) {\n      if (nums[right] == 0) zeros++;\n      while (zeros > 1) {\n        if (nums[left++] == 0) zeros--;\n      }\n      best = Math.max(best, right - left);\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 1493 - Longest Subarray of 1s After Deleting One Element",
+        "url": "https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/"
+      }
+    },
+    {
+      "name": "Number of Substrings Containing All Three Characters",
+      "question": "Given a string s containing only a, b, and c, return the number of substrings containing at least one occurrence of all three characters.",
+      "constraints": "3 <= s.length <= 5 * 10^4; s consists only of a, b, and c.",
+      "examples": [
+        {
+          "input": "s = \"abcabc\"",
+          "output": "10",
+          "explanation": "Every substring containing a, b, and c is counted."
+        },
+        {
+          "input": "s = \"aaacb\"",
+          "output": "3",
+          "explanation": "The valid substrings are aaacb, aacb, and acb."
+        },
+        {
+          "input": "s = \"abc\"",
+          "output": "1",
+          "explanation": "Only the full string works."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int numberOfSubstrings(String s) {\n    int[] count = new int[3];\n    int left = 0;\n    int answer = 0;\n    for (int right = 0; right < s.length(); right++) {\n      count[s.charAt(right) - 'a']++;\n      while (count[0] > 0 && count[1] > 0 && count[2] > 0) {\n        answer += s.length() - right;\n        count[s.charAt(left++) - 'a']--;\n      }\n    }\n    return answer;\n  }\n}",
+      "source": {
+        "label": "LeetCode 1358 - Number of Substrings Containing All Three Characters",
+        "url": "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
+      }
+    },
+    {
+      "name": "Count Number of Nice Subarrays",
+      "question": "Given nums and k, return the number of continuous subarrays containing exactly k odd numbers.",
+      "constraints": "1 <= nums.length <= 5 * 10^4; 1 <= nums[i] <= 10^5; 1 <= k <= nums.length.",
+      "examples": [
+        {
+          "input": "nums = [1,1,2,1,1], k = 3",
+          "output": "2",
+          "explanation": "Two subarrays contain exactly three odd numbers."
+        },
+        {
+          "input": "nums = [2,4,6], k = 1",
+          "output": "0",
+          "explanation": "No odd numbers exist."
+        },
+        {
+          "input": "nums = [2,2,2,1,2,2,1,2,2,2], k = 2",
+          "output": "16",
+          "explanation": "Even runs around the two odds create sixteen subarrays."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int numberOfSubarrays(int[] nums, int k) {\n    return atMost(nums, k) - atMost(nums, k - 1);\n  }\n\n  private int atMost(int[] nums, int k) {\n    int left = 0;\n    int answer = 0;\n    for (int right = 0; right < nums.length; right++) {\n      if (nums[right] % 2 == 1) k--;\n      while (k < 0) {\n        if (nums[left++] % 2 == 1) k++;\n      }\n      answer += right - left + 1;\n    }\n    return answer;\n  }\n}",
+      "source": {
+        "label": "LeetCode 1248 - Count Number of Nice Subarrays",
+        "url": "https://leetcode.com/problems/count-number-of-nice-subarrays/"
+      }
+    },
+    {
+      "name": "Max Consecutive Ones",
+      "question": "Given a binary array nums, return the maximum number of consecutive 1s in the array.",
+      "constraints": "1 <= nums.length <= 10^5; nums[i] is 0 or 1.",
+      "examples": [
+        {
+          "input": "nums = [1,1,0,1,1,1]",
+          "output": "3",
+          "explanation": "The longest run of ones is at the end."
+        },
+        {
+          "input": "nums = [1,0,1,1,0,1]",
+          "output": "2",
+          "explanation": "The longest run length is 2."
+        },
+        {
+          "input": "nums = [0,0]",
+          "output": "0",
+          "explanation": "There are no ones."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int findMaxConsecutiveOnes(int[] nums) {\n    int current = 0;\n    int best = 0;\n    for (int num : nums) {\n      current = num == 1 ? current + 1 : 0;\n      best = Math.max(best, current);\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 485 - Max Consecutive Ones",
+        "url": "https://leetcode.com/problems/max-consecutive-ones/"
+      }
+    },
+    {
+      "name": "Maximum Points You Can Obtain from Cards",
+      "question": "Given cardPoints and k, take exactly k cards from either end of the row and return the maximum score.",
+      "constraints": "1 <= cardPoints.length <= 10^5; 1 <= cardPoints[i] <= 10^4; 1 <= k <= cardPoints.length.",
+      "examples": [
+        {
+          "input": "cardPoints = [1,2,3,4,5,6,1], k = 3",
+          "output": "12",
+          "explanation": "Leave [1,2,3,4], take [5,6,1]."
+        },
+        {
+          "input": "cardPoints = [2,2,2], k = 2",
+          "output": "4",
+          "explanation": "Any two cards score 4."
+        },
+        {
+          "input": "cardPoints = [9,7,7,9,7,7,9], k = 7",
+          "output": "55",
+          "explanation": "Take all cards."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int maxScore(int[] cardPoints, int k) {\n    int total = 0;\n    for (int point : cardPoints) total += point;\n\n    int keep = cardPoints.length - k;\n    if (keep == 0) return total;\n\n    int window = 0;\n    for (int i = 0; i < keep; i++) window += cardPoints[i];\n    int minWindow = window;\n    for (int right = keep; right < cardPoints.length; right++) {\n      window += cardPoints[right] - cardPoints[right - keep];\n      minWindow = Math.min(minWindow, window);\n    }\n    return total - minWindow;\n  }\n}",
+      "source": {
+        "label": "LeetCode 1423 - Maximum Points You Can Obtain from Cards",
+        "url": "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
+      }
+    },
+    {
+      "name": "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit",
+      "question": "Given nums and limit, return the length of the longest continuous subarray where the absolute difference between any two elements is at most limit.",
+      "constraints": "1 <= nums.length <= 10^5; 1 <= nums[i] <= 10^9; 0 <= limit <= 10^9.",
+      "examples": [
+        {
+          "input": "nums = [8,2,4,7], limit = 4",
+          "output": "2",
+          "explanation": "[2,4] is valid, length 2."
+        },
+        {
+          "input": "nums = [10,1,2,4,7,2], limit = 5",
+          "output": "4",
+          "explanation": "[2,4,7,2] is valid."
+        },
+        {
+          "input": "nums = [4,2,2,2,4,4,2,2], limit = 0",
+          "output": "3",
+          "explanation": "The longest equal-value run has length 3."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(n) for deques.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int longestSubarray(int[] nums, int limit) {\n    Deque<Integer> maxDeque = new ArrayDeque<>();\n    Deque<Integer> minDeque = new ArrayDeque<>();\n    int left = 0;\n    int best = 0;\n\n    for (int right = 0; right < nums.length; right++) {\n      while (!maxDeque.isEmpty() && nums[maxDeque.peekLast()] < nums[right]) maxDeque.pollLast();\n      while (!minDeque.isEmpty() && nums[minDeque.peekLast()] > nums[right]) minDeque.pollLast();\n      maxDeque.offerLast(right);\n      minDeque.offerLast(right);\n\n      while (nums[maxDeque.peekFirst()] - nums[minDeque.peekFirst()] > limit) {\n        if (maxDeque.peekFirst() == left) maxDeque.pollFirst();\n        if (minDeque.peekFirst() == left) minDeque.pollFirst();\n        left++;\n      }\n      best = Math.max(best, right - left + 1);\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 1438 - Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit",
+        "url": "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
+      }
+    },
+    {
+      "name": "Minimum Operations to Reduce X to Zero",
+      "question": "Given nums and x, remove elements only from the left or right end so the removed sum is exactly x. Return the minimum number of removals, or -1 if impossible.",
+      "constraints": "1 <= nums.length <= 10^5; 1 <= nums[i] <= 10^4; 1 <= x <= 10^9.",
+      "examples": [
+        {
+          "input": "nums = [1,1,4,2,3], x = 5",
+          "output": "2",
+          "explanation": "Keep [1,1,4] with sum 6, so remove 2 and 3."
+        },
+        {
+          "input": "nums = [5,6,7,8,9], x = 4",
+          "output": "-1",
+          "explanation": "No removed-end sum can equal 4."
+        },
+        {
+          "input": "nums = [3,2,20,1,1,3], x = 10",
+          "output": "5",
+          "explanation": "Keep [20], so remove five elements."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int minOperations(int[] nums, int x) {\n    int total = 0;\n    for (int num : nums) total += num;\n    int target = total - x;\n    if (target < 0) return -1;\n\n    int left = 0;\n    int sum = 0;\n    int longest = -1;\n    for (int right = 0; right < nums.length; right++) {\n      sum += nums[right];\n      while (sum > target && left <= right) {\n        sum -= nums[left++];\n      }\n      if (sum == target) longest = Math.max(longest, right - left + 1);\n    }\n    return longest == -1 ? -1 : nums.length - longest;\n  }\n}",
+      "source": {
+        "label": "LeetCode 1658 - Minimum Operations to Reduce X to Zero",
+        "url": "https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/"
+      }
+    }
+  ]
+}

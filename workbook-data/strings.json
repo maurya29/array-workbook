@@ -1,0 +1,568 @@
+{
+  "id": "strings",
+  "name": "Strings",
+  "sourceUrl": "https://maurya29.github.io/DSA-Pattern-Workbook/pages/strings.html",
+  "retrievedOn": "2026-09-30",
+  "problems": [
+    {
+      "name": "Valid Anagram",
+      "question": "Given two strings s and t, return true if t is an anagram of s and false otherwise.",
+      "constraints": "1 <= s.length, t.length <= 50000; s and t contain lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"anagram\", t = \"nagaram\"",
+          "output": "true",
+          "explanation": "Both strings contain the same characters with the same counts."
+        },
+        {
+          "input": "s = \"rat\", t = \"car\"",
+          "output": "false",
+          "explanation": "The character counts differ."
+        },
+        {
+          "input": "s = \"a\", t = \"ab\"",
+          "output": "false",
+          "explanation": "Different lengths cannot be anagrams."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Count 26 lowercase letters.",
+      "optimizedCode": "class Solution {\n  public boolean isAnagram(String s, String t) {\n    if (s.length() != t.length()) return false;\n    int[] count = new int[26];\n    for (int i = 0; i < s.length(); i++) {\n      count[s.charAt(i) - 'a']++;\n      count[t.charAt(i) - 'a']--;\n    }\n    for (int value : count) {\n      if (value != 0) return false;\n    }\n    return true;\n  }\n}",
+      "source": {
+        "label": "Valid Anagram - LeetCode 242",
+        "url": "https://leetcode.com/problems/valid-anagram/"
+      }
+    },
+    {
+      "name": "Valid Palindrome",
+      "question": "Given a string s, return true if it is a palindrome after converting uppercase letters to lowercase and removing non-alphanumeric characters.",
+      "constraints": "1 <= s.length <= 200000; s consists of printable ASCII characters.",
+      "examples": [
+        {
+          "input": "s = \"A man, a plan, a canal: Panama\"",
+          "output": "true",
+          "explanation": "Normalized string is amanaplanacanalpanama."
+        },
+        {
+          "input": "s = \"race a car\"",
+          "output": "false",
+          "explanation": "Normalized string is not symmetric."
+        },
+        {
+          "input": "s = \" \"",
+          "output": "true",
+          "explanation": "No alphanumeric characters remain."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Two pointers skip ignored characters in place.",
+      "optimizedCode": "class Solution {\n  public boolean isPalindrome(String s) {\n    int left = 0;\n    int right = s.length() - 1;\n    while (left < right) {\n      while (left < right && !Character.isLetterOrDigit(s.charAt(left))) left++;\n      while (left < right && !Character.isLetterOrDigit(s.charAt(right))) right--;\n      if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) return false;\n      left++;\n      right--;\n    }\n    return true;\n  }\n}",
+      "source": {
+        "label": "Valid Palindrome - LeetCode 125",
+        "url": "https://leetcode.com/problems/valid-palindrome/"
+      }
+    },
+    {
+      "name": "Longest Substring Without Repeating Characters",
+      "question": "Given a string s, return the length of the longest substring without repeating characters.",
+      "constraints": "0 <= s.length <= 50000; s consists of English letters, digits, symbols, and spaces.",
+      "examples": [
+        {
+          "input": "s = \"abcabcbb\"",
+          "output": "3",
+          "explanation": "The longest substrings include abc."
+        },
+        {
+          "input": "s = \"bbbbb\"",
+          "output": "1",
+          "explanation": "Only one repeated character can be used."
+        },
+        {
+          "input": "s = \"pwwkew\"",
+          "output": "3",
+          "explanation": "wke is valid; pwke is not contiguous."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(charset). Sliding window moves each boundary at most n times.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int lengthOfLongestSubstring(String s) {\n    Map<Character, Integer> last = new HashMap<>();\n    int left = 0;\n    int best = 0;\n    for (int right = 0; right < s.length(); right++) {\n      char ch = s.charAt(right);\n      if (last.containsKey(ch) && last.get(ch) >= left) left = last.get(ch) + 1;\n      last.put(ch, right);\n      best = Math.max(best, right - left + 1);\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "Longest Substring Without Repeating Characters - LeetCode 3",
+        "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+      }
+    },
+    {
+      "name": "Longest Repeating Character Replacement",
+      "question": "Given a string s and integer k, return the length of the longest substring that can be made of one repeated character after at most k replacements.",
+      "constraints": "1 <= s.length <= 100000; s contains uppercase English letters; 0 <= k <= s.length.",
+      "examples": [
+        {
+          "input": "s = \"ABAB\", k = 2",
+          "output": "4",
+          "explanation": "Replace two letters to make the whole string equal."
+        },
+        {
+          "input": "s = \"AABABBA\", k = 1",
+          "output": "4",
+          "explanation": "AABA or ABBA can be made uniform."
+        },
+        {
+          "input": "s = \"AAAA\", k = 0",
+          "output": "4",
+          "explanation": "No replacement is needed."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Sliding window tracks 26 uppercase counts.",
+      "optimizedCode": "class Solution {\n  public int characterReplacement(String s, int k) {\n    int[] count = new int[26];\n    int left = 0;\n    int maxFreq = 0;\n    int best = 0;\n    for (int right = 0; right < s.length(); right++) {\n      maxFreq = Math.max(maxFreq, ++count[s.charAt(right) - 'A']);\n      while (right - left + 1 - maxFreq > k) {\n        count[s.charAt(left) - 'A']--;\n        left++;\n      }\n      best = Math.max(best, right - left + 1);\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "Longest Repeating Character Replacement - LeetCode 424",
+        "url": "https://leetcode.com/problems/longest-repeating-character-replacement/"
+      }
+    },
+    {
+      "name": "Minimum Window Substring",
+      "question": "Given strings s and t, return the minimum window substring of s that contains every character of t including duplicates.",
+      "constraints": "1 <= s.length, t.length <= 100000; s and t consist of uppercase and lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+          "output": "\"BANC\"",
+          "explanation": "BANC is the smallest window containing A, B, and C."
+        },
+        {
+          "input": "s = \"a\", t = \"a\"",
+          "output": "\"a\"",
+          "explanation": "The only character satisfies the requirement."
+        },
+        {
+          "input": "s = \"a\", t = \"aa\"",
+          "output": "\"\"",
+          "explanation": "The source does not contain enough a characters."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(charset). Sliding window expands and contracts each index once.",
+      "optimizedCode": "class Solution {\n  public String minWindow(String s, String t) {\n    int[] need = new int[128];\n    int required = 0;\n    for (int i = 0; i < t.length(); i++) {\n      if (need[t.charAt(i)]++ == 0) required++;\n    }\n\n    int[] window = new int[128];\n    int formed = 0, left = 0, bestLeft = 0, bestLength = Integer.MAX_VALUE;\n    for (int right = 0; right < s.length(); right++) {\n      char add = s.charAt(right);\n      if (++window[add] == need[add] && need[add] > 0) formed++;\n      while (formed == required) {\n        if (right - left + 1 < bestLength) {\n          bestLength = right - left + 1;\n          bestLeft = left;\n        }\n        char remove = s.charAt(left++);\n        if (window[remove]-- == need[remove] && need[remove] > 0) formed--;\n      }\n    }\n    return bestLength == Integer.MAX_VALUE ? \"\" : s.substring(bestLeft, bestLeft + bestLength);\n  }\n}",
+      "source": {
+        "label": "Minimum Window Substring - LeetCode 76",
+        "url": "https://leetcode.com/problems/minimum-window-substring/"
+      }
+    },
+    {
+      "name": "Group Anagrams",
+      "question": "Given an array of strings, group the anagrams together in any order.",
+      "constraints": "1 <= strs.length <= 10000; 0 <= strs[i].length <= 100; strs[i] contains lowercase English letters.",
+      "examples": [
+        {
+          "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+          "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
+          "explanation": "Words with the same sorted key are grouped."
+        },
+        {
+          "input": "strs = [\"\"]",
+          "output": "[[\"\"]]",
+          "explanation": "The empty string forms one group."
+        },
+        {
+          "input": "strs = [\"a\"]",
+          "output": "[[\"a\"]]",
+          "explanation": "One word forms one group."
+        }
+      ],
+      "optimizedComplexity": "Time O(nL); Space O(nL). Use a 26-count signature as the map key.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<String>> groupAnagrams(String[] strs) {\n    Map<String, List<String>> groups = new HashMap<>();\n    for (String word : strs) {\n      int[] count = new int[26];\n      for (int i = 0; i < word.length(); i++) count[word.charAt(i) - 'a']++;\n      String key = Arrays.toString(count);\n      groups.computeIfAbsent(key, unused -> new ArrayList<>()).add(word);\n    }\n    return new ArrayList<>(groups.values());\n  }\n}",
+      "source": {
+        "label": "Group Anagrams - LeetCode 49",
+        "url": "https://leetcode.com/problems/group-anagrams/"
+      }
+    },
+    {
+      "name": "Encode and Decode Strings",
+      "question": "Design an algorithm to encode a list of strings into one string and decode it back to the original list.",
+      "constraints": "0 <= strs.length <= 200; 0 <= strs[i].length <= 200; strings may contain any valid characters.",
+      "examples": [
+        {
+          "input": "strs = [\"lint\",\"code\",\"love\",\"you\"]",
+          "output": "[\"lint\",\"code\",\"love\",\"you\"] after decode",
+          "explanation": "Each length prefix makes decoding unambiguous."
+        },
+        {
+          "input": "strs = [\"\"]",
+          "output": "[\"\"] after decode",
+          "explanation": "Length zero is encoded explicitly."
+        },
+        {
+          "input": "strs = [\"a#b\",\"12\"]",
+          "output": "[\"a#b\",\"12\"] after decode",
+          "explanation": "Delimiter characters inside content are preserved."
+        }
+      ],
+      "optimizedComplexity": "Encode O(total characters); decode O(total characters); Space O(total characters). Length prefixes avoid escaping.",
+      "optimizedCode": "import java.util.*;\n\nclass Codec {\n  public String encode(List<String> strs) {\n    StringBuilder encoded = new StringBuilder();\n    for (String s : strs) {\n      encoded.append(s.length()).append('#').append(s);\n    }\n    return encoded.toString();\n  }\n\n  public List<String> decode(String s) {\n    List<String> answer = new ArrayList<>();\n    int index = 0;\n    while (index < s.length()) {\n      int delimiter = index;\n      while (s.charAt(delimiter) != '#') delimiter++;\n      int length = Integer.parseInt(s.substring(index, delimiter));\n      int start = delimiter + 1;\n      answer.add(s.substring(start, start + length));\n      index = start + length;\n    }\n    return answer;\n  }\n}",
+      "source": {
+        "label": "Encode and Decode Strings - LeetCode 271",
+        "url": "https://leetcode.com/problems/encode-and-decode-strings/"
+      }
+    },
+    {
+      "name": "Longest Palindromic Substring",
+      "question": "Given a string s, return the longest palindromic substring in s.",
+      "constraints": "1 <= s.length <= 1000; s consists of digits and English letters.",
+      "examples": [
+        {
+          "input": "s = \"babad\"",
+          "output": "\"bab\" or \"aba\"",
+          "explanation": "Both length-three palindromes are valid."
+        },
+        {
+          "input": "s = \"cbbd\"",
+          "output": "\"bb\"",
+          "explanation": "The longest palindrome has an even center."
+        },
+        {
+          "input": "s = \"a\"",
+          "output": "\"a\"",
+          "explanation": "A single character is a palindrome."
+        }
+      ],
+      "optimizedComplexity": "Time O(n^2); Space O(1). Expand around each center.",
+      "optimizedCode": "class Solution {\n  public String longestPalindrome(String s) {\n    int bestStart = 0;\n    int bestLength = 1;\n    for (int center = 0; center < s.length(); center++) {\n      int odd = expand(s, center, center);\n      int even = expand(s, center, center + 1);\n      int length = Math.max(odd, even);\n      if (length > bestLength) {\n        bestLength = length;\n        bestStart = center - (length - 1) / 2;\n      }\n    }\n    return s.substring(bestStart, bestStart + bestLength);\n  }\n\n  private int expand(String s, int left, int right) {\n    while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {\n      left--;\n      right++;\n    }\n    return right - left - 1;\n  }\n}",
+      "source": {
+        "label": "Longest Palindromic Substring - LeetCode 5",
+        "url": "https://leetcode.com/problems/longest-palindromic-substring/"
+      }
+    },
+    {
+      "name": "Palindromic Substrings",
+      "question": "Given a string s, return the number of palindromic substrings in it.",
+      "constraints": "1 <= s.length <= 1000; s consists of lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"abc\"",
+          "output": "3",
+          "explanation": "Only single-character palindromes exist."
+        },
+        {
+          "input": "s = \"aaa\"",
+          "output": "6",
+          "explanation": "Three singles, two aa substrings, and one aaa."
+        },
+        {
+          "input": "s = \"aba\"",
+          "output": "4",
+          "explanation": "a, b, a, and aba are palindromes."
+        }
+      ],
+      "optimizedComplexity": "Time O(n^2); Space O(1). Expand around 2n-1 centers.",
+      "optimizedCode": "class Solution {\n  public int countSubstrings(String s) {\n    int count = 0;\n    for (int center = 0; center < s.length(); center++) {\n      count += expand(s, center, center);\n      count += expand(s, center, center + 1);\n    }\n    return count;\n  }\n\n  private int expand(String s, int left, int right) {\n    int count = 0;\n    while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {\n      count++;\n      left--;\n      right++;\n    }\n    return count;\n  }\n}",
+      "source": {
+        "label": "Palindromic Substrings - LeetCode 647",
+        "url": "https://leetcode.com/problems/palindromic-substrings/"
+      }
+    },
+    {
+      "name": "Valid Parenthesis String",
+      "question": "Given a string containing (, ), and *, return true if * can be treated as (, ), or empty to make the string valid.",
+      "constraints": "1 <= s.length <= 100; s[i] is (, ), or *.",
+      "examples": [
+        {
+          "input": "s = \"()\"",
+          "output": "true",
+          "explanation": "Already valid."
+        },
+        {
+          "input": "s = \"(*)\"",
+          "output": "true",
+          "explanation": "* can be empty."
+        },
+        {
+          "input": "s = \"(*))\"",
+          "output": "true",
+          "explanation": "* can be an opening parenthesis."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Greedy lower and upper open-count bounds.",
+      "optimizedCode": "class Solution {\n  public boolean checkValidString(String s) {\n    int low = 0;\n    int high = 0;\n    for (int i = 0; i < s.length(); i++) {\n      char ch = s.charAt(i);\n      if (ch == '(') {\n        low++;\n        high++;\n      } else if (ch == ')') {\n        low = Math.max(0, low - 1);\n        high--;\n      } else {\n        low = Math.max(0, low - 1);\n        high++;\n      }\n      if (high < 0) return false;\n    }\n    return low == 0;\n  }\n}",
+      "source": {
+        "label": "Valid Parenthesis String - LeetCode 678",
+        "url": "https://leetcode.com/problems/valid-parenthesis-string/"
+      }
+    },
+    {
+      "name": "Find the Index of the First Occurrence in a String",
+      "question": "Given strings haystack and needle, return the index of the first occurrence of needle in haystack, or -1 if it is not present.",
+      "constraints": "1 <= haystack.length, needle.length <= 10000; strings contain lowercase English letters.",
+      "examples": [
+        {
+          "input": "haystack = \"sadbutsad\", needle = \"sad\"",
+          "output": "0",
+          "explanation": "The first occurrence starts at index 0."
+        },
+        {
+          "input": "haystack = \"leetcode\", needle = \"leeto\"",
+          "output": "-1",
+          "explanation": "The pattern is absent."
+        },
+        {
+          "input": "haystack = \"aaaaa\", needle = \"bba\"",
+          "output": "-1",
+          "explanation": "Repeated haystack characters still do not match."
+        }
+      ],
+      "optimizedComplexity": "Time O(n+m); Space O(m). KMP scans haystack once after prefix preprocessing.",
+      "optimizedCode": "class Solution {\n  public int strStr(String haystack, String needle) {\n    int[] lps = buildLps(needle);\n    int j = 0;\n    for (int i = 0; i < haystack.length(); i++) {\n      while (j > 0 && haystack.charAt(i) != needle.charAt(j)) j = lps[j - 1];\n      if (haystack.charAt(i) == needle.charAt(j)) j++;\n      if (j == needle.length()) return i - needle.length() + 1;\n    }\n    return -1;\n  }\n\n  private int[] buildLps(String pattern) {\n    int[] lps = new int[pattern.length()];\n    for (int i = 1, len = 0; i < pattern.length(); i++) {\n      while (len > 0 && pattern.charAt(i) != pattern.charAt(len)) len = lps[len - 1];\n      if (pattern.charAt(i) == pattern.charAt(len)) lps[i] = ++len;\n    }\n    return lps;\n  }\n}",
+      "source": {
+        "label": "Find the Index of the First Occurrence in a String - LeetCode 28",
+        "url": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
+      }
+    },
+    {
+      "name": "Repeated Substring Pattern",
+      "question": "Given a string s, return true if it can be constructed by repeating one of its proper substrings multiple times.",
+      "constraints": "1 <= s.length <= 10000; s consists of lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"abab\"",
+          "output": "true",
+          "explanation": "ab repeated twice forms the string."
+        },
+        {
+          "input": "s = \"aba\"",
+          "output": "false",
+          "explanation": "No proper substring repeats to form it."
+        },
+        {
+          "input": "s = \"abcabcabcabc\"",
+          "output": "true",
+          "explanation": "abc repeats four times."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(n). The prefix table gives the longest border; a valid period is n - border when it divides n.",
+      "optimizedCode": "class Solution {\n  public boolean repeatedSubstringPattern(String s) {\n    int n = s.length();\n    int[] lps = new int[n];\n    for (int i = 1; i < n; i++) {\n      int length = lps[i - 1];\n      while (length > 0 && s.charAt(i) != s.charAt(length)) {\n        length = lps[length - 1];\n      }\n      if (s.charAt(i) == s.charAt(length)) length++;\n      lps[i] = length;\n    }\n    int border = lps[n - 1];\n    int period = n - border;\n    return border > 0 && n % period == 0;\n  }\n}",
+      "source": {
+        "label": "Repeated Substring Pattern - LeetCode 459",
+        "url": "https://leetcode.com/problems/repeated-substring-pattern/"
+      }
+    },
+    {
+      "name": "String Compression",
+      "question": "Given an array of characters, compress it in place by replacing each group with the character followed by its count when count is greater than one, and return the new length.",
+      "constraints": "1 <= chars.length <= 2000; chars[i] is a lowercase/uppercase letter, digit, or symbol.",
+      "examples": [
+        {
+          "input": "chars = [\"a\",\"a\",\"b\",\"b\",\"c\",\"c\",\"c\"]",
+          "output": "6, chars starts [\"a\",\"2\",\"b\",\"2\",\"c\",\"3\"]",
+          "explanation": "Each repeated run writes its count."
+        },
+        {
+          "input": "chars = [\"a\"]",
+          "output": "1",
+          "explanation": "A count of one is omitted."
+        },
+        {
+          "input": "chars = [\"a\" repeated 12 times]",
+          "output": "3, chars starts [\"a\",\"1\",\"2\"]",
+          "explanation": "Multi-digit counts are written one digit at a time."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Two pointers read runs and write compressed output in place.",
+      "optimizedCode": "class Solution {\n  public int compress(char[] chars) {\n    int write = 0;\n    int read = 0;\n    while (read < chars.length) {\n      char current = chars[read];\n      int start = read;\n      while (read < chars.length && chars[read] == current) read++;\n      chars[write++] = current;\n      int count = read - start;\n      if (count > 1) {\n        String digits = String.valueOf(count);\n        for (int i = 0; i < digits.length(); i++) chars[write++] = digits.charAt(i);\n      }\n    }\n    return write;\n  }\n}",
+      "source": {
+        "label": "String Compression - LeetCode 443",
+        "url": "https://leetcode.com/problems/string-compression/"
+      }
+    },
+    {
+      "name": "Reverse Words in a String",
+      "question": "Given a string s, reverse the order of its words, removing leading/trailing spaces and reducing multiple spaces to one.",
+      "constraints": "1 <= s.length <= 10000; s contains English letters, digits, and spaces.",
+      "examples": [
+        {
+          "input": "s = \"the sky is blue\"",
+          "output": "\"blue is sky the\"",
+          "explanation": "Word order is reversed."
+        },
+        {
+          "input": "s = \"  hello world  \"",
+          "output": "\"world hello\"",
+          "explanation": "Outer spaces are removed."
+        },
+        {
+          "input": "s = \"a good   example\"",
+          "output": "\"example good a\"",
+          "explanation": "Multiple spaces collapse to one."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(n). Parse words from the end without storing all tokens first.",
+      "optimizedCode": "class Solution {\n  public String reverseWords(String s) {\n    StringBuilder answer = new StringBuilder();\n    int index = s.length() - 1;\n    while (index >= 0) {\n      while (index >= 0 && s.charAt(index) == ' ') index--;\n      if (index < 0) break;\n      int end = index;\n      while (index >= 0 && s.charAt(index) != ' ') index--;\n      if (answer.length() > 0) answer.append(' ');\n      answer.append(s, index + 1, end + 1);\n    }\n    return answer.toString();\n  }\n}",
+      "source": {
+        "label": "Reverse Words in a String - LeetCode 151",
+        "url": "https://leetcode.com/problems/reverse-words-in-a-string/"
+      }
+    },
+    {
+      "name": "Zigzag Conversion",
+      "question": "Given a string s and number of rows, write the string in zigzag order and then read row by row.",
+      "constraints": "1 <= s.length <= 1000; 1 <= numRows <= 1000; s contains English letters, comma, and period.",
+      "examples": [
+        {
+          "input": "s = \"PAYPALISHIRING\", numRows = 3",
+          "output": "\"PAHNAPLSIIGYIR\"",
+          "explanation": "Rows are read after zigzag placement."
+        },
+        {
+          "input": "s = \"PAYPALISHIRING\", numRows = 4",
+          "output": "\"PINALSIGYAHRPI\"",
+          "explanation": "A different row count changes the cycle."
+        },
+        {
+          "input": "s = \"A\", numRows = 1",
+          "output": "\"A\"",
+          "explanation": "One row leaves the string unchanged."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(n). Append directly to row builders while simulating direction.",
+      "optimizedCode": "class Solution {\n  public String convert(String s, int numRows) {\n    if (numRows == 1 || numRows >= s.length()) return s;\n    StringBuilder[] rows = new StringBuilder[numRows];\n    for (int i = 0; i < numRows; i++) rows[i] = new StringBuilder();\n\n    int row = 0;\n    int direction = 1;\n    for (int i = 0; i < s.length(); i++) {\n      rows[row].append(s.charAt(i));\n      if (row == 0) direction = 1;\n      else if (row == numRows - 1) direction = -1;\n      row += direction;\n    }\n\n    StringBuilder answer = new StringBuilder();\n    for (StringBuilder current : rows) answer.append(current);\n    return answer.toString();\n  }\n}",
+      "source": {
+        "label": "Zigzag Conversion - LeetCode 6",
+        "url": "https://leetcode.com/problems/zigzag-conversion/"
+      }
+    },
+    {
+      "name": "Add Strings",
+      "question": "Given two non-negative integers as strings, return their sum as a string without converting the full inputs to integers.",
+      "constraints": "1 <= num1.length, num2.length <= 10000; num1 and num2 contain digits only and have no leading zeros except 0.",
+      "examples": [
+        {
+          "input": "num1 = \"11\", num2 = \"123\"",
+          "output": "\"134\"",
+          "explanation": "11 + 123 = 134."
+        },
+        {
+          "input": "num1 = \"456\", num2 = \"77\"",
+          "output": "\"533\"",
+          "explanation": "Carry propagates across digits."
+        },
+        {
+          "input": "num1 = \"0\", num2 = \"0\"",
+          "output": "\"0\"",
+          "explanation": "Zero plus zero remains zero."
+        }
+      ],
+      "optimizedComplexity": "Time O(n+m); Space O(n+m). Manual carry addition over characters.",
+      "optimizedCode": "class Solution {\n  public String addStrings(String num1, String num2) {\n    StringBuilder reversed = new StringBuilder();\n    int i = num1.length() - 1;\n    int j = num2.length() - 1;\n    int carry = 0;\n    while (i >= 0 || j >= 0 || carry != 0) {\n      int sum = carry;\n      if (i >= 0) sum += num1.charAt(i--) - '0';\n      if (j >= 0) sum += num2.charAt(j--) - '0';\n      reversed.append(sum % 10);\n      carry = sum / 10;\n    }\n    return reversed.reverse().toString();\n  }\n}",
+      "source": {
+        "label": "Add Strings - LeetCode 415",
+        "url": "https://leetcode.com/problems/add-strings/"
+      }
+    },
+    {
+      "name": "Decode String",
+      "question": "Given an encoded string with patterns k[encoded_string], return the decoded string.",
+      "constraints": "1 <= s.length <= 30; s contains lowercase letters, digits, and brackets; decoded length is within limits.",
+      "examples": [
+        {
+          "input": "s = \"3[a]2[bc]\"",
+          "output": "\"aaabcbc\"",
+          "explanation": "Each bracketed block repeats independently."
+        },
+        {
+          "input": "s = \"3[a2[c]]\"",
+          "output": "\"accaccacc\"",
+          "explanation": "The inner block is decoded before outer repetition."
+        },
+        {
+          "input": "s = \"2[abc]3[cd]ef\"",
+          "output": "\"abcabccdcdcdef\"",
+          "explanation": "Plain suffix is appended after decoded blocks."
+        }
+      ],
+      "optimizedComplexity": "Time O(decoded length); Space O(n). Stacks store counts and previous builders.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public String decodeString(String s) {\n    Deque<Integer> counts = new ArrayDeque<>();\n    Deque<StringBuilder> stack = new ArrayDeque<>();\n    StringBuilder current = new StringBuilder();\n    int number = 0;\n    for (int i = 0; i < s.length(); i++) {\n      char ch = s.charAt(i);\n      if (Character.isDigit(ch)) number = number * 10 + ch - '0';\n      else if (ch == '[') {\n        counts.push(number);\n        stack.push(current);\n        current = new StringBuilder();\n        number = 0;\n      } else if (ch == ']') {\n        StringBuilder decoded = stack.pop();\n        int repeat = counts.pop();\n        for (int k = 0; k < repeat; k++) decoded.append(current);\n        current = decoded;\n      } else {\n        current.append(ch);\n      }\n    }\n    return current.toString();\n  }\n}",
+      "source": {
+        "label": "Decode String - LeetCode 394",
+        "url": "https://leetcode.com/problems/decode-string/"
+      }
+    },
+    {
+      "name": "Basic Calculator II",
+      "question": "Given a string expression containing non-negative integers and operators +, -, *, /, evaluate it with integer division truncating toward zero.",
+      "constraints": "1 <= s.length <= 300000; s consists of digits, spaces, +, -, *, and /; expression is valid.",
+      "examples": [
+        {
+          "input": "s = \"3+2*2\"",
+          "output": "7",
+          "explanation": "Multiplication happens before addition."
+        },
+        {
+          "input": "s = \" 3/2 \"",
+          "output": "1",
+          "explanation": "Integer division truncates toward zero."
+        },
+        {
+          "input": "s = \" 3+5 / 2 \"",
+          "output": "5",
+          "explanation": "5 / 2 becomes 2, then 3 + 2."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). One pass keeps result, last term, current number, and operator.",
+      "optimizedCode": "class Solution {\n  public int calculate(String s) {\n    int result = 0;\n    int last = 0;\n    int number = 0;\n    char operator = '+';\n    for (int i = 0; i <= s.length(); i++) {\n      char ch = i < s.length() ? s.charAt(i) : '+';\n      if (ch == ' ') continue;\n      if (Character.isDigit(ch)) {\n        number = number * 10 + ch - '0';\n      } else {\n        if (operator == '+') { result += last; last = number; }\n        else if (operator == '-') { result += last; last = -number; }\n        else if (operator == '*') last *= number;\n        else last /= number;\n        operator = ch;\n        number = 0;\n      }\n    }\n    return result + last;\n  }\n}",
+      "source": {
+        "label": "Basic Calculator II - LeetCode 227",
+        "url": "https://leetcode.com/problems/basic-calculator-ii/"
+      }
+    },
+    {
+      "name": "Longest Common Prefix",
+      "question": "Given an array of strings, return the longest common prefix among all strings.",
+      "constraints": "1 <= strs.length <= 200; 0 <= strs[i].length <= 200; strs[i] contains lowercase English letters.",
+      "examples": [
+        {
+          "input": "strs = [\"flower\",\"flow\",\"flight\"]",
+          "output": "\"fl\"",
+          "explanation": "All strings share fl."
+        },
+        {
+          "input": "strs = [\"dog\",\"racecar\",\"car\"]",
+          "output": "\"\"",
+          "explanation": "There is no common first character."
+        },
+        {
+          "input": "strs = [\"alone\"]",
+          "output": "\"alone\"",
+          "explanation": "One string is its own prefix."
+        }
+      ],
+      "optimizedComplexity": "Time O(S); Space O(1). Vertical scan stops at the first mismatch.",
+      "optimizedCode": "class Solution {\n  public String longestCommonPrefix(String[] strs) {\n    for (int index = 0; index < strs[0].length(); index++) {\n      char expected = strs[0].charAt(index);\n      for (int i = 1; i < strs.length; i++) {\n        if (index == strs[i].length() || strs[i].charAt(index) != expected) {\n          return strs[0].substring(0, index);\n        }\n      }\n    }\n    return strs[0];\n  }\n}",
+      "source": {
+        "label": "Longest Common Prefix - LeetCode 14",
+        "url": "https://leetcode.com/problems/longest-common-prefix/"
+      }
+    },
+    {
+      "name": "Compare Version Numbers",
+      "question": "Given two version strings, compare their revision numbers and return -1, 0, or 1.",
+      "constraints": "1 <= version1.length, version2.length <= 500; versions contain digits and dots; revisions fit in 32-bit signed integer.",
+      "examples": [
+        {
+          "input": "version1 = \"1.01\", version2 = \"1.001\"",
+          "output": "0",
+          "explanation": "Leading zeros do not change segment value."
+        },
+        {
+          "input": "version1 = \"1.0\", version2 = \"1.0.0\"",
+          "output": "0",
+          "explanation": "Missing segments count as zero."
+        },
+        {
+          "input": "version1 = \"0.1\", version2 = \"1.1\"",
+          "output": "-1",
+          "explanation": "The first segment 0 is smaller than 1."
+        }
+      ],
+      "optimizedComplexity": "Time O(n+m); Space O(1). Two pointers parse segments directly.",
+      "optimizedCode": "class Solution {\n  public int compareVersion(String version1, String version2) {\n    int i = 0, j = 0;\n    while (i < version1.length() || j < version2.length()) {\n      int left = 0;\n      while (i < version1.length() && version1.charAt(i) != '.') left = left * 10 + version1.charAt(i++) - '0';\n      int right = 0;\n      while (j < version2.length() && version2.charAt(j) != '.') right = right * 10 + version2.charAt(j++) - '0';\n      if (left != right) return left < right ? -1 : 1;\n      i++;\n      j++;\n    }\n    return 0;\n  }\n}",
+      "source": {
+        "label": "Compare Version Numbers - LeetCode 165",
+        "url": "https://leetcode.com/problems/compare-version-numbers/"
+      }
+    }
+  ]
+}

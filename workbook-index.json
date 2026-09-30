@@ -1,0 +1,4962 @@
+[
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 1,
+    "title": "Two Sum",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "int[]",
+        "twoSum",
+        "int[] nums, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [2,7,11,15], target = 9",
+        "output": "[0,1]",
+        "explanation": "nums[0] + nums[1] = 2 + 7 = 9."
+      },
+      {
+        "input": "nums = [3,2,4], target = 6",
+        "output": "[1,2]",
+        "explanation": "nums[1] + nums[2] = 2 + 4 = 6."
+      },
+      {
+        "input": "nums = [3,3], target = 6",
+        "output": "[0,1]",
+        "explanation": "The same value can be used twice only when it appears at two different indexes."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 2,
+    "title": "Contains Duplicate",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "boolean",
+        "containsDuplicate",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1]",
+        "output": "true",
+        "explanation": "The value 1 appears at indexes 0 and 3."
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "false",
+        "explanation": "Every value appears exactly once."
+      },
+      {
+        "input": "nums = [1,1,1,3,3,4,3,2,4,2]",
+        "output": "true",
+        "explanation": "Multiple values appear more than once."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 3,
+    "title": "Valid Anagram",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "boolean",
+        "isAnagram",
+        "String s, String t"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"anagram\", t = \"nagaram\"",
+        "output": "true",
+        "explanation": "Both strings contain the same letters with the same frequencies."
+      },
+      {
+        "input": "s = \"rat\", t = \"car\"",
+        "output": "false",
+        "explanation": "The character counts are different."
+      },
+      {
+        "input": "s = \"aacc\", t = \"ccac\"",
+        "output": "false",
+        "explanation": "s has two a characters, but t has only one."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 4,
+    "title": "Group Anagrams",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "List<List<String>>",
+        "groupAnagrams",
+        "String[] strs"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+        "output": "[[\"bat\"],[\"tan\",\"nat\"],[\"eat\",\"tea\",\"ate\"]]",
+        "explanation": "eat, tea, and ate share one signature; tan and nat share another; bat is alone."
+      },
+      {
+        "input": "strs = [\"\"]",
+        "output": "[[\"\"]]",
+        "explanation": "The empty string forms one valid group."
+      },
+      {
+        "input": "strs = [\"a\"]",
+        "output": "[[\"a\"]]",
+        "explanation": "A single word is grouped by itself."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 5,
+    "title": "Top K Frequent Elements",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "int[]",
+        "topKFrequent",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,1,2,2,3], k = 2",
+        "output": "[1,2]",
+        "explanation": "1 appears 3 times and 2 appears 2 times."
+      },
+      {
+        "input": "nums = [1], k = 1",
+        "output": "[1]",
+        "explanation": "The only element is also the most frequent."
+      },
+      {
+        "input": "nums = [4,4,4,6,6,7], k = 1",
+        "output": "[4]",
+        "explanation": "4 has the highest frequency."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 6,
+    "title": "Product of Array Except Self",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "int[]",
+        "productExceptSelf",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "[24,12,8,6]",
+        "explanation": "For index 0, product is 2 * 3 * 4 = 24; for index 1, product is 1 * 3 * 4 = 12."
+      },
+      {
+        "input": "nums = [-1,1,0,-3,3]",
+        "output": "[0,0,9,0,0]",
+        "explanation": "Only the index containing 0 gets the product of all non-zero values."
+      },
+      {
+        "input": "nums = [2,3]",
+        "output": "[3,2]",
+        "explanation": "Each answer is the other element."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 7,
+    "title": "Subarray Sum Equals K",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "int",
+        "subarraySum",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,1], k = 2",
+        "output": "2",
+        "explanation": "The valid subarrays are nums[0..1] and nums[1..2]."
+      },
+      {
+        "input": "nums = [1,2,3], k = 3",
+        "output": "2",
+        "explanation": "The valid subarrays are [1,2] and [3]."
+      },
+      {
+        "input": "nums = [-1,-1,1], k = 0",
+        "output": "1",
+        "explanation": "The valid subarray is nums[1..2] = [-1,1]."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 8,
+    "title": "Longest Consecutive Sequence",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "int",
+        "longestConsecutive",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [100,4,200,1,3,2]",
+        "output": "4",
+        "explanation": "The longest consecutive sequence is [1,2,3,4]."
+      },
+      {
+        "input": "nums = [0,3,7,2,5,8,4,6,0,1]",
+        "output": "9",
+        "explanation": "The longest sequence is [0,1,2,3,4,5,6,7,8]."
+      },
+      {
+        "input": "nums = []",
+        "output": "0",
+        "explanation": "No elements means no consecutive sequence."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 9,
+    "title": "Majority Element",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "int",
+        "majorityElement",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [3,2,3]",
+        "output": "3",
+        "explanation": "3 appears 2 times, which is more than floor(3 / 2)."
+      },
+      {
+        "input": "nums = [2,2,1,1,1,2,2]",
+        "output": "2",
+        "explanation": "2 appears 4 times, which is more than floor(7 / 2)."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1",
+        "explanation": "The only element is the majority element."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 10,
+    "title": "Find All Numbers Disappeared in an Array",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "List<Integer>",
+        "findDisappearedNumbers",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [4,3,2,7,8,2,3,1]",
+        "output": "[5,6]",
+        "explanation": "The numbers 5 and 6 from range [1,8] do not appear."
+      },
+      {
+        "input": "nums = [1,1]",
+        "output": "[2]",
+        "explanation": "The value 2 is missing from range [1,2]."
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "[]",
+        "explanation": "Every number from 1 to 4 appears."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 11,
+    "title": "Intersection of Two Arrays",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "int[]",
+        "intersection",
+        "int[] nums1, int[] nums2"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums1 = [1,2,2,1], nums2 = [2,2]",
+        "output": "[2]",
+        "explanation": "2 appears in both arrays, but output values must be unique."
+      },
+      {
+        "input": "nums1 = [4,9,5], nums2 = [9,4,9,8,4]",
+        "output": "[9,4]",
+        "explanation": "Both 9 and 4 appear in both arrays; order does not matter."
+      },
+      {
+        "input": "nums1 = [1,3,5], nums2 = [2,4,6]",
+        "output": "[]",
+        "explanation": "There are no common values."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 12,
+    "title": "First Unique Character in a String",
+    "className": "ArraysHashingBasic",
+    "methods": [
+      [
+        "int",
+        "firstUniqChar",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"leetcode\"",
+        "output": "0",
+        "explanation": "l is the first character that appears once."
+      },
+      {
+        "input": "s = \"loveleetcode\"",
+        "output": "2",
+        "explanation": "v at index 2 is the first non-repeating character."
+      },
+      {
+        "input": "s = \"aabb\"",
+        "output": "-1",
+        "explanation": "Every character appears more than once."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 13,
+    "title": "Encode and Decode Strings",
+    "className": "ArraysHashingModerate",
+    "methods": [
+      [
+        "String",
+        "encode",
+        "List<String> strs"
+      ],
+      [
+        "List<String>",
+        "decode",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "strs = [\"lint\",\"code\",\"love\",\"you\"]",
+        "output": "[\"lint\",\"code\",\"love\",\"you\"]",
+        "explanation": "Decoding restores the original list."
+      },
+      {
+        "input": "strs = [\"\"]",
+        "output": "[\"\"]",
+        "explanation": "An empty string is encoded as length 0."
+      },
+      {
+        "input": "strs = [\"a#b\",\"12\"]",
+        "output": "[\"a#b\",\"12\"]",
+        "explanation": "The delimiter is safe because length controls parsing."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 14,
+    "title": "Longest Substring Without Repeating Characters",
+    "className": "ArraysHashingModerate",
+    "methods": [
+      [
+        "int",
+        "lengthOfLongestSubstring",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"abcabcbb\"",
+        "output": "3",
+        "explanation": "The answer is \"abc\"."
+      },
+      {
+        "input": "s = \"bbbbb\"",
+        "output": "1",
+        "explanation": "The answer is \"b\"."
+      },
+      {
+        "input": "s = \"pwwkew\"",
+        "output": "3",
+        "explanation": "The answer is \"wke\"."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 15,
+    "title": "Minimum Window Substring",
+    "className": "ArraysHashingModerate",
+    "methods": [
+      [
+        "String",
+        "minWindow",
+        "String s, String t"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+        "output": "\"BANC\"",
+        "explanation": "BANC is the shortest valid window."
+      },
+      {
+        "input": "s = \"a\", t = \"a\"",
+        "output": "\"a\"",
+        "explanation": "The full string is valid."
+      },
+      {
+        "input": "s = \"a\", t = \"aa\"",
+        "output": "\"\"",
+        "explanation": "Two a characters are required."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 16,
+    "title": "Find All Anagrams in a String",
+    "className": "ArraysHashingModerate",
+    "methods": [
+      [
+        "List<Integer>",
+        "findAnagrams",
+        "String s, String p"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"cbaebabacd\", p = \"abc\"",
+        "output": "[0,6]",
+        "explanation": "cba and bac are anagrams."
+      },
+      {
+        "input": "s = \"abab\", p = \"ab\"",
+        "output": "[0,1,2]",
+        "explanation": "ab, ba, and ab are valid."
+      },
+      {
+        "input": "s = \"baa\", p = \"aa\"",
+        "output": "[1]",
+        "explanation": "aa starts at index 1."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 17,
+    "title": "Contiguous Array",
+    "className": "ArraysHashingModerate",
+    "methods": [
+      [
+        "int",
+        "findMaxLength",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [0,1]",
+        "output": "2",
+        "explanation": "The whole array is balanced."
+      },
+      {
+        "input": "nums = [0,1,0]",
+        "output": "2",
+        "explanation": "[0,1] or [1,0] is balanced."
+      },
+      {
+        "input": "nums = [0,0,1,0,0,0,1,1]",
+        "output": "6",
+        "explanation": "A longest balanced subarray has length 6."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 18,
+    "title": "Longest Harmonious Subsequence",
+    "className": "ArraysHashingModerate",
+    "methods": [
+      [
+        "int",
+        "findLHS",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,3,2,2,5,2,3,7]",
+        "output": "5",
+        "explanation": "[3,2,2,2,3] is harmonious."
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "2",
+        "explanation": "Any adjacent pair gives length 2."
+      },
+      {
+        "input": "nums = [1,1,1,1]",
+        "output": "0",
+        "explanation": "Difference is never exactly 1."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 19,
+    "title": "Subarrays Divisible by K",
+    "className": "ArraysHashingModerate",
+    "methods": [
+      [
+        "int",
+        "subarraysDivByK",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [4,5,0,-2,-3,1], k = 5",
+        "output": "7",
+        "explanation": "There are 7 valid subarrays."
+      },
+      {
+        "input": "nums = [5], k = 9",
+        "output": "0",
+        "explanation": "5 is not divisible by 9."
+      },
+      {
+        "input": "nums = [-1,2,9], k = 2",
+        "output": "2",
+        "explanation": "Normalized remainders handle negative prefixes."
+      }
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "topicNumber": 1,
+    "number": 20,
+    "title": "Insert Delete GetRandom O(1)",
+    "className": "ArraysHashingModerate",
+    "methods": [
+      [
+        "boolean",
+        "insert",
+        "int val"
+      ],
+      [
+        "boolean",
+        "remove",
+        "int val"
+      ],
+      [
+        "int",
+        "getRandom",
+        ""
+      ]
+    ],
+    "examples": [
+      {
+        "input": "insert(1), remove(2), insert(2), getRandom(), remove(1), insert(2)",
+        "output": "true, false, true, 1 or 2, true, false",
+        "explanation": "Operations maintain the set while getRandom returns an existing value."
+      },
+      {
+        "input": "insert(1), insert(1)",
+        "output": "true, false",
+        "explanation": "Duplicate insert returns false."
+      },
+      {
+        "input": "insert(5), remove(5)",
+        "output": "true, true",
+        "explanation": "A single existing value can be removed."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 1,
+    "title": "Two Sum II - Input Array Is Sorted",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "int[]",
+        "twoSum",
+        "int[] numbers, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "numbers = [2,7,11,15], target = 9",
+        "output": "[1,2]",
+        "explanation": "2 + 7 = 9; return 1-indexed positions."
+      },
+      {
+        "input": "numbers = [2,3,4], target = 6",
+        "output": "[1,3]",
+        "explanation": "2 + 4 = 6."
+      },
+      {
+        "input": "numbers = [-1,0], target = -1",
+        "output": "[1,2]",
+        "explanation": "-1 + 0 = -1."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 2,
+    "title": "Valid Palindrome",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "boolean",
+        "isPalindrome",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"A man, a plan, a canal: Panama\"",
+        "output": "true",
+        "explanation": "After cleanup it reads the same forward and backward."
+      },
+      {
+        "input": "s = \"race a car\"",
+        "output": "false",
+        "explanation": "The cleaned string is not a palindrome."
+      },
+      {
+        "input": "s = \" \"",
+        "output": "true",
+        "explanation": "No alphanumeric characters means an empty palindrome."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 3,
+    "title": "Remove Duplicates from Sorted Array",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "int",
+        "removeDuplicates",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,2]",
+        "output": "2, nums = [1,2,_]",
+        "explanation": "First two values are unique."
+      },
+      {
+        "input": "nums = [0,0,1,1,1,2,2,3,3,4]",
+        "output": "5, nums = [0,1,2,3,4,_,_,_,_,_]",
+        "explanation": "There are five unique values."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1, nums = [1]",
+        "explanation": "Single value stays."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 4,
+    "title": "Remove Element",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "int",
+        "removeElement",
+        "int[] nums, int val"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [3,2,2,3], val = 3",
+        "output": "2, nums = [2,2,_,_]",
+        "explanation": "All 3s are removed."
+      },
+      {
+        "input": "nums = [0,1,2,2,3,0,4,2], val = 2",
+        "output": "5",
+        "explanation": "Values not equal to 2 remain."
+      },
+      {
+        "input": "nums = [1], val = 1",
+        "output": "0",
+        "explanation": "The only value is removed."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 5,
+    "title": "Move Zeroes",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "void",
+        "moveZeroes",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [0,1,0,3,12]",
+        "output": "[1,3,12,0,0]",
+        "explanation": "Non-zero order is preserved."
+      },
+      {
+        "input": "nums = [0]",
+        "output": "[0]",
+        "explanation": "Single zero stays."
+      },
+      {
+        "input": "nums = [1,2,3]",
+        "output": "[1,2,3]",
+        "explanation": "No zeroes to move."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 6,
+    "title": "Squares of a Sorted Array",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "int[]",
+        "sortedSquares",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [-4,-1,0,3,10]",
+        "output": "[0,1,9,16,100]",
+        "explanation": "Squares sorted."
+      },
+      {
+        "input": "nums = [-7,-3,2,3,11]",
+        "output": "[4,9,9,49,121]",
+        "explanation": "Largest squares come from ends."
+      },
+      {
+        "input": "nums = [0]",
+        "output": "[0]",
+        "explanation": "Single value."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 7,
+    "title": "Reverse String",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "void",
+        "reverseString",
+        "char[] s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]",
+        "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]",
+        "explanation": "Reverse in-place."
+      },
+      {
+        "input": "s = [\"H\",\"a\",\"n\",\"n\",\"a\",\"h\"]",
+        "output": "[\"h\",\"a\",\"n\",\"n\",\"a\",\"H\"]",
+        "explanation": "All chars swapped symmetrically."
+      },
+      {
+        "input": "s = [\"a\"]",
+        "output": "[\"a\"]",
+        "explanation": "Single char unchanged."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 8,
+    "title": "Merge Sorted Array",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "void",
+        "merge",
+        "int[] nums1, int m, int[] nums2, int n"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
+        "output": "[1,2,2,3,5,6]",
+        "explanation": "Merged sorted order."
+      },
+      {
+        "input": "nums1 = [1], m = 1, nums2 = [], n = 0",
+        "output": "[1]",
+        "explanation": "nums2 empty."
+      },
+      {
+        "input": "nums1 = [0], m = 0, nums2 = [1], n = 1",
+        "output": "[1]",
+        "explanation": "nums1 has only buffer."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 9,
+    "title": "Linked List Cycle",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "boolean",
+        "hasCycle",
+        "ListNode head"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "head = [3,2,0,-4], pos = 1",
+        "output": "true",
+        "explanation": "Tail connects to index 1."
+      },
+      {
+        "input": "head = [1,2], pos = 0",
+        "output": "true",
+        "explanation": "Tail connects to head."
+      },
+      {
+        "input": "head = [1], pos = -1",
+        "output": "false",
+        "explanation": "No cycle."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 10,
+    "title": "Middle of the Linked List",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "ListNode",
+        "middleNode",
+        "ListNode head"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5]",
+        "output": "[3,4,5]",
+        "explanation": "Middle is node 3."
+      },
+      {
+        "input": "head = [1,2,3,4,5,6]",
+        "output": "[4,5,6]",
+        "explanation": "Second middle is returned."
+      },
+      {
+        "input": "head = [1]",
+        "output": "[1]",
+        "explanation": "Only node is middle."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 11,
+    "title": "Container With Most Water",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "int",
+        "maxArea",
+        "int[] height"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "height = [1,8,6,2,5,4,8,3,7]",
+        "output": "49",
+        "explanation": "Lines at 1 and 8 form area 49."
+      },
+      {
+        "input": "height = [1,1]",
+        "output": "1",
+        "explanation": "Only one container."
+      },
+      {
+        "input": "height = [4,3,2,1,4]",
+        "output": "16",
+        "explanation": "Ends form best area."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 12,
+    "title": "3Sum",
+    "className": "TwoPointersBasic",
+    "methods": [
+      [
+        "List<List<Integer>>",
+        "threeSum",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [-1,0,1,2,-1,-4]",
+        "output": "[[-1,-1,2],[-1,0,1]]",
+        "explanation": "Unique triplets sum to zero."
+      },
+      {
+        "input": "nums = [0,1,1]",
+        "output": "[]",
+        "explanation": "No triplet sums to zero."
+      },
+      {
+        "input": "nums = [0,0,0]",
+        "output": "[[0,0,0]]",
+        "explanation": "One unique triplet."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 13,
+    "title": "3Sum Closest",
+    "className": "TwoPointersModerate",
+    "methods": [
+      [
+        "int",
+        "threeSumClosest",
+        "int[] nums, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [-1,2,1,-4], target = 1",
+        "output": "2",
+        "explanation": "The closest triplet sum is -1 + 2 + 1 = 2."
+      },
+      {
+        "input": "nums = [0,0,0], target = 1",
+        "output": "0",
+        "explanation": "Only possible triplet sum is 0."
+      },
+      {
+        "input": "nums = [1,1,1,0], target = -100",
+        "output": "2",
+        "explanation": "Closest sum is 0 + 1 + 1 = 2."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 14,
+    "title": "4Sum",
+    "className": "TwoPointersModerate",
+    "methods": [
+      [
+        "List<List<Integer>>",
+        "fourSum",
+        "int[] nums, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,0,-1,0,-2,2], target = 0",
+        "output": "[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]",
+        "explanation": "Unique quadruplets sum to target."
+      },
+      {
+        "input": "nums = [2,2,2,2,2], target = 8",
+        "output": "[[2,2,2,2]]",
+        "explanation": "Duplicate quadruplets collapse into one."
+      },
+      {
+        "input": "nums = [1,2,3], target = 6",
+        "output": "[]",
+        "explanation": "Fewer than four elements cannot form a quadruplet."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 15,
+    "title": "Sort Colors",
+    "className": "TwoPointersModerate",
+    "methods": [
+      [
+        "void",
+        "sortColors",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [2,0,2,1,1,0]",
+        "output": "[0,0,1,1,2,2]",
+        "explanation": "Sort 0s, 1s, and 2s in-place."
+      },
+      {
+        "input": "nums = [2,0,1]",
+        "output": "[0,1,2]",
+        "explanation": "All colors ordered."
+      },
+      {
+        "input": "nums = [0]",
+        "output": "[0]",
+        "explanation": "Single value remains."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 16,
+    "title": "Trapping Rain Water",
+    "className": "TwoPointersModerate",
+    "methods": [
+      [
+        "int",
+        "trap",
+        "int[] height"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]",
+        "output": "6",
+        "explanation": "Water is trapped between higher boundaries."
+      },
+      {
+        "input": "height = [4,2,0,3,2,5]",
+        "output": "9",
+        "explanation": "Multiple basins trap 9 units."
+      },
+      {
+        "input": "height = [1,2,3]",
+        "output": "0",
+        "explanation": "Monotonic bars trap no water."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 17,
+    "title": "Linked List Cycle II",
+    "className": "TwoPointersModerate",
+    "methods": [
+      [
+        "ListNode",
+        "detectCycle",
+        "ListNode head"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "head = [3,2,0,-4], pos = 1",
+        "output": "node with value 2",
+        "explanation": "Cycle starts at index 1."
+      },
+      {
+        "input": "head = [1,2], pos = 0",
+        "output": "node with value 1",
+        "explanation": "Cycle starts at head."
+      },
+      {
+        "input": "head = [1], pos = -1",
+        "output": "null",
+        "explanation": "No cycle exists."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 18,
+    "title": "Remove Nth Node From End of List",
+    "className": "TwoPointersModerate",
+    "methods": [
+      [
+        "ListNode",
+        "removeNthFromEnd",
+        "ListNode head, int n"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5], n = 2",
+        "output": "[1,2,3,5]",
+        "explanation": "Remove 4."
+      },
+      {
+        "input": "head = [1], n = 1",
+        "output": "[]",
+        "explanation": "Remove the only node."
+      },
+      {
+        "input": "head = [1,2], n = 1",
+        "output": "[1]",
+        "explanation": "Remove tail."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 19,
+    "title": "Partition List",
+    "className": "TwoPointersModerate",
+    "methods": [
+      [
+        "ListNode",
+        "partition",
+        "ListNode head, int x"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "head = [1,4,3,2,5,2], x = 3",
+        "output": "[1,2,2,4,3,5]",
+        "explanation": "Nodes less than 3 come first preserving order."
+      },
+      {
+        "input": "head = [2,1], x = 2",
+        "output": "[1,2]",
+        "explanation": "1 moves before 2."
+      },
+      {
+        "input": "head = [], x = 1",
+        "output": "[]",
+        "explanation": "Empty list remains empty."
+      }
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "topicNumber": 2,
+    "number": 20,
+    "title": "Boats to Save People",
+    "className": "TwoPointersModerate",
+    "methods": [
+      [
+        "int",
+        "numRescueBoats",
+        "int[] people, int limit"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "people = [1,2], limit = 3",
+        "output": "1",
+        "explanation": "Both fit in one boat."
+      },
+      {
+        "input": "people = [3,2,2,1], limit = 3",
+        "output": "3",
+        "explanation": "Pair 1+2, remaining 2 and 3 alone."
+      },
+      {
+        "input": "people = [3,5,3,4], limit = 5",
+        "output": "4",
+        "explanation": "No useful pair with 5 or 4."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 1,
+    "title": "Maximum Average Subarray I",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "double",
+        "findMaxAverage",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,12,-5,-6,50,3], k = 4",
+        "output": "12.75000",
+        "explanation": "The best length-4 window is [12,-5,-6,50] with sum 51."
+      },
+      {
+        "input": "nums = [5], k = 1",
+        "output": "5.00000",
+        "explanation": "The only element is the only window."
+      },
+      {
+        "input": "nums = [-1,-2,-3], k = 2",
+        "output": "-1.50000",
+        "explanation": "The maximum sum window is [-1,-2]."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 2,
+    "title": "Contains Duplicate II",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "boolean",
+        "containsNearbyDuplicate",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1], k = 3",
+        "output": "true",
+        "explanation": "The two 1 values are distance 3 apart."
+      },
+      {
+        "input": "nums = [1,0,1,1], k = 1",
+        "output": "true",
+        "explanation": "The last two 1 values are distance 1 apart."
+      },
+      {
+        "input": "nums = [1,2,3,1,2,3], k = 2",
+        "output": "false",
+        "explanation": "Every duplicate pair is farther than 2."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 3,
+    "title": "Longest Substring Without Repeating Characters",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "int",
+        "lengthOfLongestSubstring",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"abcabcbb\"",
+        "output": "3",
+        "explanation": "The longest substring without repeats is \"abc\"."
+      },
+      {
+        "input": "s = \"bbbbb\"",
+        "output": "1",
+        "explanation": "The longest substring is \"b\"."
+      },
+      {
+        "input": "s = \"pwwkew\"",
+        "output": "3",
+        "explanation": "The answer is \"wke\"; subsequences do not count."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 4,
+    "title": "Minimum Size Subarray Sum",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "int",
+        "minSubArrayLen",
+        "int target, int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "target = 7, nums = [2,3,1,2,4,3]",
+        "output": "2",
+        "explanation": "The shortest valid subarray is [4,3]."
+      },
+      {
+        "input": "target = 4, nums = [1,4,4]",
+        "output": "1",
+        "explanation": "A single 4 is enough."
+      },
+      {
+        "input": "target = 11, nums = [1,1,1,1,1,1,1,1]",
+        "output": "0",
+        "explanation": "No subarray reaches 11."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 5,
+    "title": "Permutation in String",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "boolean",
+        "checkInclusion",
+        "String s1, String s2"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s1 = \"ab\", s2 = \"eidbaooo\"",
+        "output": "true",
+        "explanation": "The substring \"ba\" is a permutation of \"ab\"."
+      },
+      {
+        "input": "s1 = \"ab\", s2 = \"eidboaoo\"",
+        "output": "false",
+        "explanation": "No substring has both a and b together."
+      },
+      {
+        "input": "s1 = \"adc\", s2 = \"dcda\"",
+        "output": "true",
+        "explanation": "The substring \"dca\" is a permutation of \"adc\"."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 6,
+    "title": "Find All Anagrams in a String",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "List<Integer>",
+        "findAnagrams",
+        "String s, String p"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"cbaebabacd\", p = \"abc\"",
+        "output": "[0,6]",
+        "explanation": "The substrings \"cba\" and \"bac\" are anagrams of \"abc\"."
+      },
+      {
+        "input": "s = \"abab\", p = \"ab\"",
+        "output": "[0,1,2]",
+        "explanation": "The substrings \"ab\", \"ba\", and \"ab\" all qualify."
+      },
+      {
+        "input": "s = \"baa\", p = \"aa\"",
+        "output": "[1]",
+        "explanation": "The substring \"aa\" starts at index 1."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 7,
+    "title": "Fruit Into Baskets",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "int",
+        "totalFruit",
+        "int[] fruits"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "fruits = [1,2,1]",
+        "output": "3",
+        "explanation": "The entire array has only two fruit types."
+      },
+      {
+        "input": "fruits = [0,1,2,2]",
+        "output": "3",
+        "explanation": "The best window is [1,2,2]."
+      },
+      {
+        "input": "fruits = [1,2,3,2,2]",
+        "output": "4",
+        "explanation": "The best window is [2,3,2,2]."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 8,
+    "title": "Max Consecutive Ones III",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "int",
+        "longestOnes",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2",
+        "output": "6",
+        "explanation": "Flip two zeroes to get six consecutive ones."
+      },
+      {
+        "input": "nums = [0,0,1,1,0,0,1,1,1,0], k = 3",
+        "output": "6",
+        "explanation": "The best valid window has length 6."
+      },
+      {
+        "input": "nums = [1,1,1], k = 0",
+        "output": "3",
+        "explanation": "No flips are needed."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 9,
+    "title": "Longest Repeating Character Replacement",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "int",
+        "characterReplacement",
+        "String s, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"ABAB\", k = 2",
+        "output": "4",
+        "explanation": "Replace two characters to make the whole string equal."
+      },
+      {
+        "input": "s = \"AABABBA\", k = 1",
+        "output": "4",
+        "explanation": "A window like \"AABA\" can become all A."
+      },
+      {
+        "input": "s = \"AAAA\", k = 0",
+        "output": "4",
+        "explanation": "Already all the same character."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 10,
+    "title": "Grumpy Bookstore Owner",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "int",
+        "maxSatisfied",
+        "int[] customers, int[] grumpy, int minutes"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "customers = [1,0,1,2,1,1,7,5], grumpy = [0,1,0,1,0,1,0,1], minutes = 3",
+        "output": "16",
+        "explanation": "Base satisfied plus best extra gain window gives 16."
+      },
+      {
+        "input": "customers = [1], grumpy = [0], minutes = 1",
+        "output": "1",
+        "explanation": "The only customer is already satisfied."
+      },
+      {
+        "input": "customers = [4,10,10], grumpy = [1,1,0], minutes = 2",
+        "output": "24",
+        "explanation": "Suppressing first two minutes satisfies all customers."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 11,
+    "title": "Sliding Window Maximum",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "int[]",
+        "maxSlidingWindow",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+        "output": "[3,3,5,5,6,7]",
+        "explanation": "Maximum for each length-3 window."
+      },
+      {
+        "input": "nums = [1], k = 1",
+        "output": "[1]",
+        "explanation": "Only one window exists."
+      },
+      {
+        "input": "nums = [9,8,7], k = 2",
+        "output": "[9,8]",
+        "explanation": "Decreasing windows keep the leftmost value as max."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 12,
+    "title": "Minimum Window Substring",
+    "className": "SlidingWindowBasic",
+    "methods": [
+      [
+        "String",
+        "minWindow",
+        "String s, String t"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+        "output": "\"BANC\"",
+        "explanation": "BANC is the shortest substring containing A, B, and C."
+      },
+      {
+        "input": "s = \"a\", t = \"a\"",
+        "output": "\"a\"",
+        "explanation": "The full string is the minimum window."
+      },
+      {
+        "input": "s = \"a\", t = \"aa\"",
+        "output": "\"\"",
+        "explanation": "s does not contain two a characters."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 13,
+    "title": "Subarray Product Less Than K",
+    "className": "SlidingWindowModerate",
+    "methods": [
+      [
+        "int",
+        "numSubarrayProductLessThanK",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [10,5,2,6], k = 100",
+        "output": "8",
+        "explanation": "Eight subarrays have product less than 100."
+      },
+      {
+        "input": "nums = [1,2,3], k = 0",
+        "output": "0",
+        "explanation": "No positive product is less than 0."
+      },
+      {
+        "input": "nums = [1,1,1], k = 2",
+        "output": "6",
+        "explanation": "Every subarray product is 1."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 14,
+    "title": "Longest Subarray of 1s After Deleting One Element",
+    "className": "SlidingWindowModerate",
+    "methods": [
+      [
+        "int",
+        "longestSubarray",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,0,1]",
+        "output": "3",
+        "explanation": "Delete the zero to join three ones."
+      },
+      {
+        "input": "nums = [0,1,1,1,0,1,1,0,1]",
+        "output": "5",
+        "explanation": "The best window has one zero and length 6, then delete it."
+      },
+      {
+        "input": "nums = [1,1,1]",
+        "output": "2",
+        "explanation": "One element must be deleted."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 15,
+    "title": "Number of Substrings Containing All Three Characters",
+    "className": "SlidingWindowModerate",
+    "methods": [
+      [
+        "int",
+        "numberOfSubstrings",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"abcabc\"",
+        "output": "10",
+        "explanation": "Every substring containing a, b, and c is counted."
+      },
+      {
+        "input": "s = \"aaacb\"",
+        "output": "3",
+        "explanation": "The valid substrings are aaacb, aacb, and acb."
+      },
+      {
+        "input": "s = \"abc\"",
+        "output": "1",
+        "explanation": "Only the full string works."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 16,
+    "title": "Count Number of Nice Subarrays",
+    "className": "SlidingWindowModerate",
+    "methods": [
+      [
+        "int",
+        "numberOfSubarrays",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,2,1,1], k = 3",
+        "output": "2",
+        "explanation": "Two subarrays contain exactly three odd numbers."
+      },
+      {
+        "input": "nums = [2,4,6], k = 1",
+        "output": "0",
+        "explanation": "No odd numbers exist."
+      },
+      {
+        "input": "nums = [2,2,2,1,2,2,1,2,2,2], k = 2",
+        "output": "16",
+        "explanation": "Even runs around the two odds create sixteen subarrays."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 17,
+    "title": "Max Consecutive Ones",
+    "className": "SlidingWindowModerate",
+    "methods": [
+      [
+        "int",
+        "findMaxConsecutiveOnes",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,0,1,1,1]",
+        "output": "3",
+        "explanation": "The longest run of ones is at the end."
+      },
+      {
+        "input": "nums = [1,0,1,1,0,1]",
+        "output": "2",
+        "explanation": "The longest run length is 2."
+      },
+      {
+        "input": "nums = [0,0]",
+        "output": "0",
+        "explanation": "There are no ones."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 18,
+    "title": "Maximum Points You Can Obtain from Cards",
+    "className": "SlidingWindowModerate",
+    "methods": [
+      [
+        "int",
+        "maxScore",
+        "int[] cardPoints, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "cardPoints = [1,2,3,4,5,6,1], k = 3",
+        "output": "12",
+        "explanation": "Leave [1,2,3,4], take [5,6,1]."
+      },
+      {
+        "input": "cardPoints = [2,2,2], k = 2",
+        "output": "4",
+        "explanation": "Any two cards score 4."
+      },
+      {
+        "input": "cardPoints = [9,7,7,9,7,7,9], k = 7",
+        "output": "55",
+        "explanation": "Take all cards."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 19,
+    "title": "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit",
+    "className": "SlidingWindowModerate",
+    "methods": [
+      [
+        "int",
+        "longestSubarray",
+        "int[] nums, int limit"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [8,2,4,7], limit = 4",
+        "output": "2",
+        "explanation": "[2,4] is valid, length 2."
+      },
+      {
+        "input": "nums = [10,1,2,4,7,2], limit = 5",
+        "output": "4",
+        "explanation": "[2,4,7,2] is valid."
+      },
+      {
+        "input": "nums = [4,2,2,2,4,4,2,2], limit = 0",
+        "output": "3",
+        "explanation": "The longest equal-value run has length 3."
+      }
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "topicNumber": 3,
+    "number": 20,
+    "title": "Minimum Operations to Reduce X to Zero",
+    "className": "SlidingWindowModerate",
+    "methods": [
+      [
+        "int",
+        "minOperations",
+        "int[] nums, int x"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,4,2,3], x = 5",
+        "output": "2",
+        "explanation": "Keep [1,1,4] with sum 6, so remove 2 and 3."
+      },
+      {
+        "input": "nums = [5,6,7,8,9], x = 4",
+        "output": "-1",
+        "explanation": "No removed-end sum can equal 4."
+      },
+      {
+        "input": "nums = [3,2,20,1,1,3], x = 10",
+        "output": "5",
+        "explanation": "Keep [20], so remove five elements."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 1,
+    "title": "Running Sum of 1d Array",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int[]",
+        "runningSum",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "[1,3,6,10]",
+        "explanation": "The prefixes are 1, 1+2, 1+2+3, and 1+2+3+4."
+      },
+      {
+        "input": "nums = [1,1,1,1,1]",
+        "output": "[1,2,3,4,5]",
+        "explanation": "Each step adds one more 1 to the previous prefix."
+      },
+      {
+        "input": "nums = [3,1,2,10,1]",
+        "output": "[3,4,6,16,17]",
+        "explanation": "The running total is written at every index."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 2,
+    "title": "Find Pivot Index",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int",
+        "pivotIndex",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,7,3,6,5,6]",
+        "output": "3",
+        "explanation": "Left sum 1+7+3 equals right sum 5+6."
+      },
+      {
+        "input": "nums = [1,2,3]",
+        "output": "-1",
+        "explanation": "No index has equal left and right sums."
+      },
+      {
+        "input": "nums = [2,1,-1]",
+        "output": "0",
+        "explanation": "At index 0, the left sum is 0 and the right sum is 1 + -1 = 0."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 3,
+    "title": "Find the Highest Altitude",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int",
+        "largestAltitude",
+        "int[] gain"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "gain = [-5,1,5,0,-7]",
+        "output": "1",
+        "explanation": "Altitudes are 0, -5, -4, 1, 1, -6; the maximum is 1."
+      },
+      {
+        "input": "gain = [-4,-3,-2,-1,4,3,2]",
+        "output": "0",
+        "explanation": "Every altitude after the start is below 0, so the highest remains 0."
+      },
+      {
+        "input": "gain = [2,2,-3,-1,2]",
+        "output": "4",
+        "explanation": "Altitudes are 0, 2, 4, 1, 0, 2; the maximum is 4."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 4,
+    "title": "Minimum Value to Get Positive Step by Step Sum",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int",
+        "minStartValue",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [-3,2,-3,4,2]",
+        "output": "5",
+        "explanation": "Prefix sums are -3, -1, -4, 0, 2; lowest is -4, so startValue is 5."
+      },
+      {
+        "input": "nums = [1,2]",
+        "output": "1",
+        "explanation": "The running sum never drops below 1 when startValue is 1."
+      },
+      {
+        "input": "nums = [1,-2,-3]",
+        "output": "5",
+        "explanation": "Prefix sums are 1, -1, -4; startValue 5 keeps the minimum running sum at 1."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 5,
+    "title": "Range Sum Query - Immutable",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int",
+        "sumRange",
+        "int left, int right"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [-2,0,3,-5,2,-1], sumRange(0,2)",
+        "output": "1",
+        "explanation": "-2 + 0 + 3 = 1."
+      },
+      {
+        "input": "nums = [-2,0,3,-5,2,-1], sumRange(2,5)",
+        "output": "-1",
+        "explanation": "3 + -5 + 2 + -1 = -1."
+      },
+      {
+        "input": "nums = [-2,0,3,-5,2,-1], sumRange(0,5)",
+        "output": "-3",
+        "explanation": "The full array sum is -3."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 6,
+    "title": "Range Sum Query 2D - Immutable",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "long",
+        "sumRegion",
+        "int row1, int col1, int row2, int col2"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "matrix = [[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]], sumRegion(2,1,4,3)",
+        "output": "8",
+        "explanation": "The selected rectangle sums to 8."
+      },
+      {
+        "input": "same matrix, sumRegion(1,1,2,2)",
+        "output": "11",
+        "explanation": "6 + 3 + 2 + 0 = 11."
+      },
+      {
+        "input": "same matrix, sumRegion(1,2,2,4)",
+        "output": "12",
+        "explanation": "3 + 2 + 1 + 0 + 1 + 5 = 12."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 7,
+    "title": "Matrix Block Sum",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int[][]",
+        "matrixBlockSum",
+        "int[][] mat, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "mat = [[1,2,3],[4,5,6],[7,8,9]], k = 1",
+        "output": "[[12,21,16],[27,45,33],[24,39,28]]",
+        "explanation": "Each answer cell sums its clipped 3x3 neighborhood."
+      },
+      {
+        "input": "mat = [[1,2,3],[4,5,6],[7,8,9]], k = 2",
+        "output": "[[45,45,45],[45,45,45],[45,45,45]]",
+        "explanation": "Every block covers the entire matrix."
+      },
+      {
+        "input": "mat = [[5]], k = 0",
+        "output": "[[5]]",
+        "explanation": "The only block is the single cell itself."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 8,
+    "title": "Left and Right Sum Differences",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int[]",
+        "leftRightDifference",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [10,4,8,3]",
+        "output": "[15,1,11,22]",
+        "explanation": "At index 1, left sum is 10 and right sum is 11, so the difference is 1."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "[0]",
+        "explanation": "Both left and right sums are empty and equal to 0."
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "[9,6,1,6]",
+        "explanation": "Each position compares accumulated left sum with remaining right sum."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 9,
+    "title": "Find the Middle Index in Array",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int",
+        "findMiddleIndex",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [2,3,-1,8,4]",
+        "output": "3",
+        "explanation": "Left sum 2+3-1 equals right sum 4."
+      },
+      {
+        "input": "nums = [1,-1,4]",
+        "output": "2",
+        "explanation": "Left sum 0 equals empty right sum 0."
+      },
+      {
+        "input": "nums = [2,5]",
+        "output": "-1",
+        "explanation": "No index balances the two sides."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 10,
+    "title": "Sum of All Odd Length Subarrays",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int",
+        "sumOddLengthSubarrays",
+        "int[] arr"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "arr = [1,4,2,5,3]",
+        "output": "58",
+        "explanation": "Length 1, 3, and 5 totals are 15 + 28 + 15 = 58."
+      },
+      {
+        "input": "arr = [1,2]",
+        "output": "3",
+        "explanation": "Only odd-length subarrays are [1] and [2]."
+      },
+      {
+        "input": "arr = [10,11,12]",
+        "output": "66",
+        "explanation": "Single elements sum to 33 and the full length-3 subarray also sums to 33."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 11,
+    "title": "Number of Ways to Split Array",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int",
+        "waysToSplitArray",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [10,4,-8,7]",
+        "output": "2",
+        "explanation": "Splits after indices 0 and 1 satisfy leftSum >= rightSum."
+      },
+      {
+        "input": "nums = [2,3,1,0]",
+        "output": "2",
+        "explanation": "Splits after indices 1 and 2 are valid."
+      },
+      {
+        "input": "nums = [-1,-2,-3]",
+        "output": "1",
+        "explanation": "Only the split after index 1 has left sum -3 >= right sum -3."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 12,
+    "title": "Maximum Population Year",
+    "className": "PrefixSumBasic",
+    "methods": [
+      [
+        "int",
+        "maximumPopulation",
+        "int[][] logs"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "logs = [[1993,1999],[2000,2010]]",
+        "output": "1993",
+        "explanation": "Population is 1 in 1993 and 2000, so the earliest max year is 1993."
+      },
+      {
+        "input": "logs = [[1950,1961],[1960,1971],[1970,1981]]",
+        "output": "1960",
+        "explanation": "Population reaches 2 first in 1960."
+      },
+      {
+        "input": "logs = [[2000,2001]]",
+        "output": "2000",
+        "explanation": "The person is alive in 2000 and not in 2001."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 13,
+    "title": "Subarray Sum Equals K",
+    "className": "PrefixSumModerate",
+    "methods": [
+      [
+        "int",
+        "subarraySum",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,1], k = 2",
+        "output": "2",
+        "explanation": "The valid subarrays are nums[0..1] and nums[1..2]."
+      },
+      {
+        "input": "nums = [1,2,3], k = 3",
+        "output": "2",
+        "explanation": "The valid subarrays are [1,2] and [3]."
+      },
+      {
+        "input": "nums = [1,-1,0], k = 0",
+        "output": "3",
+        "explanation": "Repeated prefix sums count [1,-1], [0], and [1,-1,0]."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 14,
+    "title": "Continuous Subarray Sum",
+    "className": "PrefixSumModerate",
+    "methods": [
+      [
+        "boolean",
+        "checkSubarraySum",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [23,2,4,6,7], k = 6",
+        "output": "true",
+        "explanation": "The subarray [2,4] has sum 6, a multiple of 6."
+      },
+      {
+        "input": "nums = [23,2,6,4,7], k = 6",
+        "output": "true",
+        "explanation": "The subarray [23,2,6,4,7] has sum 42, a multiple of 6."
+      },
+      {
+        "input": "nums = [23,2,6,4,7], k = 13",
+        "output": "false",
+        "explanation": "No length-at-least-2 subarray has sum divisible by 13."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 15,
+    "title": "Subarray Sums Divisible by K",
+    "className": "PrefixSumModerate",
+    "methods": [
+      [
+        "int",
+        "subarraysDivByK",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [4,5,0,-2,-3,1], k = 5",
+        "output": "7",
+        "explanation": "Seven subarrays have sums divisible by 5."
+      },
+      {
+        "input": "nums = [5], k = 9",
+        "output": "0",
+        "explanation": "The only subarray sum is 5, not divisible by 9."
+      },
+      {
+        "input": "nums = [-1,2,9], k = 2",
+        "output": "2",
+        "explanation": "Normalized remainders handle the negative prefix correctly."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 16,
+    "title": "Contiguous Array",
+    "className": "PrefixSumModerate",
+    "methods": [
+      [
+        "int",
+        "findMaxLength",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [0,1]",
+        "output": "2",
+        "explanation": "The full array has one 0 and one 1."
+      },
+      {
+        "input": "nums = [0,1,0]",
+        "output": "2",
+        "explanation": "Either [0,1] or [1,0] is balanced."
+      },
+      {
+        "input": "nums = [0,0,1,0,0,0,1,1]",
+        "output": "6",
+        "explanation": "A longest balanced subarray has equal transformed sum from repeated balance."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 17,
+    "title": "Maximum Size Subarray Sum Equals k",
+    "className": "PrefixSumModerate",
+    "methods": [
+      [
+        "int",
+        "maxSubArrayLen",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,-1,5,-2,3], k = 3",
+        "output": "4",
+        "explanation": "The subarray [1,-1,5,-2] sums to 3 and has length 4."
+      },
+      {
+        "input": "nums = [-2,-1,2,1], k = 1",
+        "output": "2",
+        "explanation": "The subarray [-1,2] sums to 1."
+      },
+      {
+        "input": "nums = [1,2,3], k = 7",
+        "output": "0",
+        "explanation": "No subarray has sum 7."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 18,
+    "title": "Corporate Flight Bookings",
+    "className": "PrefixSumModerate",
+    "methods": [
+      [
+        "int[]",
+        "corpFlightBookings",
+        "int[][] bookings, int n"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5",
+        "output": "[10,55,45,25,25]",
+        "explanation": "Range additions overlap on flights 2 and 3."
+      },
+      {
+        "input": "bookings = [[1,2,10],[2,2,15]], n = 2",
+        "output": "[10,25]",
+        "explanation": "Flight 2 receives both bookings."
+      },
+      {
+        "input": "bookings = [[1,1,5]], n = 1",
+        "output": "[5]",
+        "explanation": "A single inclusive range updates the only flight."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 19,
+    "title": "Car Pooling",
+    "className": "PrefixSumModerate",
+    "methods": [
+      [
+        "boolean",
+        "carPooling",
+        "int[][] trips, int capacity"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "trips = [[2,1,5],[3,3,7]], capacity = 4",
+        "output": "false",
+        "explanation": "At locations 3 and 4, passenger count becomes 5."
+      },
+      {
+        "input": "trips = [[2,1,5],[3,3,7]], capacity = 5",
+        "output": "true",
+        "explanation": "Maximum passenger count is exactly 5."
+      },
+      {
+        "input": "trips = [[2,1,5],[3,5,7]], capacity = 3",
+        "output": "true",
+        "explanation": "The first group leaves at 5 before the second group boards from 5."
+      }
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "topicNumber": 4,
+    "number": 20,
+    "title": "Shifting Letters II",
+    "className": "PrefixSumModerate",
+    "methods": [
+      [
+        "String",
+        "shiftingLetters",
+        "String s, int[][] shifts"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"abc\", shifts = [[0,1,0],[1,2,1],[0,2,1]]",
+        "output": "\"ace\"",
+        "explanation": "Net shifts are [0,1,2], producing a, c, e."
+      },
+      {
+        "input": "s = \"dztz\", shifts = [[0,0,0],[1,1,1]]",
+        "output": "\"catz\"",
+        "explanation": "d shifts backward to c and z shifts forward to a."
+      },
+      {
+        "input": "s = \"a\", shifts = [[0,0,0],[0,0,1]]",
+        "output": "\"a\"",
+        "explanation": "The two opposite shifts cancel."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 1,
+    "title": "Binary Search",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int",
+        "search",
+        "int[] nums, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [-1,0,3,5,9,12], target = 9",
+        "output": "4",
+        "explanation": "nums[4] is 9."
+      },
+      {
+        "input": "nums = [-1,0,3,5,9,12], target = 2",
+        "output": "-1",
+        "explanation": "2 is not present in nums."
+      },
+      {
+        "input": "nums = [5], target = -5",
+        "output": "-1",
+        "explanation": "The only value does not match target."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 2,
+    "title": "First Bad Version",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int",
+        "firstBadVersion",
+        "int n, java.util.function.IntPredicate isBadVersion"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "n = 5, bad = 4",
+        "output": "4",
+        "explanation": "Versions 1, 2, and 3 are good; versions 4 and 5 are bad."
+      },
+      {
+        "input": "n = 1, bad = 1",
+        "output": "1",
+        "explanation": "The only version is the first bad version."
+      },
+      {
+        "input": "n = 7, bad = 1",
+        "output": "1",
+        "explanation": "Every version is bad, so the first version is the answer."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 3,
+    "title": "Search Insert Position",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int",
+        "searchInsert",
+        "int[] nums, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,3,5,6], target = 5",
+        "output": "2",
+        "explanation": "5 already exists at index 2."
+      },
+      {
+        "input": "nums = [1,3,5,6], target = 2",
+        "output": "1",
+        "explanation": "2 belongs between 1 and 3."
+      },
+      {
+        "input": "nums = [1,3,5,6], target = 7",
+        "output": "4",
+        "explanation": "7 should be inserted after all existing values."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 4,
+    "title": "Find First and Last Position of Element in Sorted Array",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int[]",
+        "searchRange",
+        "int[] nums, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [5,7,7,8,8,10], target = 8",
+        "output": "[3,4]",
+        "explanation": "8 starts at index 3 and ends at index 4."
+      },
+      {
+        "input": "nums = [5,7,7,8,8,10], target = 6",
+        "output": "[-1,-1]",
+        "explanation": "6 is not present."
+      },
+      {
+        "input": "nums = [], target = 0",
+        "output": "[-1,-1]",
+        "explanation": "The array is empty."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 5,
+    "title": "Sqrt(x)",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int",
+        "mySqrt",
+        "int x"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "x = 4",
+        "output": "2",
+        "explanation": "2 * 2 equals 4."
+      },
+      {
+        "input": "x = 8",
+        "output": "2",
+        "explanation": "The real square root is about 2.828, so the floor is 2."
+      },
+      {
+        "input": "x = 2147395599",
+        "output": "46339",
+        "explanation": "46339 is the largest integer whose square does not exceed x."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 6,
+    "title": "Valid Perfect Square",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "boolean",
+        "isPerfectSquare",
+        "int num"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "num = 16",
+        "output": "true",
+        "explanation": "4 * 4 equals 16."
+      },
+      {
+        "input": "num = 14",
+        "output": "false",
+        "explanation": "No integer squared equals 14."
+      },
+      {
+        "input": "num = 1",
+        "output": "true",
+        "explanation": "1 * 1 equals 1."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 7,
+    "title": "Search in Rotated Sorted Array",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int",
+        "searchRotated",
+        "int[] nums, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [4,5,6,7,0,1,2], target = 0",
+        "output": "4",
+        "explanation": "0 is at index 4 after the rotation pivot."
+      },
+      {
+        "input": "nums = [4,5,6,7,0,1,2], target = 3",
+        "output": "-1",
+        "explanation": "3 is not in the array."
+      },
+      {
+        "input": "nums = [1], target = 0",
+        "output": "-1",
+        "explanation": "The only element does not match target."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 8,
+    "title": "Find Minimum in Rotated Sorted Array",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int",
+        "findMin",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [3,4,5,1,2]",
+        "output": "1",
+        "explanation": "1 is the rotation boundary and the minimum value."
+      },
+      {
+        "input": "nums = [4,5,6,7,0,1,2]",
+        "output": "0",
+        "explanation": "0 is smaller than every other value."
+      },
+      {
+        "input": "nums = [11,13,15,17]",
+        "output": "11",
+        "explanation": "The array is effectively already sorted."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 9,
+    "title": "Find Peak Element",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int",
+        "findPeakElement",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1]",
+        "output": "2",
+        "explanation": "3 is greater than both neighbors."
+      },
+      {
+        "input": "nums = [1,2,1,3,5,6,4]",
+        "output": "5",
+        "explanation": "Index 5 is valid because 6 is a peak; index 1 is also a valid peak."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "0",
+        "explanation": "The single element is a peak."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 10,
+    "title": "Peak Index in a Mountain Array",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int",
+        "peakIndexInMountainArray",
+        "int[] arr"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "arr = [0,1,0]",
+        "output": "1",
+        "explanation": "1 is greater than both neighbors."
+      },
+      {
+        "input": "arr = [0,2,1,0]",
+        "output": "1",
+        "explanation": "2 is the peak value."
+      },
+      {
+        "input": "arr = [0,10,5,2]",
+        "output": "1",
+        "explanation": "10 is the only turning point."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 11,
+    "title": "Single Element in a Sorted Array",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "int",
+        "singleNonDuplicate",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,2,3,3,4,4,8,8]",
+        "output": "2",
+        "explanation": "2 is the only value that appears once."
+      },
+      {
+        "input": "nums = [3,3,7,7,10,11,11]",
+        "output": "10",
+        "explanation": "10 is the unpaired element."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1",
+        "explanation": "The only element is single."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 12,
+    "title": "Find Smallest Letter Greater Than Target",
+    "className": "BinarySearchBasic",
+    "methods": [
+      [
+        "char",
+        "nextGreatestLetter",
+        "char[] letters, char target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "letters = [\"c\",\"f\",\"j\"], target = \"a\"",
+        "output": "\"c\"",
+        "explanation": "c is the smallest letter greater than a."
+      },
+      {
+        "input": "letters = [\"c\",\"f\",\"j\"], target = \"c\"",
+        "output": "\"f\"",
+        "explanation": "The answer must be strictly greater than c."
+      },
+      {
+        "input": "letters = [\"x\",\"x\",\"y\",\"y\"], target = \"z\"",
+        "output": "\"x\"",
+        "explanation": "No letter is greater than z, so the answer wraps to x."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 13,
+    "title": "Koko Eating Bananas",
+    "className": "BinarySearchModerate",
+    "methods": [
+      [
+        "int",
+        "minEatingSpeed",
+        "int[] piles, int h"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "piles = [3,6,7,11], h = 8",
+        "output": "4",
+        "explanation": "At speed 4, total hours are 1 + 2 + 2 + 3 = 8."
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 5",
+        "output": "30",
+        "explanation": "Only speed 30 can finish one pile per hour."
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 6",
+        "output": "23",
+        "explanation": "Speed 23 finishes within 6 hours; lower speeds do not."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 14,
+    "title": "Capacity To Ship Packages Within D Days",
+    "className": "BinarySearchModerate",
+    "methods": [
+      [
+        "int",
+        "shipWithinDays",
+        "int[] weights, int days"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "weights = [1,2,3,4,5,6,7,8,9,10], days = 5",
+        "output": "15",
+        "explanation": "Capacity 15 can ship the packages in 5 days."
+      },
+      {
+        "input": "weights = [3,2,2,4,1,4], days = 3",
+        "output": "6",
+        "explanation": "Capacity 6 is the least feasible capacity."
+      },
+      {
+        "input": "weights = [1,2,3,1,1], days = 4",
+        "output": "3",
+        "explanation": "Capacity 3 ships all packages within 4 days."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 15,
+    "title": "Split Array Largest Sum",
+    "className": "BinarySearchModerate",
+    "methods": [
+      [
+        "int",
+        "splitArray",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [7,2,5,10,8], k = 2",
+        "output": "18",
+        "explanation": "Split as [7,2,5] and [10,8]; largest sum is 18."
+      },
+      {
+        "input": "nums = [1,2,3,4,5], k = 2",
+        "output": "9",
+        "explanation": "Split as [1,2,3] and [4,5]."
+      },
+      {
+        "input": "nums = [1,4,4], k = 3",
+        "output": "4",
+        "explanation": "Each element can be its own subarray."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 16,
+    "title": "Minimized Maximum of Products Distributed to Any Store",
+    "className": "BinarySearchModerate",
+    "methods": [
+      [
+        "int",
+        "minimizedMaximum",
+        "int n, int[] quantities"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "n = 6, quantities = [11,6]",
+        "output": "3",
+        "explanation": "11 needs 4 stores and 6 needs 2 stores when maximum load is 3."
+      },
+      {
+        "input": "n = 7, quantities = [15,10,10]",
+        "output": "5",
+        "explanation": "Each type can be split so no store gets more than 5 products."
+      },
+      {
+        "input": "n = 1, quantities = [100000]",
+        "output": "100000",
+        "explanation": "The only store must receive all products."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 17,
+    "title": "Magnetic Force Between Two Balls",
+    "className": "BinarySearchModerate",
+    "methods": [
+      [
+        "int",
+        "maxDistance",
+        "int[] position, int m"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "position = [1,2,3,4,7], m = 3",
+        "output": "3",
+        "explanation": "Place balls at 1, 4, and 7 for minimum distance 3."
+      },
+      {
+        "input": "position = [5,4,3,2,1,1000000000], m = 2",
+        "output": "999999999",
+        "explanation": "Place balls at positions 1 and 1000000000."
+      },
+      {
+        "input": "position = [1,10,20,30], m = 4",
+        "output": "9",
+        "explanation": "All baskets are used, so the smallest adjacent gap is 9."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 18,
+    "title": "Aggressive Cows",
+    "className": "BinarySearchModerate",
+    "methods": [
+      [
+        "int",
+        "aggressiveCows",
+        "int[] stalls, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "stalls = [1,2,4,8,9], k = 3",
+        "output": "3",
+        "explanation": "Place cows at 1, 4, and 8 or 9 for minimum distance 3."
+      },
+      {
+        "input": "stalls = [10,1,2,7,5], k = 3",
+        "output": "4",
+        "explanation": "After sorting, place cows at 1, 5, and 10."
+      },
+      {
+        "input": "stalls = [1,2,3], k = 2",
+        "output": "2",
+        "explanation": "Place cows at 1 and 3."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 19,
+    "title": "Median of Two Sorted Arrays",
+    "className": "BinarySearchModerate",
+    "methods": [
+      [
+        "double",
+        "findMedianSortedArrays",
+        "int[] nums1, int[] nums2"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums1 = [1,3], nums2 = [2]",
+        "output": "2.00000",
+        "explanation": "The merged sorted array is [1,2,3]."
+      },
+      {
+        "input": "nums1 = [1,2], nums2 = [3,4]",
+        "output": "2.50000",
+        "explanation": "Median is (2 + 3) / 2."
+      },
+      {
+        "input": "nums1 = [], nums2 = [1]",
+        "output": "1.00000",
+        "explanation": "The second array alone determines the median."
+      }
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "topicNumber": 5,
+    "number": 20,
+    "title": "Kth Missing Positive Number",
+    "className": "BinarySearchModerate",
+    "methods": [
+      [
+        "int",
+        "findKthPositive",
+        "int[] arr, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "arr = [2,3,4,7,11], k = 5",
+        "output": "9",
+        "explanation": "The missing positives are 1, 5, 6, 8, 9."
+      },
+      {
+        "input": "arr = [1,2,3,4], k = 2",
+        "output": "6",
+        "explanation": "The missing positives are 5 and 6."
+      },
+      {
+        "input": "arr = [5,6,7], k = 1",
+        "output": "1",
+        "explanation": "1 is missing before the first array value."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 1,
+    "title": "Set Matrix Zeroes",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "void",
+        "setZeroes",
+        "int[][] matrix"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "matrix = [[1,1,1],[1,0,1],[1,1,1]]",
+        "output": "[[1,0,1],[0,0,0],[1,0,1]]",
+        "explanation": "The zero at row 1, column 1 clears that row and column."
+      },
+      {
+        "input": "matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]",
+        "output": "[[0,0,0,0],[0,4,5,0],[0,3,1,0]]",
+        "explanation": "Zeros in the first row must still clear their columns."
+      },
+      {
+        "input": "matrix = [[1]]",
+        "output": "[[1]]",
+        "explanation": "There is no zero to propagate."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 2,
+    "title": "Spiral Matrix",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "List<Integer>",
+        "spiralOrder",
+        "int[][] matrix"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]",
+        "output": "[1,2,3,6,9,8,7,4,5]",
+        "explanation": "The outer layer is read before the center."
+      },
+      {
+        "input": "matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]",
+        "output": "[1,2,3,4,8,12,11,10,9,5,6,7]",
+        "explanation": "The final inner row is handled once."
+      },
+      {
+        "input": "matrix = [[1],[2],[3]]",
+        "output": "[1,2,3]",
+        "explanation": "One column is already spiral order."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 3,
+    "title": "Spiral Matrix II",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "int[][]",
+        "generateMatrix",
+        "int n"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "n = 3",
+        "output": "[[1,2,3],[8,9,4],[7,6,5]]",
+        "explanation": "Values are written around the boundary then inward."
+      },
+      {
+        "input": "n = 1",
+        "output": "[[1]]",
+        "explanation": "Only one cell is filled."
+      },
+      {
+        "input": "n = 2",
+        "output": "[[1,2],[4,3]]",
+        "explanation": "The single layer contains four values."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 4,
+    "title": "Rotate Image",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "void",
+        "rotate",
+        "int[][] matrix"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]",
+        "output": "[[7,4,1],[8,5,2],[9,6,3]]",
+        "explanation": "Rows become columns after clockwise rotation."
+      },
+      {
+        "input": "matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]",
+        "output": "[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]",
+        "explanation": "All four layers rotate in place."
+      },
+      {
+        "input": "matrix = [[1]]",
+        "output": "[[1]]",
+        "explanation": "One cell is unchanged."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 5,
+    "title": "Search a 2D Matrix",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "boolean",
+        "searchMatrix",
+        "int[][] matrix, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3",
+        "output": "true",
+        "explanation": "3 is present in the first row."
+      },
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13",
+        "output": "false",
+        "explanation": "13 is between values but absent."
+      },
+      {
+        "input": "matrix = [[1]], target = 1",
+        "output": "true",
+        "explanation": "Single-cell matrix contains the target."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 6,
+    "title": "Search a 2D Matrix II",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "boolean",
+        "searchMatrixII",
+        "int[][] matrix, int target"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5",
+        "output": "true",
+        "explanation": "The target is found while walking the staircase."
+      },
+      {
+        "input": "matrix = [[1,4],[2,5]], target = 3",
+        "output": "false",
+        "explanation": "The search eliminates all candidates."
+      },
+      {
+        "input": "matrix = [[-1,3]], target = 3",
+        "output": "true",
+        "explanation": "Single row still supports staircase movement."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 7,
+    "title": "Game of Life",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "void",
+        "gameOfLife",
+        "int[][] board"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]",
+        "output": "[[0,0,0],[1,0,1],[0,1,1],[0,1,0]]",
+        "explanation": "Cells update simultaneously from the original board."
+      },
+      {
+        "input": "board = [[1,1],[1,0]]",
+        "output": "[[1,1],[1,1]]",
+        "explanation": "The dead bottom-right cell becomes live."
+      },
+      {
+        "input": "board = [[0]]",
+        "output": "[[0]]",
+        "explanation": "A single dead cell stays dead."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 8,
+    "title": "Word Search",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "boolean",
+        "exist",
+        "char[][] board, String word"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\"",
+        "output": "true",
+        "explanation": "A valid path spells the word."
+      },
+      {
+        "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"SEE\"",
+        "output": "true",
+        "explanation": "The word appears through adjacent cells."
+      },
+      {
+        "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCB\"",
+        "output": "false",
+        "explanation": "The path would need to reuse B."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 9,
+    "title": "Number of Islands",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "int",
+        "numIslands",
+        "char[][] grid"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "grid = [[\"1\",\"1\",\"1\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"0\",\"0\"]]",
+        "output": "1",
+        "explanation": "All land cells connect into one island."
+      },
+      {
+        "input": "grid = [[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"1\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"1\",\"1\"]]",
+        "output": "3",
+        "explanation": "There are three disconnected land components."
+      },
+      {
+        "input": "grid = [[\"0\"]]",
+        "output": "0",
+        "explanation": "No land means no island."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 10,
+    "title": "Max Area of Island",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "int",
+        "maxAreaOfIsland",
+        "int[][] grid"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "grid = [[0,0,1,0],[1,1,1,0],[0,0,0,0]]",
+        "output": "4",
+        "explanation": "The connected component has four land cells."
+      },
+      {
+        "input": "grid = [[0,0,0,0]]",
+        "output": "0",
+        "explanation": "There is no island."
+      },
+      {
+        "input": "grid = [[1,1],[1,1]]",
+        "output": "4",
+        "explanation": "The whole grid is one island."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 11,
+    "title": "Surrounded Regions",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "void",
+        "solve",
+        "char[][] board"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "board = [[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"O\",\"O\",\"X\"],[\"X\",\"X\",\"O\",\"X\"],[\"X\",\"O\",\"X\",\"X\"]]",
+        "output": "[[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"O\",\"X\",\"X\"]]",
+        "explanation": "Only the boundary-connected O remains."
+      },
+      {
+        "input": "board = [[\"X\"]]",
+        "output": "[[\"X\"]]",
+        "explanation": "Single cell remains unchanged."
+      },
+      {
+        "input": "board = [[\"O\",\"O\"],[\"O\",\"O\"]]",
+        "output": "[[\"O\",\"O\"],[\"O\",\"O\"]]",
+        "explanation": "Every O touches the boundary."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 12,
+    "title": "Pacific Atlantic Water Flow",
+    "className": "MatrixBasic",
+    "methods": [
+      [
+        "List<List<Integer>>",
+        "pacificAtlantic",
+        "int[][] heights"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]",
+        "output": "[[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]",
+        "explanation": "These cells can reach both oceans."
+      },
+      {
+        "input": "heights = [[1]]",
+        "output": "[[0,0]]",
+        "explanation": "The only cell touches both oceans."
+      },
+      {
+        "input": "heights = [[1,1],[1,1]]",
+        "output": "[[0,0],[0,1],[1,0],[1,1]]",
+        "explanation": "Flat terrain can flow everywhere."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 13,
+    "title": "Flood Fill",
+    "className": "MatrixModerate",
+    "methods": [
+      [
+        "int[][]",
+        "floodFill",
+        "int[][] image, int sr, int sc, int color"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2",
+        "output": "[[2,2,2],[2,2,0],[2,0,1]]",
+        "explanation": "Only the connected 1-component is recolored."
+      },
+      {
+        "input": "image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0",
+        "output": "[[0,0,0],[0,0,0]]",
+        "explanation": "No work is needed when the color is unchanged."
+      },
+      {
+        "input": "image = [[1]], sr = 0, sc = 0, color = 2",
+        "output": "[[2]]",
+        "explanation": "The single component is one cell."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 14,
+    "title": "01 Matrix",
+    "className": "MatrixModerate",
+    "methods": [
+      [
+        "int[][]",
+        "updateMatrix",
+        "int[][] mat"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "mat = [[0,0,0],[0,1,0],[0,0,0]]",
+        "output": "[[0,0,0],[0,1,0],[0,0,0]]",
+        "explanation": "The center one is adjacent to zeros."
+      },
+      {
+        "input": "mat = [[0,0,0],[0,1,0],[1,1,1]]",
+        "output": "[[0,0,0],[0,1,0],[1,2,1]]",
+        "explanation": "Distances expand from all zeros."
+      },
+      {
+        "input": "mat = [[0]]",
+        "output": "[[0]]",
+        "explanation": "Zero distance for the only cell."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 15,
+    "title": "Rotting Oranges",
+    "className": "MatrixModerate",
+    "methods": [
+      [
+        "int",
+        "orangesRotting",
+        "int[][] grid"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "grid = [[2,1,1],[1,1,0],[0,1,1]]",
+        "output": "4",
+        "explanation": "Fresh oranges rot level by level."
+      },
+      {
+        "input": "grid = [[2,1,1],[0,1,1],[1,0,1]]",
+        "output": "-1",
+        "explanation": "One fresh orange is isolated."
+      },
+      {
+        "input": "grid = [[0,2]]",
+        "output": "0",
+        "explanation": "No fresh oranges exist."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 16,
+    "title": "Shortest Path in Binary Matrix",
+    "className": "MatrixModerate",
+    "methods": [
+      [
+        "int",
+        "shortestPathBinaryMatrix",
+        "int[][] grid"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "grid = [[0,1],[1,0]]",
+        "output": "2",
+        "explanation": "Move diagonally from start to end."
+      },
+      {
+        "input": "grid = [[0,0,0],[1,1,0],[1,1,0]]",
+        "output": "4",
+        "explanation": "BFS finds the shortest clear path."
+      },
+      {
+        "input": "grid = [[1,0],[0,0]]",
+        "output": "-1",
+        "explanation": "The starting cell is blocked."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 17,
+    "title": "Toeplitz Matrix",
+    "className": "MatrixModerate",
+    "methods": [
+      [
+        "boolean",
+        "isToeplitzMatrix",
+        "int[][] matrix"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]",
+        "output": "true",
+        "explanation": "Every diagonal repeats the same value."
+      },
+      {
+        "input": "matrix = [[1,2],[2,2]]",
+        "output": "false",
+        "explanation": "The main diagonal contains 1 and 2."
+      },
+      {
+        "input": "matrix = [[7]]",
+        "output": "true",
+        "explanation": "A single cell is Toeplitz."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 18,
+    "title": "Valid Sudoku",
+    "className": "MatrixModerate",
+    "methods": [
+      [
+        "boolean",
+        "isValidSudoku",
+        "char[][] board"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "board = [[\"5\", \"3\", \".\", \".\", \"7\", \".\", \".\", \".\", \".\"], [\"6\", \".\", \".\", \"1\", \"9\", \"5\", \".\", \".\", \".\"], [\".\", \"9\", \"8\", \".\", \".\", \".\", \".\", \"6\", \".\"], [\"8\", \".\", \".\", \".\", \"6\", \".\", \".\", \".\", \"3\"], [\"4\", \".\", \".\", \"8\", \".\", \"3\", \".\", \".\", \"1\"], [\"7\", \".\", \".\", \".\", \"2\", \".\", \".\", \".\", \"6\"], [\".\", \"6\", \".\", \".\", \".\", \".\", \"2\", \"8\", \".\"], [\".\", \".\", \".\", \"4\", \"1\", \"9\", \".\", \".\", \"5\"], [\".\", \".\", \".\", \".\", \"8\", \".\", \".\", \"7\", \"9\"]]",
+        "output": "true",
+        "explanation": "No row, column, or box contains duplicate digits."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 19,
+    "title": "Sudoku Solver",
+    "className": "MatrixModerate",
+    "methods": [
+      [
+        "void",
+        "solveSudoku",
+        "char[][] board"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "board = [[\"5\", \"3\", \".\", \".\", \"7\", \".\", \".\", \".\", \".\"], [\"6\", \".\", \".\", \"1\", \"9\", \"5\", \".\", \".\", \".\"], [\".\", \"9\", \"8\", \".\", \".\", \".\", \".\", \"6\", \".\"], [\"8\", \".\", \".\", \".\", \"6\", \".\", \".\", \".\", \"3\"], [\"4\", \".\", \".\", \"8\", \".\", \"3\", \".\", \".\", \"1\"], [\"7\", \".\", \".\", \".\", \"2\", \".\", \".\", \".\", \"6\"], [\".\", \"6\", \".\", \".\", \".\", \".\", \"2\", \"8\", \".\"], [\".\", \".\", \".\", \"4\", \"1\", \"9\", \".\", \".\", \"5\"], [\".\", \".\", \".\", \".\", \"8\", \".\", \".\", \"7\", \"9\"]]",
+        "output": "[[\"5\", \"3\", \"4\", \"6\", \"7\", \"8\", \"9\", \"1\", \"2\"], [\"6\", \"7\", \"2\", \"1\", \"9\", \"5\", \"3\", \"4\", \"8\"], [\"1\", \"9\", \"8\", \"3\", \"4\", \"2\", \"5\", \"6\", \"7\"], [\"8\", \"5\", \"9\", \"7\", \"6\", \"1\", \"4\", \"2\", \"3\"], [\"4\", \"2\", \"6\", \"8\", \"5\", \"3\", \"7\", \"9\", \"1\"], [\"7\", \"1\", \"3\", \"9\", \"2\", \"4\", \"8\", \"5\", \"6\"], [\"9\", \"6\", \"1\", \"5\", \"3\", \"7\", \"2\", \"8\", \"4\"], [\"2\", \"8\", \"7\", \"4\", \"1\", \"9\", \"6\", \"3\", \"5\"], [\"3\", \"4\", \"5\", \"2\", \"8\", \"6\", \"1\", \"7\", \"9\"]]",
+        "explanation": "Fill every dot while preserving all given digits."
+      }
+    ]
+  },
+  {
+    "topic": "matrix",
+    "topicNumber": 23,
+    "number": 20,
+    "title": "Diagonal Traverse",
+    "className": "MatrixModerate",
+    "methods": [
+      [
+        "int[]",
+        "findDiagonalOrder",
+        "int[][] mat"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "mat = [[1,2,3],[4,5,6],[7,8,9]]",
+        "output": "[1,2,4,7,5,3,6,8,9]",
+        "explanation": "Direction alternates between diagonals."
+      },
+      {
+        "input": "mat = [[1,2],[3,4]]",
+        "output": "[1,2,3,4]",
+        "explanation": "The middle diagonal is reversed."
+      },
+      {
+        "input": "mat = [[1,2,3]]",
+        "output": "[1,2,3]",
+        "explanation": "A single row has no vertical movement."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 1,
+    "title": "Valid Anagram",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "boolean",
+        "isAnagram",
+        "String s, String t"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"anagram\", t = \"nagaram\"",
+        "output": "true",
+        "explanation": "Both strings contain the same characters with the same counts."
+      },
+      {
+        "input": "s = \"rat\", t = \"car\"",
+        "output": "false",
+        "explanation": "The character counts differ."
+      },
+      {
+        "input": "s = \"a\", t = \"ab\"",
+        "output": "false",
+        "explanation": "Different lengths cannot be anagrams."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 2,
+    "title": "Valid Palindrome",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "boolean",
+        "isPalindrome",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"A man, a plan, a canal: Panama\"",
+        "output": "true",
+        "explanation": "Normalized string is amanaplanacanalpanama."
+      },
+      {
+        "input": "s = \"race a car\"",
+        "output": "false",
+        "explanation": "Normalized string is not symmetric."
+      },
+      {
+        "input": "s = \" \"",
+        "output": "true",
+        "explanation": "No alphanumeric characters remain."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 3,
+    "title": "Longest Substring Without Repeating Characters",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "int",
+        "lengthOfLongestSubstring",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"abcabcbb\"",
+        "output": "3",
+        "explanation": "The longest substrings include abc."
+      },
+      {
+        "input": "s = \"bbbbb\"",
+        "output": "1",
+        "explanation": "Only one repeated character can be used."
+      },
+      {
+        "input": "s = \"pwwkew\"",
+        "output": "3",
+        "explanation": "wke is valid; pwke is not contiguous."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 4,
+    "title": "Longest Repeating Character Replacement",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "int",
+        "characterReplacement",
+        "String s, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"ABAB\", k = 2",
+        "output": "4",
+        "explanation": "Replace two letters to make the whole string equal."
+      },
+      {
+        "input": "s = \"AABABBA\", k = 1",
+        "output": "4",
+        "explanation": "AABA or ABBA can be made uniform."
+      },
+      {
+        "input": "s = \"AAAA\", k = 0",
+        "output": "4",
+        "explanation": "No replacement is needed."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 5,
+    "title": "Minimum Window Substring",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "String",
+        "minWindow",
+        "String s, String t"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+        "output": "\"BANC\"",
+        "explanation": "BANC is the smallest window containing A, B, and C."
+      },
+      {
+        "input": "s = \"a\", t = \"a\"",
+        "output": "\"a\"",
+        "explanation": "The only character satisfies the requirement."
+      },
+      {
+        "input": "s = \"a\", t = \"aa\"",
+        "output": "\"\"",
+        "explanation": "The source does not contain enough a characters."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 6,
+    "title": "Group Anagrams",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "List<List<String>>",
+        "groupAnagrams",
+        "String[] strs"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+        "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
+        "explanation": "Words with the same sorted key are grouped."
+      },
+      {
+        "input": "strs = [\"\"]",
+        "output": "[[\"\"]]",
+        "explanation": "The empty string forms one group."
+      },
+      {
+        "input": "strs = [\"a\"]",
+        "output": "[[\"a\"]]",
+        "explanation": "One word forms one group."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 7,
+    "title": "Encode and Decode Strings",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "String",
+        "encode",
+        "List<String> strs"
+      ],
+      [
+        "List<String>",
+        "decode",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "strs = [\"lint\",\"code\",\"love\",\"you\"]",
+        "output": "[\"lint\",\"code\",\"love\",\"you\"] after decode",
+        "explanation": "Each length prefix makes decoding unambiguous."
+      },
+      {
+        "input": "strs = [\"\"]",
+        "output": "[\"\"] after decode",
+        "explanation": "Length zero is encoded explicitly."
+      },
+      {
+        "input": "strs = [\"a#b\",\"12\"]",
+        "output": "[\"a#b\",\"12\"] after decode",
+        "explanation": "Delimiter characters inside content are preserved."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 8,
+    "title": "Longest Palindromic Substring",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "String",
+        "longestPalindrome",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"babad\"",
+        "output": "\"bab\" or \"aba\"",
+        "explanation": "Both length-three palindromes are valid."
+      },
+      {
+        "input": "s = \"cbbd\"",
+        "output": "\"bb\"",
+        "explanation": "The longest palindrome has an even center."
+      },
+      {
+        "input": "s = \"a\"",
+        "output": "\"a\"",
+        "explanation": "A single character is a palindrome."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 9,
+    "title": "Palindromic Substrings",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "int",
+        "countSubstrings",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"abc\"",
+        "output": "3",
+        "explanation": "Only single-character palindromes exist."
+      },
+      {
+        "input": "s = \"aaa\"",
+        "output": "6",
+        "explanation": "Three singles, two aa substrings, and one aaa."
+      },
+      {
+        "input": "s = \"aba\"",
+        "output": "4",
+        "explanation": "a, b, a, and aba are palindromes."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 10,
+    "title": "Valid Parenthesis String",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "boolean",
+        "checkValidString",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"()\"",
+        "output": "true",
+        "explanation": "Already valid."
+      },
+      {
+        "input": "s = \"(*)\"",
+        "output": "true",
+        "explanation": "* can be empty."
+      },
+      {
+        "input": "s = \"(*))\"",
+        "output": "true",
+        "explanation": "* can be an opening parenthesis."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 11,
+    "title": "Find the Index of the First Occurrence in a String",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "int",
+        "strStr",
+        "String haystack, String needle"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "haystack = \"sadbutsad\", needle = \"sad\"",
+        "output": "0",
+        "explanation": "The first occurrence starts at index 0."
+      },
+      {
+        "input": "haystack = \"leetcode\", needle = \"leeto\"",
+        "output": "-1",
+        "explanation": "The pattern is absent."
+      },
+      {
+        "input": "haystack = \"aaaaa\", needle = \"bba\"",
+        "output": "-1",
+        "explanation": "Repeated haystack characters still do not match."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 12,
+    "title": "Repeated Substring Pattern",
+    "className": "StringsBasic",
+    "methods": [
+      [
+        "boolean",
+        "repeatedSubstringPattern",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"abab\"",
+        "output": "true",
+        "explanation": "ab repeated twice forms the string."
+      },
+      {
+        "input": "s = \"aba\"",
+        "output": "false",
+        "explanation": "No proper substring repeats to form it."
+      },
+      {
+        "input": "s = \"abcabcabcabc\"",
+        "output": "true",
+        "explanation": "abc repeats four times."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 13,
+    "title": "String Compression",
+    "className": "StringsModerate",
+    "methods": [
+      [
+        "int",
+        "compress",
+        "char[] chars"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "chars = [\"a\",\"a\",\"b\",\"b\",\"c\",\"c\",\"c\"]",
+        "output": "6, chars starts [\"a\",\"2\",\"b\",\"2\",\"c\",\"3\"]",
+        "explanation": "Each repeated run writes its count."
+      },
+      {
+        "input": "chars = [\"a\"]",
+        "output": "1",
+        "explanation": "A count of one is omitted."
+      },
+      {
+        "input": "chars = [\"a\" repeated 12 times]",
+        "output": "3, chars starts [\"a\",\"1\",\"2\"]",
+        "explanation": "Multi-digit counts are written one digit at a time."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 14,
+    "title": "Reverse Words in a String",
+    "className": "StringsModerate",
+    "methods": [
+      [
+        "String",
+        "reverseWords",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"the sky is blue\"",
+        "output": "\"blue is sky the\"",
+        "explanation": "Word order is reversed."
+      },
+      {
+        "input": "s = \"  hello world  \"",
+        "output": "\"world hello\"",
+        "explanation": "Outer spaces are removed."
+      },
+      {
+        "input": "s = \"a good   example\"",
+        "output": "\"example good a\"",
+        "explanation": "Multiple spaces collapse to one."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 15,
+    "title": "Zigzag Conversion",
+    "className": "StringsModerate",
+    "methods": [
+      [
+        "String",
+        "convert",
+        "String s, int numRows"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"PAYPALISHIRING\", numRows = 3",
+        "output": "\"PAHNAPLSIIGYIR\"",
+        "explanation": "Rows are read after zigzag placement."
+      },
+      {
+        "input": "s = \"PAYPALISHIRING\", numRows = 4",
+        "output": "\"PINALSIGYAHRPI\"",
+        "explanation": "A different row count changes the cycle."
+      },
+      {
+        "input": "s = \"A\", numRows = 1",
+        "output": "\"A\"",
+        "explanation": "One row leaves the string unchanged."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 16,
+    "title": "Add Strings",
+    "className": "StringsModerate",
+    "methods": [
+      [
+        "String",
+        "addStrings",
+        "String num1, String num2"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "num1 = \"11\", num2 = \"123\"",
+        "output": "\"134\"",
+        "explanation": "11 + 123 = 134."
+      },
+      {
+        "input": "num1 = \"456\", num2 = \"77\"",
+        "output": "\"533\"",
+        "explanation": "Carry propagates across digits."
+      },
+      {
+        "input": "num1 = \"0\", num2 = \"0\"",
+        "output": "\"0\"",
+        "explanation": "Zero plus zero remains zero."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 17,
+    "title": "Decode String",
+    "className": "StringsModerate",
+    "methods": [
+      [
+        "String",
+        "decodeString",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"3[a]2[bc]\"",
+        "output": "\"aaabcbc\"",
+        "explanation": "Each bracketed block repeats independently."
+      },
+      {
+        "input": "s = \"3[a2[c]]\"",
+        "output": "\"accaccacc\"",
+        "explanation": "The inner block is decoded before outer repetition."
+      },
+      {
+        "input": "s = \"2[abc]3[cd]ef\"",
+        "output": "\"abcabccdcdcdef\"",
+        "explanation": "Plain suffix is appended after decoded blocks."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 18,
+    "title": "Basic Calculator II",
+    "className": "StringsModerate",
+    "methods": [
+      [
+        "int",
+        "calculate",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"3+2*2\"",
+        "output": "7",
+        "explanation": "Multiplication happens before addition."
+      },
+      {
+        "input": "s = \" 3/2 \"",
+        "output": "1",
+        "explanation": "Integer division truncates toward zero."
+      },
+      {
+        "input": "s = \" 3+5 / 2 \"",
+        "output": "5",
+        "explanation": "5 / 2 becomes 2, then 3 + 2."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 19,
+    "title": "Longest Common Prefix",
+    "className": "StringsModerate",
+    "methods": [
+      [
+        "String",
+        "longestCommonPrefix",
+        "String[] strs"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "strs = [\"flower\",\"flow\",\"flight\"]",
+        "output": "\"fl\"",
+        "explanation": "All strings share fl."
+      },
+      {
+        "input": "strs = [\"dog\",\"racecar\",\"car\"]",
+        "output": "\"\"",
+        "explanation": "There is no common first character."
+      },
+      {
+        "input": "strs = [\"alone\"]",
+        "output": "\"alone\"",
+        "explanation": "One string is its own prefix."
+      }
+    ]
+  },
+  {
+    "topic": "strings",
+    "topicNumber": 24,
+    "number": 20,
+    "title": "Compare Version Numbers",
+    "className": "StringsModerate",
+    "methods": [
+      [
+        "int",
+        "compareVersion",
+        "String version1, String version2"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "version1 = \"1.01\", version2 = \"1.001\"",
+        "output": "0",
+        "explanation": "Leading zeros do not change segment value."
+      },
+      {
+        "input": "version1 = \"1.0\", version2 = \"1.0.0\"",
+        "output": "0",
+        "explanation": "Missing segments count as zero."
+      },
+      {
+        "input": "version1 = \"0.1\", version2 = \"1.1\"",
+        "output": "-1",
+        "explanation": "The first segment 0 is smaller than 1."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 1,
+    "title": "Sort Colors",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "void",
+        "sortColors",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [2,0,2,1,1,0]",
+        "output": "[0,0,1,1,2,2]",
+        "explanation": "All 0s move left and all 2s move right."
+      },
+      {
+        "input": "nums = [2,0,1]",
+        "output": "[0,1,2]",
+        "explanation": "One pass partitions three values."
+      },
+      {
+        "input": "nums = [1,1,1]",
+        "output": "[1,1,1]",
+        "explanation": "Middle values stay in the unknown scan zone until consumed."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 2,
+    "title": "Merge Sorted Array",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "void",
+        "merge",
+        "int[] nums1, int m, int[] nums2, int n"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
+        "output": "[1,2,2,3,5,6]",
+        "explanation": "The arrays merge into one sorted sequence."
+      },
+      {
+        "input": "nums1 = [1], m = 1, nums2 = [], n = 0",
+        "output": "[1]",
+        "explanation": "No second array values need to be copied."
+      },
+      {
+        "input": "nums1 = [0], m = 0, nums2 = [1], n = 1",
+        "output": "[1]",
+        "explanation": "The destination initially contains only buffer space."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 3,
+    "title": "Kth Largest Element in an Array",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "int",
+        "findKthLargest",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [3,2,1,5,6,4], k = 2",
+        "output": "5",
+        "explanation": "The sorted order is [1,2,3,4,5,6]."
+      },
+      {
+        "input": "nums = [3,2,3,1,2,4,5,5,6], k = 4",
+        "output": "4",
+        "explanation": "Duplicates count as separate elements."
+      },
+      {
+        "input": "nums = [1], k = 1",
+        "output": "1",
+        "explanation": "The only element is the first largest."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 4,
+    "title": "Top K Frequent Elements",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "int[]",
+        "topKFrequent",
+        "int[] nums, int k"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,1,2,2,3], k = 2",
+        "output": "[1,2]",
+        "explanation": "1 appears three times and 2 appears twice."
+      },
+      {
+        "input": "nums = [1], k = 1",
+        "output": "[1]",
+        "explanation": "Only one unique value exists."
+      },
+      {
+        "input": "nums = [4,4,6,6,7], k = 2",
+        "output": "any two of [4,6]",
+        "explanation": "4 and 6 tie for highest frequency."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 5,
+    "title": "Largest Number",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "String",
+        "largestNumber",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [10,2]",
+        "output": "\"210\"",
+        "explanation": "2 before 10 makes 210 larger than 102."
+      },
+      {
+        "input": "nums = [3,30,34,5,9]",
+        "output": "\"9534330\"",
+        "explanation": "Pairwise concatenation decides the custom order."
+      },
+      {
+        "input": "nums = [0,0]",
+        "output": "\"0\"",
+        "explanation": "Leading zeros collapse to one zero."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 6,
+    "title": "Meeting Rooms",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "boolean",
+        "canAttendMeetings",
+        "int[][] intervals"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "intervals = [[0,30],[5,10],[15,20]]",
+        "output": "false",
+        "explanation": "The meeting starting at 5 overlaps [0,30]."
+      },
+      {
+        "input": "intervals = [[7,10],[2,4]]",
+        "output": "true",
+        "explanation": "After sorting, 4 <= 7 so there is no overlap."
+      },
+      {
+        "input": "intervals = [[1,2],[2,3]]",
+        "output": "true",
+        "explanation": "Touching endpoints do not overlap."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 7,
+    "title": "Meeting Rooms II",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "int",
+        "minMeetingRooms",
+        "int[][] intervals"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "intervals = [[0,30],[5,10],[15,20]]",
+        "output": "2",
+        "explanation": "At most two meetings overlap."
+      },
+      {
+        "input": "intervals = [[7,10],[2,4]]",
+        "output": "1",
+        "explanation": "Meetings do not overlap."
+      },
+      {
+        "input": "intervals = [[1,5],[2,6],[3,7]]",
+        "output": "3",
+        "explanation": "All three overlap around time 3."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 8,
+    "title": "Merge Intervals",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "int[][]",
+        "merge",
+        "int[][] intervals"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+        "output": "[[1,6],[8,10],[15,18]]",
+        "explanation": "[1,3] overlaps [2,6]."
+      },
+      {
+        "input": "intervals = [[1,4],[4,5]]",
+        "output": "[[1,5]]",
+        "explanation": "Touching intervals merge."
+      },
+      {
+        "input": "intervals = [[1,4],[0,0]]",
+        "output": "[[0,0],[1,4]]",
+        "explanation": "Sorting places disjoint intervals in output order."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 9,
+    "title": "Non-overlapping Intervals",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "int",
+        "eraseOverlapIntervals",
+        "int[][] intervals"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "intervals = [[1,2],[2,3],[3,4],[1,3]]",
+        "output": "1",
+        "explanation": "Remove [1,3]."
+      },
+      {
+        "input": "intervals = [[1,2],[1,2],[1,2]]",
+        "output": "2",
+        "explanation": "Only one duplicate interval can remain."
+      },
+      {
+        "input": "intervals = [[1,2],[2,3]]",
+        "output": "0",
+        "explanation": "Touching endpoints do not overlap."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 10,
+    "title": "H-Index",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "int",
+        "hIndex",
+        "int[] citations"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "citations = [3,0,6,1,5]",
+        "output": "3",
+        "explanation": "Three papers have at least three citations."
+      },
+      {
+        "input": "citations = [1,3,1]",
+        "output": "1",
+        "explanation": "Only one paper has at least one citation after thresholding."
+      },
+      {
+        "input": "citations = [0,0]",
+        "output": "0",
+        "explanation": "No paper has at least one citation."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 11,
+    "title": "Wiggle Sort",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "void",
+        "wiggleSort",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [3,5,2,1,6,4]",
+        "output": "a valid wiggle order such as [3,5,1,6,2,4]",
+        "explanation": "Every odd index is at least its neighbors."
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "[1,3,2,4] or another valid order",
+        "explanation": "Only adjacent wiggle inequalities must hold."
+      },
+      {
+        "input": "nums = [2,2,2]",
+        "output": "[2,2,2]",
+        "explanation": "Equal values satisfy non-strict inequalities."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 12,
+    "title": "Wiggle Sort II",
+    "className": "SortingBasic",
+    "methods": [
+      [
+        "void",
+        "wiggleSortStrict",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,5,1,1,6,4]",
+        "output": "a valid result such as [1,6,1,5,1,4]",
+        "explanation": "Odd indices are local peaks."
+      },
+      {
+        "input": "nums = [1,3,2,2,3,1]",
+        "output": "a valid result such as [2,3,1,3,1,2]",
+        "explanation": "Duplicates are separated around peaks."
+      },
+      {
+        "input": "nums = [1,1,2,2,3,3]",
+        "output": "any strict wiggle order",
+        "explanation": "The median split prevents equal neighbors where possible."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 13,
+    "title": "Sort List",
+    "className": "SortingModerate",
+    "methods": [
+      [
+        "ListNode",
+        "sortList",
+        "ListNode head"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "head = [4,2,1,3]",
+        "output": "[1,2,3,4]",
+        "explanation": "Merge sort orders the linked nodes."
+      },
+      {
+        "input": "head = [-1,5,3,4,0]",
+        "output": "[-1,0,3,4,5]",
+        "explanation": "Negative and positive values are both sorted."
+      },
+      {
+        "input": "head = []",
+        "output": "[]",
+        "explanation": "An empty list stays empty."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 14,
+    "title": "Insertion Sort List",
+    "className": "SortingModerate",
+    "methods": [
+      [
+        "ListNode",
+        "insertionSortList",
+        "ListNode head"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "head = [4,2,1,3]",
+        "output": "[1,2,3,4]",
+        "explanation": "Each node is inserted into the sorted prefix."
+      },
+      {
+        "input": "head = [-1,5,3,4,0]",
+        "output": "[-1,0,3,4,5]",
+        "explanation": "Nodes are re-linked in ascending order."
+      },
+      {
+        "input": "head = [1]",
+        "output": "[1]",
+        "explanation": "A single node is already sorted."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 15,
+    "title": "Relative Sort Array",
+    "className": "SortingModerate",
+    "methods": [
+      [
+        "int[]",
+        "relativeSortArray",
+        "int[] arr1, int[] arr2"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "arr1 = [2,3,1,3,2,4,6,7,9,2,19], arr2 = [2,1,4,3,9,6]",
+        "output": "[2,2,2,1,4,3,3,9,6,7,19]",
+        "explanation": "Reference values come first in arr2 order."
+      },
+      {
+        "input": "arr1 = [28,6,22,8,44,17], arr2 = [22,28,8,6]",
+        "output": "[22,28,8,6,17,44]",
+        "explanation": "Leftovers 17 and 44 are ascending."
+      },
+      {
+        "input": "arr1 = [1,1,2], arr2 = [1]",
+        "output": "[1,1,2]",
+        "explanation": "Repeated reference values are emitted together."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 16,
+    "title": "Sort Characters By Frequency",
+    "className": "SortingModerate",
+    "methods": [
+      [
+        "String",
+        "frequencySort",
+        "String s"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "s = \"tree\"",
+        "output": "\"eert\" or \"eetr\"",
+        "explanation": "e appears twice and comes first."
+      },
+      {
+        "input": "s = \"cccaaa\"",
+        "output": "\"cccaaa\" or \"aaaccc\"",
+        "explanation": "c and a tie, so either order is valid."
+      },
+      {
+        "input": "s = \"Aabb\"",
+        "output": "\"bbAa\" or \"bbaA\"",
+        "explanation": "Uppercase and lowercase are different characters."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 17,
+    "title": "Maximum Gap",
+    "className": "SortingModerate",
+    "methods": [
+      [
+        "int",
+        "maximumGap",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [3,6,9,1]",
+        "output": "3",
+        "explanation": "Sorted order is [1,3,6,9], max gap is 3."
+      },
+      {
+        "input": "nums = [10]",
+        "output": "0",
+        "explanation": "No adjacent pair exists."
+      },
+      {
+        "input": "nums = [1,10000000]",
+        "output": "9999999",
+        "explanation": "The only sorted gap is the answer."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 18,
+    "title": "Count of Smaller Numbers After Self",
+    "className": "SortingModerate",
+    "methods": [
+      [
+        "List<Integer>",
+        "countSmaller",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [5,2,6,1]",
+        "output": "[2,1,1,0]",
+        "explanation": "5 has smaller values 2 and 1 after it."
+      },
+      {
+        "input": "nums = [-1]",
+        "output": "[0]",
+        "explanation": "No values appear after the only element."
+      },
+      {
+        "input": "nums = [-1,-1]",
+        "output": "[0,0]",
+        "explanation": "Equal values are not smaller."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 19,
+    "title": "Reverse Pairs",
+    "className": "SortingModerate",
+    "methods": [
+      [
+        "int",
+        "reversePairs",
+        "int[] nums"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,3,2,3,1]",
+        "output": "2",
+        "explanation": "The reverse pairs are formed by values 3 with later 1s."
+      },
+      {
+        "input": "nums = [2,4,3,5,1]",
+        "output": "3",
+        "explanation": "Three pairs satisfy nums[i] > 2*nums[j]."
+      },
+      {
+        "input": "nums = [-5,-5]",
+        "output": "1",
+        "explanation": "-5 > 2*(-5) is true for the first value before the second."
+      }
+    ]
+  },
+  {
+    "topic": "sorting",
+    "topicNumber": 25,
+    "number": 20,
+    "title": "Queue Reconstruction by Height",
+    "className": "SortingModerate",
+    "methods": [
+      [
+        "int[][]",
+        "reconstructQueue",
+        "int[][] people"
+      ]
+    ],
+    "examples": [
+      {
+        "input": "people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]",
+        "output": "[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]",
+        "explanation": "Each person has exactly k taller-or-equal people before them."
+      },
+      {
+        "input": "people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]",
+        "output": "[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]",
+        "explanation": "Taller-first insertion satisfies all counts."
+      },
+      {
+        "input": "people = [[7,0]]",
+        "output": "[[7,0]]",
+        "explanation": "A single person is already valid."
+      }
+    ]
+  }
+]

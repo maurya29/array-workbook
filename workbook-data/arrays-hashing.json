@@ -1,0 +1,568 @@
+{
+  "id": "arrays-hashing",
+  "name": "Arrays & Hashing",
+  "sourceUrl": "https://maurya29.github.io/DSA-Pattern-Workbook/pages/arrays-hashing.html",
+  "retrievedOn": "2026-09-30",
+  "problems": [
+    {
+      "name": "Two Sum",
+      "question": "Given an integer array nums and an integer target, return the indexes of two distinct elements whose values add up to target. If no pair exists, return {-1, -1}.",
+      "constraints": "2 <= nums.length <= 10^4; -10^9 <= nums[i] <= 10^9; -10^9 <= target <= 10^9; indexes must be distinct.",
+      "examples": [
+        {
+          "input": "nums = [2,7,11,15], target = 9",
+          "output": "[0,1]",
+          "explanation": "nums[0] + nums[1] = 2 + 7 = 9."
+        },
+        {
+          "input": "nums = [3,2,4], target = 6",
+          "output": "[1,2]",
+          "explanation": "nums[1] + nums[2] = 2 + 4 = 6."
+        },
+        {
+          "input": "nums = [3,3], target = 6",
+          "output": "[0,1]",
+          "explanation": "The same value can be used twice only when it appears at two different indexes."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(n).",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int[] twoSum(int[] nums, int target) {\n    Map<Integer, Integer> indexByValue = new HashMap<>();\n\n    for (int i = 0; i < nums.length; i++) {\n      int complement = target - nums[i];\n      if (indexByValue.containsKey(complement)) {\n        return new int[] {indexByValue.get(complement), i};\n      }\n      indexByValue.put(nums[i], i);\n    }\n\n    return new int[] {-1, -1};\n  }\n}",
+      "source": {
+        "label": "LeetCode 1 - Two Sum",
+        "url": "https://leetcode.com/problems/two-sum/"
+      }
+    },
+    {
+      "name": "Contains Duplicate",
+      "question": "Given an integer array nums, return true if any value appears at least twice. Return false if every element is distinct.",
+      "constraints": "1 <= nums.length <= 10^5; -10^9 <= nums[i] <= 10^9.",
+      "examples": [
+        {
+          "input": "nums = [1,2,3,1]",
+          "output": "true",
+          "explanation": "The value 1 appears at indexes 0 and 3."
+        },
+        {
+          "input": "nums = [1,2,3,4]",
+          "output": "false",
+          "explanation": "Every value appears exactly once."
+        },
+        {
+          "input": "nums = [1,1,1,3,3,4,3,2,4,2]",
+          "output": "true",
+          "explanation": "Multiple values appear more than once."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(n).",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public boolean containsDuplicate(int[] nums) {\n    Set<Integer> seen = new HashSet<>();\n\n    for (int num : nums) {\n      if (seen.contains(num)) {\n        return true;\n      }\n      seen.add(num);\n    }\n\n    return false;\n  }\n}",
+      "source": {
+        "label": "LeetCode 217 - Contains Duplicate",
+        "url": "https://leetcode.com/problems/contains-duplicate/"
+      }
+    },
+    {
+      "name": "Valid Anagram",
+      "question": "Given two strings s and t, return true if t is an anagram of s. Return false otherwise. Both strings contain lowercase English letters.",
+      "constraints": "1 <= s.length, t.length <= 5 * 10^4; s and t consist of lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"anagram\", t = \"nagaram\"",
+          "output": "true",
+          "explanation": "Both strings contain the same letters with the same frequencies."
+        },
+        {
+          "input": "s = \"rat\", t = \"car\"",
+          "output": "false",
+          "explanation": "The character counts are different."
+        },
+        {
+          "input": "s = \"aacc\", t = \"ccac\"",
+          "output": "false",
+          "explanation": "s has two a characters, but t has only one."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1) because the frequency array has fixed size 26.",
+      "optimizedCode": "class Solution {\n  public boolean isAnagram(String s, String t) {\n    if (s.length() != t.length()) {\n      return false;\n    }\n\n    int[] count = new int[26];\n    for (int i = 0; i < s.length(); i++) {\n      count[s.charAt(i) - 'a']++;\n      count[t.charAt(i) - 'a']--;\n    }\n\n    for (int value : count) {\n      if (value != 0) {\n        return false;\n      }\n    }\n    return true;\n  }\n}",
+      "source": {
+        "label": "LeetCode 242 - Valid Anagram",
+        "url": "https://leetcode.com/problems/valid-anagram/"
+      }
+    },
+    {
+      "name": "Group Anagrams",
+      "question": "Given an array of strings strs, group the anagrams together. You may return the groups in any order.",
+      "constraints": "1 <= strs.length <= 10^4; 0 <= strs[i].length <= 100; strs[i] consists of lowercase English letters.",
+      "examples": [
+        {
+          "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+          "output": "[[\"bat\"],[\"tan\",\"nat\"],[\"eat\",\"tea\",\"ate\"]]",
+          "explanation": "eat, tea, and ate share one signature; tan and nat share another; bat is alone."
+        },
+        {
+          "input": "strs = [\"\"]",
+          "output": "[[\"\"]]",
+          "explanation": "The empty string forms one valid group."
+        },
+        {
+          "input": "strs = [\"a\"]",
+          "output": "[[\"a\"]]",
+          "explanation": "A single word is grouped by itself."
+        }
+      ],
+      "optimizedComplexity": "Time O(n * k), Space O(n * k), because each word builds a 26-count key and is stored in a hash map group.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<String>> groupAnagrams(String[] strs) {\n    Map<String, List<String>> groups = new HashMap<>();\n\n    for (String word : strs) {\n      String key = buildKey(word);\n      groups.computeIfAbsent(key, unused -> new ArrayList<>()).add(word);\n    }\n\n    return new ArrayList<>(groups.values());\n  }\n\n  private String buildKey(String word) {\n    int[] count = new int[26];\n    for (char c : word.toCharArray()) {\n      count[c - 'a']++;\n    }\n    return Arrays.toString(count);\n  }\n}",
+      "source": {
+        "label": "LeetCode 49 - Group Anagrams",
+        "url": "https://leetcode.com/problems/group-anagrams/"
+      }
+    },
+    {
+      "name": "Top K Frequent Elements",
+      "question": "Given an integer array nums and an integer k, return the k most frequent elements. The answer may be returned in any order.",
+      "constraints": "1 <= nums.length <= 10^5; -10^4 <= nums[i] <= 10^4; k is in [1, number of unique elements]; answer is guaranteed unique as a set.",
+      "examples": [
+        {
+          "input": "nums = [1,1,1,2,2,3], k = 2",
+          "output": "[1,2]",
+          "explanation": "1 appears 3 times and 2 appears 2 times."
+        },
+        {
+          "input": "nums = [1], k = 1",
+          "output": "[1]",
+          "explanation": "The only element is also the most frequent."
+        },
+        {
+          "input": "nums = [4,4,4,6,6,7], k = 1",
+          "output": "[4]",
+          "explanation": "4 has the highest frequency."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(n), using frequency buckets from 1 to n.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int[] topKFrequent(int[] nums, int k) {\n    Map<Integer, Integer> freq = new HashMap<>();\n    for (int num : nums) {\n      freq.put(num, freq.getOrDefault(num, 0) + 1);\n    }\n\n    List<Integer>[] buckets = new ArrayList[nums.length + 1];\n    for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {\n      int count = entry.getValue();\n      if (buckets[count] == null) {\n        buckets[count] = new ArrayList<>();\n      }\n      buckets[count].add(entry.getKey());\n    }\n\n    int[] answer = new int[k];\n    int index = 0;\n    for (int count = buckets.length - 1; count >= 0 && index < k; count--) {\n      if (buckets[count] == null) {\n        continue;\n      }\n      for (int value : buckets[count]) {\n        answer[index++] = value;\n        if (index == k) {\n          return answer;\n        }\n      }\n    }\n    return answer;\n  }\n}",
+      "source": {
+        "label": "LeetCode 347 - Top K Frequent Elements",
+        "url": "https://leetcode.com/problems/top-k-frequent-elements/"
+      }
+    },
+    {
+      "name": "Product of Array Except Self",
+      "question": "Given an integer array nums, return an array answer where answer[i] equals the product of all elements of nums except nums[i]. Solve it in O(n) time without using division.",
+      "constraints": "2 <= nums.length <= 10^5; -30 <= nums[i] <= 30; products fit in 32-bit integer; division is not allowed.",
+      "examples": [
+        {
+          "input": "nums = [1,2,3,4]",
+          "output": "[24,12,8,6]",
+          "explanation": "For index 0, product is 2 * 3 * 4 = 24; for index 1, product is 1 * 3 * 4 = 12."
+        },
+        {
+          "input": "nums = [-1,1,0,-3,3]",
+          "output": "[0,0,9,0,0]",
+          "explanation": "Only the index containing 0 gets the product of all non-zero values."
+        },
+        {
+          "input": "nums = [2,3]",
+          "output": "[3,2]",
+          "explanation": "Each answer is the other element."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1) excluding the output array.",
+      "optimizedCode": "class Solution {\n  public int[] productExceptSelf(int[] nums) {\n    int n = nums.length;\n    int[] answer = new int[n];\n\n    int leftProduct = 1;\n    for (int i = 0; i < n; i++) {\n      answer[i] = leftProduct;\n      leftProduct *= nums[i];\n    }\n\n    int rightProduct = 1;\n    for (int i = n - 1; i >= 0; i--) {\n      answer[i] *= rightProduct;\n      rightProduct *= nums[i];\n    }\n\n    return answer;\n  }\n}",
+      "source": {
+        "label": "LeetCode 238 - Product of Array Except Self",
+        "url": "https://leetcode.com/problems/product-of-array-except-self/"
+      }
+    },
+    {
+      "name": "Subarray Sum Equals K",
+      "question": "Given an integer array nums and an integer k, return the total number of contiguous non-empty subarrays whose sum equals k.",
+      "constraints": "1 <= nums.length <= 2 * 10^4; -1000 <= nums[i] <= 1000; -10^7 <= k <= 10^7.",
+      "examples": [
+        {
+          "input": "nums = [1,1,1], k = 2",
+          "output": "2",
+          "explanation": "The valid subarrays are nums[0..1] and nums[1..2]."
+        },
+        {
+          "input": "nums = [1,2,3], k = 3",
+          "output": "2",
+          "explanation": "The valid subarrays are [1,2] and [3]."
+        },
+        {
+          "input": "nums = [-1,-1,1], k = 0",
+          "output": "1",
+          "explanation": "The valid subarray is nums[1..2] = [-1,1]."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(n), using a hash map of prefix-sum frequencies.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int subarraySum(int[] nums, int k) {\n    Map<Integer, Integer> prefixFrequency = new HashMap<>();\n    prefixFrequency.put(0, 1);\n\n    int prefix = 0;\n    int count = 0;\n    for (int num : nums) {\n      prefix += num;\n      count += prefixFrequency.getOrDefault(prefix - k, 0);\n      prefixFrequency.put(prefix, prefixFrequency.getOrDefault(prefix, 0) + 1);\n    }\n\n    return count;\n  }\n}",
+      "source": {
+        "label": "LeetCode 560 - Subarray Sum Equals K",
+        "url": "https://leetcode.com/problems/subarray-sum-equals-k/"
+      }
+    },
+    {
+      "name": "Longest Consecutive Sequence",
+      "question": "Given an unsorted integer array nums, return the length of the longest consecutive elements sequence. The optimized solution must run in O(n) time.",
+      "constraints": "0 <= nums.length <= 10^5; -10^9 <= nums[i] <= 10^9; optimized solution should be O(n).",
+      "examples": [
+        {
+          "input": "nums = [100,4,200,1,3,2]",
+          "output": "4",
+          "explanation": "The longest consecutive sequence is [1,2,3,4]."
+        },
+        {
+          "input": "nums = [0,3,7,2,5,8,4,6,0,1]",
+          "output": "9",
+          "explanation": "The longest sequence is [0,1,2,3,4,5,6,7,8]."
+        },
+        {
+          "input": "nums = []",
+          "output": "0",
+          "explanation": "No elements means no consecutive sequence."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(n), because each number is expanded at most once from a sequence head.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int longestConsecutive(int[] nums) {\n    Set<Integer> values = new HashSet<>();\n    for (int num : nums) {\n      values.add(num);\n    }\n\n    int best = 0;\n    for (int num : values) {\n      if (values.contains(num - 1)) {\n        continue;\n      }\n\n      int current = num;\n      int length = 0;\n      while (values.contains(current)) {\n        length++;\n        current++;\n      }\n\n      best = Math.max(best, length);\n    }\n\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 128 - Longest Consecutive Sequence",
+        "url": "https://leetcode.com/problems/longest-consecutive-sequence/"
+      }
+    },
+    {
+      "name": "Majority Element",
+      "question": "Given an integer array nums, return the majority element. The majority element appears more than floor(n / 2) times, and it is guaranteed to exist.",
+      "constraints": "1 <= nums.length <= 5 * 10^4; -2^31 <= nums[i] <= 2^31 - 1; majority element always exists.",
+      "examples": [
+        {
+          "input": "nums = [3,2,3]",
+          "output": "3",
+          "explanation": "3 appears 2 times, which is more than floor(3 / 2)."
+        },
+        {
+          "input": "nums = [2,2,1,1,1,2,2]",
+          "output": "2",
+          "explanation": "2 appears 4 times, which is more than floor(7 / 2)."
+        },
+        {
+          "input": "nums = [1]",
+          "output": "1",
+          "explanation": "The only element is the majority element."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1), using Boyer-Moore voting.",
+      "optimizedCode": "class Solution {\n  public int majorityElement(int[] nums) {\n    int candidate = 0;\n    int votes = 0;\n\n    for (int num : nums) {\n      if (votes == 0) {\n        candidate = num;\n      }\n      votes += num == candidate ? 1 : -1;\n    }\n\n    return candidate;\n  }\n}",
+      "source": {
+        "label": "LeetCode 169 - Majority Element",
+        "url": "https://leetcode.com/problems/majority-element/"
+      }
+    },
+    {
+      "name": "Find All Numbers Disappeared in an Array",
+      "question": "Given an integer array nums of length n where every nums[i] is in the range [1, n], return all numbers in the range [1, n] that do not appear in nums.",
+      "constraints": "n == nums.length; 1 <= n <= 10^5; 1 <= nums[i] <= n.",
+      "examples": [
+        {
+          "input": "nums = [4,3,2,7,8,2,3,1]",
+          "output": "[5,6]",
+          "explanation": "The numbers 5 and 6 from range [1,8] do not appear."
+        },
+        {
+          "input": "nums = [1,1]",
+          "output": "[2]",
+          "explanation": "The value 2 is missing from range [1,2]."
+        },
+        {
+          "input": "nums = [1,2,3,4]",
+          "output": "[]",
+          "explanation": "Every number from 1 to 4 appears."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1) excluding the output list, using in-place marking.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<Integer> findDisappearedNumbers(int[] nums) {\n    for (int num : nums) {\n      int index = Math.abs(num) - 1;\n      if (nums[index] > 0) {\n        nums[index] = -nums[index];\n      }\n    }\n\n    List<Integer> missing = new ArrayList<>();\n    for (int i = 0; i < nums.length; i++) {\n      if (nums[i] > 0) {\n        missing.add(i + 1);\n      }\n    }\n    return missing;\n  }\n}",
+      "source": {
+        "label": "LeetCode 448 - Find All Numbers Disappeared in an Array",
+        "url": "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
+      }
+    },
+    {
+      "name": "Intersection of Two Arrays",
+      "question": "Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique, and the result may be returned in any order.",
+      "constraints": "1 <= nums1.length, nums2.length <= 1000; 0 <= nums1[i], nums2[i] <= 1000; each output value must be unique.",
+      "examples": [
+        {
+          "input": "nums1 = [1,2,2,1], nums2 = [2,2]",
+          "output": "[2]",
+          "explanation": "2 appears in both arrays, but output values must be unique."
+        },
+        {
+          "input": "nums1 = [4,9,5], nums2 = [9,4,9,8,4]",
+          "output": "[9,4]",
+          "explanation": "Both 9 and 4 appear in both arrays; order does not matter."
+        },
+        {
+          "input": "nums1 = [1,3,5], nums2 = [2,4,6]",
+          "output": "[]",
+          "explanation": "There are no common values."
+        }
+      ],
+      "optimizedComplexity": "Time O(m + n), Space O(m + r), where r is the number of unique intersection values.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int[] intersection(int[] nums1, int[] nums2) {\n    Set<Integer> values = new HashSet<>();\n    for (int num : nums1) {\n      values.add(num);\n    }\n\n    Set<Integer> result = new HashSet<>();\n    for (int num : nums2) {\n      if (values.contains(num)) {\n        result.add(num);\n      }\n    }\n\n    int[] answer = new int[result.size()];\n    int index = 0;\n    for (int num : result) {\n      answer[index++] = num;\n    }\n    return answer;\n  }\n}",
+      "source": {
+        "label": "LeetCode 349 - Intersection of Two Arrays",
+        "url": "https://leetcode.com/problems/intersection-of-two-arrays/"
+      }
+    },
+    {
+      "name": "First Unique Character in a String",
+      "question": "Given a string s, find the first non-repeating character and return its index. If it does not exist, return -1.",
+      "constraints": "1 <= s.length <= 10^5; s consists of lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"leetcode\"",
+          "output": "0",
+          "explanation": "l is the first character that appears once."
+        },
+        {
+          "input": "s = \"loveleetcode\"",
+          "output": "2",
+          "explanation": "v at index 2 is the first non-repeating character."
+        },
+        {
+          "input": "s = \"aabb\"",
+          "output": "-1",
+          "explanation": "Every character appears more than once."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1), because the count array has fixed size 26.",
+      "optimizedCode": "class Solution {\n  public int firstUniqChar(String s) {\n    int[] count = new int[26];\n\n    for (int i = 0; i < s.length(); i++) {\n      count[s.charAt(i) - 'a']++;\n    }\n\n    for (int i = 0; i < s.length(); i++) {\n      if (count[s.charAt(i) - 'a'] == 1) {\n        return i;\n      }\n    }\n\n    return -1;\n  }\n}",
+      "source": {
+        "label": "LeetCode 387 - First Unique Character in a String",
+        "url": "https://leetcode.com/problems/first-unique-character-in-a-string/"
+      }
+    },
+    {
+      "name": "Encode and Decode Strings",
+      "question": "Design an algorithm to encode a list of strings into one string and decode it back to the original list. Strings may contain any valid characters.",
+      "constraints": "Design problem; encode and decode must be inverse operations for arbitrary strings.",
+      "examples": [
+        {
+          "input": "strs = [\"lint\",\"code\",\"love\",\"you\"]",
+          "output": "[\"lint\",\"code\",\"love\",\"you\"]",
+          "explanation": "Decoding restores the original list."
+        },
+        {
+          "input": "strs = [\"\"]",
+          "output": "[\"\"]",
+          "explanation": "An empty string is encoded as length 0."
+        },
+        {
+          "input": "strs = [\"a#b\",\"12\"]",
+          "output": "[\"a#b\",\"12\"]",
+          "explanation": "The delimiter is safe because length controls parsing."
+        }
+      ],
+      "optimizedComplexity": "Time O(totalChars), Space O(totalChars), using length-prefix encoding.",
+      "optimizedCode": "import java.util.*;\n\nclass Codec {\n  public String encode(List<String> strs) {\n    StringBuilder out = new StringBuilder();\n    for (String s : strs) out.append(s.length()).append('#').append(s);\n    return out.toString();\n  }\n  public List<String> decode(String s) {\n    List<String> ans = new ArrayList<>(); int i = 0;\n    while (i < s.length()) {\n      int j = i; while (s.charAt(j) != '#') j++;\n      int len = Integer.parseInt(s.substring(i, j));\n      ans.add(s.substring(j + 1, j + 1 + len));\n      i = j + 1 + len;\n    }\n    return ans;\n  }\n}",
+      "source": {
+        "label": "LeetCode 271 - Encode and Decode Strings",
+        "url": "https://leetcode.com/problems/encode-and-decode-strings/"
+      }
+    },
+    {
+      "name": "Longest Substring Without Repeating Characters",
+      "question": "Given a string s, return the length of the longest substring without repeating characters.",
+      "constraints": "0 <= s.length <= 5 * 10^4; s may contain letters, digits, symbols, and spaces.",
+      "examples": [
+        {
+          "input": "s = \"abcabcbb\"",
+          "output": "3",
+          "explanation": "The answer is \"abc\"."
+        },
+        {
+          "input": "s = \"bbbbb\"",
+          "output": "1",
+          "explanation": "The answer is \"b\"."
+        },
+        {
+          "input": "s = \"pwwkew\"",
+          "output": "3",
+          "explanation": "The answer is \"wke\"."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(min(n, charset)).",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int lengthOfLongestSubstring(String s) {\n    Map<Character, Integer> last = new HashMap<>(); int left = 0, best = 0;\n    for (int right = 0; right < s.length(); right++) {\n      char c = s.charAt(right);\n      if (last.containsKey(c)) left = Math.max(left, last.get(c) + 1);\n      last.put(c, right); best = Math.max(best, right - left + 1);\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 3 - Longest Substring Without Repeating Characters",
+        "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+      }
+    },
+    {
+      "name": "Minimum Window Substring",
+      "question": "Given strings s and t, return the minimum window substring of s that contains every character in t including duplicates, or an empty string if none exists.",
+      "constraints": "1 <= s.length, t.length <= 10^5; s and t contain uppercase and lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+          "output": "\"BANC\"",
+          "explanation": "BANC is the shortest valid window."
+        },
+        {
+          "input": "s = \"a\", t = \"a\"",
+          "output": "\"a\"",
+          "explanation": "The full string is valid."
+        },
+        {
+          "input": "s = \"a\", t = \"aa\"",
+          "output": "\"\"",
+          "explanation": "Two a characters are required."
+        }
+      ],
+      "optimizedComplexity": "Time O(n + m), Space O(charset).",
+      "optimizedCode": "class Solution {\n  public String minWindow(String s, String t) {\n    int[] need = new int[128]; for (char c : t.toCharArray()) need[c]++;\n    int missing = t.length(), left = 0, start = 0, best = Integer.MAX_VALUE;\n    for (int right = 0; right < s.length(); right++) {\n      if (need[s.charAt(right)]-- > 0) missing--;\n      while (missing == 0) {\n        if (right - left + 1 < best) { best = right - left + 1; start = left; }\n        if (++need[s.charAt(left++)] > 0) missing++;\n      }\n    }\n    return best == Integer.MAX_VALUE ? \"\" : s.substring(start, start + best);\n  }\n}",
+      "source": {
+        "label": "LeetCode 76 - Minimum Window Substring",
+        "url": "https://leetcode.com/problems/minimum-window-substring/"
+      }
+    },
+    {
+      "name": "Find All Anagrams in a String",
+      "question": "Given strings s and p, return all start indices of p's anagrams in s.",
+      "constraints": "1 <= s.length, p.length <= 3 * 10^4; s and p consist of lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"cbaebabacd\", p = \"abc\"",
+          "output": "[0,6]",
+          "explanation": "cba and bac are anagrams."
+        },
+        {
+          "input": "s = \"abab\", p = \"ab\"",
+          "output": "[0,1,2]",
+          "explanation": "ab, ba, and ab are valid."
+        },
+        {
+          "input": "s = \"baa\", p = \"aa\"",
+          "output": "[1]",
+          "explanation": "aa starts at index 1."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<Integer> findAnagrams(String s, String p) {\n    List<Integer> ans = new ArrayList<>();\n    if (p.length() > s.length()) return ans;\n    int[] need = new int[26], window = new int[26];\n    for (char c : p.toCharArray()) need[c - 'a']++;\n    for (int right = 0; right < s.length(); right++) {\n      window[s.charAt(right) - 'a']++;\n      if (right >= p.length()) window[s.charAt(right - p.length()) - 'a']--;\n      if (Arrays.equals(need, window)) ans.add(right - p.length() + 1);\n    }\n    return ans;\n  }\n}",
+      "source": {
+        "label": "LeetCode 438 - Find All Anagrams in a String",
+        "url": "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+      }
+    },
+    {
+      "name": "Contiguous Array",
+      "question": "Given a binary array nums, return the maximum length of a contiguous subarray with an equal number of 0 and 1.",
+      "constraints": "1 <= nums.length <= 10^5; nums[i] is 0 or 1.",
+      "examples": [
+        {
+          "input": "nums = [0,1]",
+          "output": "2",
+          "explanation": "The whole array is balanced."
+        },
+        {
+          "input": "nums = [0,1,0]",
+          "output": "2",
+          "explanation": "[0,1] or [1,0] is balanced."
+        },
+        {
+          "input": "nums = [0,0,1,0,0,0,1,1]",
+          "output": "6",
+          "explanation": "A longest balanced subarray has length 6."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(n).",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int findMaxLength(int[] nums) {\n    Map<Integer, Integer> first = new HashMap<>();\n    first.put(0, -1);\n    int balance = 0, best = 0;\n    for (int i = 0; i < nums.length; i++) {\n      balance += nums[i] == 1 ? 1 : -1;\n      if (first.containsKey(balance)) best = Math.max(best, i - first.get(balance));\n      else first.put(balance, i);\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 525 - Contiguous Array",
+        "url": "https://leetcode.com/problems/contiguous-array/"
+      }
+    },
+    {
+      "name": "Longest Harmonious Subsequence",
+      "question": "Given an integer array nums, return the length of the longest harmonious subsequence where max and min differ by exactly 1.",
+      "constraints": "1 <= nums.length <= 2 * 10^4; -10^9 <= nums[i] <= 10^9.",
+      "examples": [
+        {
+          "input": "nums = [1,3,2,2,5,2,3,7]",
+          "output": "5",
+          "explanation": "[3,2,2,2,3] is harmonious."
+        },
+        {
+          "input": "nums = [1,2,3,4]",
+          "output": "2",
+          "explanation": "Any adjacent pair gives length 2."
+        },
+        {
+          "input": "nums = [1,1,1,1]",
+          "output": "0",
+          "explanation": "Difference is never exactly 1."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(n).",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int findLHS(int[] nums) {\n    Map<Integer, Integer> freq = new HashMap<>();\n    for (int n : nums) freq.put(n, freq.getOrDefault(n, 0) + 1);\n    int best = 0;\n    for (int n : freq.keySet()) if (freq.containsKey(n + 1)) best = Math.max(best, freq.get(n) + freq.get(n + 1));\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 594 - Longest Harmonious Subsequence",
+        "url": "https://leetcode.com/problems/longest-harmonious-subsequence/"
+      }
+    },
+    {
+      "name": "Subarrays Divisible by K",
+      "question": "Given an integer array nums and an integer k, return the number of non-empty contiguous subarrays whose sum is divisible by k.",
+      "constraints": "1 <= nums.length <= 3 * 10^4; -10^4 <= nums[i] <= 10^4; 2 <= k <= 10^4.",
+      "examples": [
+        {
+          "input": "nums = [4,5,0,-2,-3,1], k = 5",
+          "output": "7",
+          "explanation": "There are 7 valid subarrays."
+        },
+        {
+          "input": "nums = [5], k = 9",
+          "output": "0",
+          "explanation": "5 is not divisible by 9."
+        },
+        {
+          "input": "nums = [-1,2,9], k = 2",
+          "output": "2",
+          "explanation": "Normalized remainders handle negative prefixes."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(k).",
+      "optimizedCode": "class Solution {\n  public int subarraysDivByK(int[] nums, int k) {\n    int[] freq = new int[k];\n    freq[0] = 1;\n    int prefix = 0, count = 0;\n    for (int num : nums) {\n      prefix = ((prefix + num) % k + k) % k;\n      count += freq[prefix];\n      freq[prefix]++;\n    }\n    return count;\n  }\n}",
+      "source": {
+        "label": "LeetCode 974 - Subarray Sums Divisible by K",
+        "url": "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+      }
+    },
+    {
+      "name": "Insert Delete GetRandom O(1)",
+      "question": "Design a randomized set supporting insert, remove, and getRandom in average O(1) time.",
+      "constraints": "-2^31 <= val <= 2^31 - 1; at most 2 * 10^5 calls; getRandom called only when non-empty.",
+      "examples": [
+        {
+          "input": "insert(1), remove(2), insert(2), getRandom(), remove(1), insert(2)",
+          "output": "true, false, true, 1 or 2, true, false",
+          "explanation": "Operations maintain the set while getRandom returns an existing value."
+        },
+        {
+          "input": "insert(1), insert(1)",
+          "output": "true, false",
+          "explanation": "Duplicate insert returns false."
+        },
+        {
+          "input": "insert(5), remove(5)",
+          "output": "true, true",
+          "explanation": "A single existing value can be removed."
+        }
+      ],
+      "optimizedComplexity": "Average O(1) for insert, remove, getRandom; Space O(n).",
+      "optimizedCode": "import java.util.*;\n\nclass RandomizedSet {\n  private final Map<Integer, Integer> index = new HashMap<>();\n  private final List<Integer> values = new ArrayList<>();\n  private final Random random = new Random();\n  public boolean insert(int val) {\n    if (index.containsKey(val)) return false;\n    index.put(val, values.size()); values.add(val); return true;\n  }\n  public boolean remove(int val) {\n    Integer i = index.get(val); if (i == null) return false;\n    int last = values.get(values.size() - 1);\n    values.set(i, last); index.put(last, i);\n    values.remove(values.size() - 1); index.remove(val); return true;\n  }\n  public int getRandom() { return values.get(random.nextInt(values.size())); }\n}",
+      "source": {
+        "label": "LeetCode 380 - Insert Delete GetRandom O(1)",
+        "url": "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+      }
+    }
+  ]
+}

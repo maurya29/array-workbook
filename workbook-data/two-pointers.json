@@ -1,0 +1,568 @@
+{
+  "id": "two-pointers",
+  "name": "Two Pointers",
+  "sourceUrl": "https://maurya29.github.io/DSA-Pattern-Workbook/pages/two-pointers.html",
+  "retrievedOn": "2026-09-30",
+  "problems": [
+    {
+      "name": "Two Sum II - Input Array Is Sorted",
+      "question": "Return 1-indexed positions of two numbers in a sorted array that sum to target.",
+      "constraints": "2 <= numbers.length <= 3 * 10^4; numbers is sorted nondecreasing; exactly one solution exists.",
+      "examples": [
+        {
+          "input": "numbers = [2,7,11,15], target = 9",
+          "output": "[1,2]",
+          "explanation": "2 + 7 = 9; return 1-indexed positions."
+        },
+        {
+          "input": "numbers = [2,3,4], target = 6",
+          "output": "[1,3]",
+          "explanation": "2 + 4 = 6."
+        },
+        {
+          "input": "numbers = [-1,0], target = -1",
+          "output": "[1,2]",
+          "explanation": "-1 + 0 = -1."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int[] twoSum(int[] numbers, int target) {\n    int left = 0, right = numbers.length - 1;\n    while (left < right) {\n      int sum = numbers[left] + numbers[right];\n      if (sum == target) return new int[] {left + 1, right + 1};\n      if (sum < target) left++;\n      else right--;\n    }\n    return new int[] {-1, -1};\n  }\n}",
+      "source": {
+        "label": "LeetCode 167 - Two Sum II - Input Array Is Sorted",
+        "url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+      }
+    },
+    {
+      "name": "Valid Palindrome",
+      "question": "Check whether a string is a palindrome after ignoring non-alphanumeric characters and case.",
+      "constraints": "1 <= s.length <= 2 * 10^5; s consists of printable ASCII characters.",
+      "examples": [
+        {
+          "input": "s = \"A man, a plan, a canal: Panama\"",
+          "output": "true",
+          "explanation": "After cleanup it reads the same forward and backward."
+        },
+        {
+          "input": "s = \"race a car\"",
+          "output": "false",
+          "explanation": "The cleaned string is not a palindrome."
+        },
+        {
+          "input": "s = \" \"",
+          "output": "true",
+          "explanation": "No alphanumeric characters means an empty palindrome."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public boolean isPalindrome(String s) {\n    int left = 0, right = s.length() - 1;\n    while (left < right) {\n      while (left < right && !Character.isLetterOrDigit(s.charAt(left))) left++;\n      while (left < right && !Character.isLetterOrDigit(s.charAt(right))) right--;\n      if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) return false;\n      left++;\n      right--;\n    }\n    return true;\n  }\n\n  public boolean isPalindromeRecursive(String s) {\n    return check(s, 0, s.length() - 1);\n  }\n\n  private boolean check(String s, int left, int right) {\n    if (left >= right) return true;\n    if (!Character.isLetterOrDigit(s.charAt(left))) return check(s, left + 1, right);\n    if (!Character.isLetterOrDigit(s.charAt(right))) return check(s, left, right - 1);\n    return Character.toLowerCase(s.charAt(left)) == Character.toLowerCase(s.charAt(right))\n        && check(s, left + 1, right - 1);\n  }\n}",
+      "source": {
+        "label": "LeetCode 125 - Valid Palindrome",
+        "url": "https://leetcode.com/problems/valid-palindrome/"
+      }
+    },
+    {
+      "name": "Remove Duplicates from Sorted Array",
+      "question": "Remove duplicates in-place and return the count of unique values.",
+      "constraints": "1 <= nums.length <= 3 * 10^4; nums is sorted nondecreasing.",
+      "examples": [
+        {
+          "input": "nums = [1,1,2]",
+          "output": "2, nums = [1,2,_]",
+          "explanation": "First two values are unique."
+        },
+        {
+          "input": "nums = [0,0,1,1,1,2,2,3,3,4]",
+          "output": "5, nums = [0,1,2,3,4,_,_,_,_,_]",
+          "explanation": "There are five unique values."
+        },
+        {
+          "input": "nums = [1]",
+          "output": "1, nums = [1]",
+          "explanation": "Single value stays."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int removeDuplicates(int[] nums) {\n    if (nums.length == 0) return 0;\n    int write = 1;\n    for (int read = 1; read < nums.length; read++) {\n      if (nums[read] != nums[write - 1]) nums[write++] = nums[read];\n    }\n    return write;\n  }\n}",
+      "source": {
+        "label": "LeetCode 26 - Remove Duplicates from Sorted Array",
+        "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+      }
+    },
+    {
+      "name": "Remove Element",
+      "question": "Remove all occurrences of val in-place and return the new length.",
+      "constraints": "0 <= nums.length <= 100; order of remaining elements may change or stay.",
+      "examples": [
+        {
+          "input": "nums = [3,2,2,3], val = 3",
+          "output": "2, nums = [2,2,_,_]",
+          "explanation": "All 3s are removed."
+        },
+        {
+          "input": "nums = [0,1,2,2,3,0,4,2], val = 2",
+          "output": "5",
+          "explanation": "Values not equal to 2 remain."
+        },
+        {
+          "input": "nums = [1], val = 1",
+          "output": "0",
+          "explanation": "The only value is removed."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int removeElement(int[] nums, int val) {\n    int write = 0;\n    for (int read = 0; read < nums.length; read++) {\n      if (nums[read] != val) nums[write++] = nums[read];\n    }\n    return write;\n  }\n}",
+      "source": {
+        "label": "LeetCode 27 - Remove Element",
+        "url": "https://leetcode.com/problems/remove-element/"
+      }
+    },
+    {
+      "name": "Move Zeroes",
+      "question": "Move all zeroes to the end while preserving non-zero order.",
+      "constraints": "1 <= nums.length <= 10^4; modify nums in-place.",
+      "examples": [
+        {
+          "input": "nums = [0,1,0,3,12]",
+          "output": "[1,3,12,0,0]",
+          "explanation": "Non-zero order is preserved."
+        },
+        {
+          "input": "nums = [0]",
+          "output": "[0]",
+          "explanation": "Single zero stays."
+        },
+        {
+          "input": "nums = [1,2,3]",
+          "output": "[1,2,3]",
+          "explanation": "No zeroes to move."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public void moveZeroes(int[] nums) {\n    int write = 0;\n    for (int read = 0; read < nums.length; read++) {\n      if (nums[read] != 0) nums[write++] = nums[read];\n    }\n    while (write < nums.length) nums[write++] = 0;\n  }\n}",
+      "source": {
+        "label": "LeetCode 283 - Move Zeroes",
+        "url": "https://leetcode.com/problems/move-zeroes/"
+      }
+    },
+    {
+      "name": "Squares of a Sorted Array",
+      "question": "Return squares of a sorted array in nondecreasing order.",
+      "constraints": "1 <= nums.length <= 10^4; nums sorted nondecreasing.",
+      "examples": [
+        {
+          "input": "nums = [-4,-1,0,3,10]",
+          "output": "[0,1,9,16,100]",
+          "explanation": "Squares sorted."
+        },
+        {
+          "input": "nums = [-7,-3,2,3,11]",
+          "output": "[4,9,9,49,121]",
+          "explanation": "Largest squares come from ends."
+        },
+        {
+          "input": "nums = [0]",
+          "output": "[0]",
+          "explanation": "Single value."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(n).",
+      "optimizedCode": "class Solution {\n  public int[] sortedSquares(int[] nums) {\n    int n = nums.length, left = 0, right = n - 1, write = n - 1;\n    int[] ans = new int[n];\n    while (left <= right) {\n      int a = nums[left] * nums[left];\n      int b = nums[right] * nums[right];\n      if (a > b) {\n        ans[write--] = a;\n        left++;\n      } else {\n        ans[write--] = b;\n        right--;\n      }\n    }\n    return ans;\n  }\n}",
+      "source": {
+        "label": "LeetCode 977 - Squares of a Sorted Array",
+        "url": "https://leetcode.com/problems/squares-of-a-sorted-array/"
+      }
+    },
+    {
+      "name": "Reverse String",
+      "question": "Reverse a character array in-place.",
+      "constraints": "1 <= s.length <= 10^5; modify in-place with O(1) extra memory.",
+      "examples": [
+        {
+          "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]",
+          "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]",
+          "explanation": "Reverse in-place."
+        },
+        {
+          "input": "s = [\"H\",\"a\",\"n\",\"n\",\"a\",\"h\"]",
+          "output": "[\"h\",\"a\",\"n\",\"n\",\"a\",\"H\"]",
+          "explanation": "All chars swapped symmetrically."
+        },
+        {
+          "input": "s = [\"a\"]",
+          "output": "[\"a\"]",
+          "explanation": "Single char unchanged."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public void reverseString(char[] s) {\n    int left = 0, right = s.length - 1;\n    while (left < right) {\n      char temp = s[left];\n      s[left++] = s[right];\n      s[right--] = temp;\n    }\n  }\n\n  public void reverseStringRecursive(char[] s) {\n    reverse(s, 0, s.length - 1);\n  }\n\n  private void reverse(char[] s, int left, int right) {\n    if (left >= right) return;\n    char temp = s[left];\n    s[left] = s[right];\n    s[right] = temp;\n    reverse(s, left + 1, right - 1);\n  }\n}",
+      "source": {
+        "label": "LeetCode 344 - Reverse String",
+        "url": "https://leetcode.com/problems/reverse-string/"
+      }
+    },
+    {
+      "name": "Merge Sorted Array",
+      "question": "Merge nums2 into nums1 in nondecreasing order.",
+      "constraints": "nums1.length == m + n; nums1 and nums2 sorted nondecreasing.",
+      "examples": [
+        {
+          "input": "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
+          "output": "[1,2,2,3,5,6]",
+          "explanation": "Merged sorted order."
+        },
+        {
+          "input": "nums1 = [1], m = 1, nums2 = [], n = 0",
+          "output": "[1]",
+          "explanation": "nums2 empty."
+        },
+        {
+          "input": "nums1 = [0], m = 0, nums2 = [1], n = 1",
+          "output": "[1]",
+          "explanation": "nums1 has only buffer."
+        }
+      ],
+      "optimizedComplexity": "Time O(m+n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public void merge(int[] nums1, int m, int[] nums2, int n) {\n    int i = m - 1, j = n - 1, write = m + n - 1;\n    while (j >= 0) {\n      if (i >= 0 && nums1[i] > nums2[j]) nums1[write--] = nums1[i--];\n      else nums1[write--] = nums2[j--];\n    }\n  }\n}",
+      "source": {
+        "label": "LeetCode 88 - Merge Sorted Array",
+        "url": "https://leetcode.com/problems/merge-sorted-array/"
+      }
+    },
+    {
+      "name": "Linked List Cycle",
+      "question": "Return true if a linked list contains a cycle.",
+      "constraints": "0 <= number of nodes <= 10^4.",
+      "examples": [
+        {
+          "input": "head = [3,2,0,-4], pos = 1",
+          "output": "true",
+          "explanation": "Tail connects to index 1."
+        },
+        {
+          "input": "head = [1,2], pos = 0",
+          "output": "true",
+          "explanation": "Tail connects to head."
+        },
+        {
+          "input": "head = [1], pos = -1",
+          "output": "false",
+          "explanation": "No cycle."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public boolean hasCycle(ListNode head) {\n    ListNode slow = head, fast = head;\n    while (fast != null && fast.next != null) {\n      slow = slow.next;\n      fast = fast.next.next;\n      if (slow == fast) return true;\n    }\n    return false;\n  }\n}",
+      "source": {
+        "label": "LeetCode 141 - Linked List Cycle",
+        "url": "https://leetcode.com/problems/linked-list-cycle/"
+      }
+    },
+    {
+      "name": "Middle of the Linked List",
+      "question": "Return the middle node of a linked list; for even length, return the second middle.",
+      "constraints": "1 <= number of nodes <= 100.",
+      "examples": [
+        {
+          "input": "head = [1,2,3,4,5]",
+          "output": "[3,4,5]",
+          "explanation": "Middle is node 3."
+        },
+        {
+          "input": "head = [1,2,3,4,5,6]",
+          "output": "[4,5,6]",
+          "explanation": "Second middle is returned."
+        },
+        {
+          "input": "head = [1]",
+          "output": "[1]",
+          "explanation": "Only node is middle."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public ListNode middleNode(ListNode head) {\n    ListNode slow = head, fast = head;\n    while (fast != null && fast.next != null) {\n      slow = slow.next;\n      fast = fast.next.next;\n    }\n    return slow;\n  }\n}",
+      "source": {
+        "label": "LeetCode 876 - Middle of the Linked List",
+        "url": "https://leetcode.com/problems/middle-of-the-linked-list/"
+      }
+    },
+    {
+      "name": "Container With Most Water",
+      "question": "Find the maximum water area formed by two vertical lines.",
+      "constraints": "2 <= height.length <= 10^5; 0 <= height[i] <= 10^4.",
+      "examples": [
+        {
+          "input": "height = [1,8,6,2,5,4,8,3,7]",
+          "output": "49",
+          "explanation": "Lines at 1 and 8 form area 49."
+        },
+        {
+          "input": "height = [1,1]",
+          "output": "1",
+          "explanation": "Only one container."
+        },
+        {
+          "input": "height = [4,3,2,1,4]",
+          "output": "16",
+          "explanation": "Ends form best area."
+        }
+      ],
+      "optimizedComplexity": "Time O(n), Space O(1).",
+      "optimizedCode": "class Solution {\n  public int maxArea(int[] height) {\n    int left = 0, right = height.length - 1, best = 0;\n    while (left < right) {\n      int area = Math.min(height[left], height[right]) * (right - left);\n      best = Math.max(best, area);\n      if (height[left] < height[right]) left++;\n      else right--;\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 11 - Container With Most Water",
+        "url": "https://leetcode.com/problems/container-with-most-water/"
+      }
+    },
+    {
+      "name": "3Sum",
+      "question": "Return all unique triplets that sum to zero.",
+      "constraints": "3 <= nums.length <= 3000; -10^5 <= nums[i] <= 10^5.",
+      "examples": [
+        {
+          "input": "nums = [-1,0,1,2,-1,-4]",
+          "output": "[[-1,-1,2],[-1,0,1]]",
+          "explanation": "Unique triplets sum to zero."
+        },
+        {
+          "input": "nums = [0,1,1]",
+          "output": "[]",
+          "explanation": "No triplet sums to zero."
+        },
+        {
+          "input": "nums = [0,0,0]",
+          "output": "[[0,0,0]]",
+          "explanation": "One unique triplet."
+        }
+      ],
+      "optimizedComplexity": "Time O(n^2), Space O(output).",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> threeSum(int[] nums) {\n    Arrays.sort(nums);\n    List<List<Integer>> ans = new ArrayList<>();\n    for (int i = 0; i < nums.length - 2; i++) {\n      if (i > 0 && nums[i] == nums[i - 1]) continue;\n      int left = i + 1, right = nums.length - 1;\n      while (left < right) {\n        int sum = nums[i] + nums[left] + nums[right];\n        if (sum == 0) {\n          ans.add(Arrays.asList(nums[i], nums[left], nums[right]));\n          left++;\n          right--;\n          while (left < right && nums[left] == nums[left - 1]) left++;\n          while (left < right && nums[right] == nums[right + 1]) right--;\n        } else if (sum < 0) left++;\n        else right--;\n      }\n    }\n    return ans;\n  }\n}",
+      "source": {
+        "label": "LeetCode 15 - 3Sum",
+        "url": "https://leetcode.com/problems/3sum/"
+      }
+    },
+    {
+      "name": "3Sum Closest",
+      "question": "Find the triplet sum closest to target.",
+      "constraints": "3 <= nums.length <= 500; -1000 <= nums[i] <= 1000; -10^4 <= target <= 10^4.",
+      "examples": [
+        {
+          "input": "nums = [-1,2,1,-4], target = 1",
+          "output": "2",
+          "explanation": "The closest triplet sum is -1 + 2 + 1 = 2."
+        },
+        {
+          "input": "nums = [0,0,0], target = 1",
+          "output": "0",
+          "explanation": "Only possible triplet sum is 0."
+        },
+        {
+          "input": "nums = [1,1,1,0], target = -100",
+          "output": "2",
+          "explanation": "Closest sum is 0 + 1 + 1 = 2."
+        }
+      ],
+      "optimizedComplexity": "Time depends on the optimized pattern approach, usually O(n) or O(n log n); Space depends on maintained state.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int threeSumClosest(int[] nums, int target) {\n    Arrays.sort(nums);\n    int best = nums[0] + nums[1] + nums[2];\n    for (int i = 0; i < nums.length - 2; i++) {\n      int left = i + 1, right = nums.length - 1;\n      while (left < right) {\n        int sum = nums[i] + nums[left] + nums[right];\n        if (Math.abs(target - sum) < Math.abs(target - best)) best = sum;\n        if (sum < target) left++;\n        else if (sum > target) right--;\n        else return target;\n      }\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "LeetCode 16 - 3Sum Closest",
+        "url": "https://leetcode.com/problems/3sum-closest/"
+      }
+    },
+    {
+      "name": "4Sum",
+      "question": "Return all unique quadruplets that sum to target.",
+      "constraints": "1 <= nums.length <= 200; -10^9 <= nums[i], target <= 10^9.",
+      "examples": [
+        {
+          "input": "nums = [1,0,-1,0,-2,2], target = 0",
+          "output": "[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]",
+          "explanation": "Unique quadruplets sum to target."
+        },
+        {
+          "input": "nums = [2,2,2,2,2], target = 8",
+          "output": "[[2,2,2,2]]",
+          "explanation": "Duplicate quadruplets collapse into one."
+        },
+        {
+          "input": "nums = [1,2,3], target = 6",
+          "output": "[]",
+          "explanation": "Fewer than four elements cannot form a quadruplet."
+        }
+      ],
+      "optimizedComplexity": "Time depends on the optimized pattern approach, usually O(n) or O(n log n); Space depends on maintained state.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> fourSum(int[] nums, int target) {\n    Arrays.sort(nums);\n    List<List<Integer>> ans = new ArrayList<>();\n    int n = nums.length;\n    for (int i = 0; i < n - 3; i++) {\n      if (i > 0 && nums[i] == nums[i - 1]) continue;\n      for (int j = i + 1; j < n - 2; j++) {\n        if (j > i + 1 && nums[j] == nums[j - 1]) continue;\n        int left = j + 1, right = n - 1;\n        while (left < right) {\n          long sum = (long) nums[i] + nums[j] + nums[left] + nums[right];\n          if (sum == target) {\n            ans.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));\n            left++;\n            right--;\n            while (left < right && nums[left] == nums[left - 1]) left++;\n            while (left < right && nums[right] == nums[right + 1]) right--;\n          } else if (sum < target) left++;\n          else right--;\n        }\n      }\n    }\n    return ans;\n  }\n}",
+      "source": {
+        "label": "LeetCode 18 - 4Sum",
+        "url": "https://leetcode.com/problems/4sum/"
+      }
+    },
+    {
+      "name": "Sort Colors",
+      "question": "Sort an array containing only 0, 1, and 2 in-place.",
+      "constraints": "1 <= nums.length <= 300; nums[i] is 0, 1, or 2.",
+      "examples": [
+        {
+          "input": "nums = [2,0,2,1,1,0]",
+          "output": "[0,0,1,1,2,2]",
+          "explanation": "Sort 0s, 1s, and 2s in-place."
+        },
+        {
+          "input": "nums = [2,0,1]",
+          "output": "[0,1,2]",
+          "explanation": "All colors ordered."
+        },
+        {
+          "input": "nums = [0]",
+          "output": "[0]",
+          "explanation": "Single value remains."
+        }
+      ],
+      "optimizedComplexity": "Time depends on the optimized pattern approach, usually O(n) or O(n log n); Space depends on maintained state.",
+      "optimizedCode": "class Solution {\n  public void sortColors(int[] nums) {\n    int low = 0, mid = 0, high = nums.length - 1;\n    while (mid <= high) {\n      if (nums[mid] == 0) swap(nums, low++, mid++);\n      else if (nums[mid] == 1) mid++;\n      else swap(nums, mid, high--);\n    }\n  }\n\n  private void swap(int[] nums, int i, int j) {\n    int temp = nums[i];\n    nums[i] = nums[j];\n    nums[j] = temp;\n  }\n}",
+      "source": {
+        "label": "LeetCode 75 - Sort Colors",
+        "url": "https://leetcode.com/problems/sort-colors/"
+      }
+    },
+    {
+      "name": "Trapping Rain Water",
+      "question": "Compute how much rain water can be trapped between bars.",
+      "constraints": "1 <= height.length <= 2 * 10^4; 0 <= height[i] <= 10^5.",
+      "examples": [
+        {
+          "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]",
+          "output": "6",
+          "explanation": "Water is trapped between higher boundaries."
+        },
+        {
+          "input": "height = [4,2,0,3,2,5]",
+          "output": "9",
+          "explanation": "Multiple basins trap 9 units."
+        },
+        {
+          "input": "height = [1,2,3]",
+          "output": "0",
+          "explanation": "Monotonic bars trap no water."
+        }
+      ],
+      "optimizedComplexity": "Time depends on the optimized pattern approach, usually O(n) or O(n log n); Space depends on maintained state.",
+      "optimizedCode": "class Solution {\n  public int trap(int[] height) {\n    int left = 0, right = height.length - 1;\n    int leftMax = 0, rightMax = 0, water = 0;\n    while (left < right) {\n      if (height[left] < height[right]) {\n        leftMax = Math.max(leftMax, height[left]);\n        water += leftMax - height[left++];\n      } else {\n        rightMax = Math.max(rightMax, height[right]);\n        water += rightMax - height[right--];\n      }\n    }\n    return water;\n  }\n}",
+      "source": {
+        "label": "LeetCode 42 - Trapping Rain Water",
+        "url": "https://leetcode.com/problems/trapping-rain-water/"
+      }
+    },
+    {
+      "name": "Linked List Cycle II",
+      "question": "Return the node where a linked list cycle begins.",
+      "constraints": "0 <= number of nodes <= 10^4; pos may be -1 for no cycle.",
+      "examples": [
+        {
+          "input": "head = [3,2,0,-4], pos = 1",
+          "output": "node with value 2",
+          "explanation": "Cycle starts at index 1."
+        },
+        {
+          "input": "head = [1,2], pos = 0",
+          "output": "node with value 1",
+          "explanation": "Cycle starts at head."
+        },
+        {
+          "input": "head = [1], pos = -1",
+          "output": "null",
+          "explanation": "No cycle exists."
+        }
+      ],
+      "optimizedComplexity": "Time depends on the optimized pattern approach, usually O(n) or O(n log n); Space depends on maintained state.",
+      "optimizedCode": "class Solution {\n  public ListNode detectCycle(ListNode head) {\n    ListNode slow = head, fast = head;\n    while (fast != null && fast.next != null) {\n      slow = slow.next;\n      fast = fast.next.next;\n      if (slow == fast) {\n        ListNode entry = head;\n        while (entry != slow) {\n          entry = entry.next;\n          slow = slow.next;\n        }\n        return entry;\n      }\n    }\n    return null;\n  }\n}",
+      "source": {
+        "label": "LeetCode 142 - Linked List Cycle II",
+        "url": "https://leetcode.com/problems/linked-list-cycle-ii/"
+      }
+    },
+    {
+      "name": "Remove Nth Node From End of List",
+      "question": "Remove the nth node from the end of a linked list.",
+      "constraints": "1 <= list length <= 30; 1 <= n <= list length.",
+      "examples": [
+        {
+          "input": "head = [1,2,3,4,5], n = 2",
+          "output": "[1,2,3,5]",
+          "explanation": "Remove 4."
+        },
+        {
+          "input": "head = [1], n = 1",
+          "output": "[]",
+          "explanation": "Remove the only node."
+        },
+        {
+          "input": "head = [1,2], n = 1",
+          "output": "[1]",
+          "explanation": "Remove tail."
+        }
+      ],
+      "optimizedComplexity": "Time depends on the optimized pattern approach, usually O(n) or O(n log n); Space depends on maintained state.",
+      "optimizedCode": "class Solution {\n  public ListNode removeNthFromEnd(ListNode head, int n) {\n    ListNode dummy = new ListNode(0, head);\n    ListNode slow = dummy, fast = dummy;\n    for (int i = 0; i < n; i++) fast = fast.next;\n    while (fast.next != null) {\n      slow = slow.next;\n      fast = fast.next;\n    }\n    slow.next = slow.next.next;\n    return dummy.next;\n  }\n}",
+      "source": {
+        "label": "LeetCode 19 - Remove Nth Node From End of List",
+        "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+      }
+    },
+    {
+      "name": "Partition List",
+      "question": "Partition a linked list so nodes less than x come before nodes greater than or equal to x.",
+      "constraints": "0 <= list length <= 200; -100 <= Node.val <= 100; -200 <= x <= 200.",
+      "examples": [
+        {
+          "input": "head = [1,4,3,2,5,2], x = 3",
+          "output": "[1,2,2,4,3,5]",
+          "explanation": "Nodes less than 3 come first preserving order."
+        },
+        {
+          "input": "head = [2,1], x = 2",
+          "output": "[1,2]",
+          "explanation": "1 moves before 2."
+        },
+        {
+          "input": "head = [], x = 1",
+          "output": "[]",
+          "explanation": "Empty list remains empty."
+        }
+      ],
+      "optimizedComplexity": "Time depends on the optimized pattern approach, usually O(n) or O(n log n); Space depends on maintained state.",
+      "optimizedCode": "class Solution {\n  public ListNode partition(ListNode head, int x) {\n    ListNode smallDummy = new ListNode(0), largeDummy = new ListNode(0);\n    ListNode small = smallDummy, large = largeDummy;\n    while (head != null) {\n      if (head.val < x) {\n        small.next = head;\n        small = small.next;\n      } else {\n        large.next = head;\n        large = large.next;\n      }\n      head = head.next;\n    }\n    large.next = null;\n    small.next = largeDummy.next;\n    return smallDummy.next;\n  }\n}",
+      "source": {
+        "label": "LeetCode 86 - Partition List",
+        "url": "https://leetcode.com/problems/partition-list/"
+      }
+    },
+    {
+      "name": "Boats to Save People",
+      "question": "Return the minimum boats needed when each boat carries at most two people under a weight limit.",
+      "constraints": "1 <= people.length <= 5 * 10^4; 1 <= people[i] <= limit <= 3 * 10^4.",
+      "examples": [
+        {
+          "input": "people = [1,2], limit = 3",
+          "output": "1",
+          "explanation": "Both fit in one boat."
+        },
+        {
+          "input": "people = [3,2,2,1], limit = 3",
+          "output": "3",
+          "explanation": "Pair 1+2, remaining 2 and 3 alone."
+        },
+        {
+          "input": "people = [3,5,3,4], limit = 5",
+          "output": "4",
+          "explanation": "No useful pair with 5 or 4."
+        }
+      ],
+      "optimizedComplexity": "Time depends on the optimized pattern approach, usually O(n) or O(n log n); Space depends on maintained state.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int numRescueBoats(int[] people, int limit) {\n    Arrays.sort(people);\n    int left = 0, right = people.length - 1, boats = 0;\n    while (left <= right) {\n      if (people[left] + people[right] <= limit) left++;\n      right--;\n      boats++;\n    }\n    return boats;\n  }\n}",
+      "source": {
+        "label": "LeetCode 881 - Boats to Save People",
+        "url": "https://leetcode.com/problems/boats-to-save-people/"
+      }
+    }
+  ]
+}

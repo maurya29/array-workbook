@@ -1,0 +1,568 @@
+{
+  "id": "sorting",
+  "name": "Sorting",
+  "sourceUrl": "https://maurya29.github.io/DSA-Pattern-Workbook/pages/sorting.html",
+  "retrievedOn": "2026-09-30",
+  "problems": [
+    {
+      "name": "Sort Colors",
+      "question": "Given an array nums containing only 0, 1, and 2, sort it in-place so equal colors are grouped in the order 0, 1, 2.",
+      "constraints": "1 <= nums.length <= 300; nums[i] is 0, 1, or 2; mutate nums in-place.",
+      "examples": [
+        {
+          "input": "nums = [2,0,2,1,1,0]",
+          "output": "[0,0,1,1,2,2]",
+          "explanation": "All 0s move left and all 2s move right."
+        },
+        {
+          "input": "nums = [2,0,1]",
+          "output": "[0,1,2]",
+          "explanation": "One pass partitions three values."
+        },
+        {
+          "input": "nums = [1,1,1]",
+          "output": "[1,1,1]",
+          "explanation": "Middle values stay in the unknown scan zone until consumed."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Dutch national flag partition scans each index at most once.",
+      "optimizedCode": "class Solution {\n  public void sortColors(int[] nums) {\n    int low = 0;\n    int mid = 0;\n    int high = nums.length - 1;\n    while (mid <= high) {\n      if (nums[mid] == 0) swap(nums, low++, mid++);\n      else if (nums[mid] == 2) swap(nums, mid, high--);\n      else mid++;\n    }\n  }\n\n  private void swap(int[] nums, int i, int j) {\n    int temp = nums[i];\n    nums[i] = nums[j];\n    nums[j] = temp;\n  }\n}",
+      "source": {
+        "label": "Sort Colors - LeetCode 75",
+        "url": "https://leetcode.com/problems/sort-colors/"
+      }
+    },
+    {
+      "name": "Merge Sorted Array",
+      "question": "Given sorted arrays nums1 and nums2 where nums1 has enough trailing space, merge nums2 into nums1 as one sorted array.",
+      "constraints": "nums1.length == m + n; nums2.length == n; 0 <= m,n <= 200; mutate nums1.",
+      "examples": [
+        {
+          "input": "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
+          "output": "[1,2,2,3,5,6]",
+          "explanation": "The arrays merge into one sorted sequence."
+        },
+        {
+          "input": "nums1 = [1], m = 1, nums2 = [], n = 0",
+          "output": "[1]",
+          "explanation": "No second array values need to be copied."
+        },
+        {
+          "input": "nums1 = [0], m = 0, nums2 = [1], n = 1",
+          "output": "[1]",
+          "explanation": "The destination initially contains only buffer space."
+        }
+      ],
+      "optimizedComplexity": "Time O(m+n); Space O(1). Merge from the back using three pointers.",
+      "optimizedCode": "class Solution {\n  public void merge(int[] nums1, int m, int[] nums2, int n) {\n    int i = m - 1;\n    int j = n - 1;\n    int write = m + n - 1;\n    while (j >= 0) {\n      if (i >= 0 && nums1[i] > nums2[j]) nums1[write--] = nums1[i--];\n      else nums1[write--] = nums2[j--];\n    }\n  }\n}",
+      "source": {
+        "label": "Merge Sorted Array - LeetCode 88",
+        "url": "https://leetcode.com/problems/merge-sorted-array/"
+      }
+    },
+    {
+      "name": "Kth Largest Element in an Array",
+      "question": "Given an integer array nums and an integer k, return the kth largest element in the array.",
+      "constraints": "1 <= k <= nums.length <= 100000; -10000 <= nums[i] <= 10000.",
+      "examples": [
+        {
+          "input": "nums = [3,2,1,5,6,4], k = 2",
+          "output": "5",
+          "explanation": "The sorted order is [1,2,3,4,5,6]."
+        },
+        {
+          "input": "nums = [3,2,3,1,2,4,5,5,6], k = 4",
+          "output": "4",
+          "explanation": "Duplicates count as separate elements."
+        },
+        {
+          "input": "nums = [1], k = 1",
+          "output": "1",
+          "explanation": "The only element is the first largest."
+        }
+      ],
+      "optimizedComplexity": "Average Time O(n), worst O(n^2); Space O(1). Iterative quickselect partitions in-place.",
+      "optimizedCode": "class Solution {\n  public int findKthLargest(int[] nums, int k) {\n    int target = nums.length - k;\n    int left = 0;\n    int right = nums.length - 1;\n    while (left <= right) {\n      int pivot = partition(nums, left, right);\n      if (pivot == target) return nums[pivot];\n      if (pivot < target) left = pivot + 1;\n      else right = pivot - 1;\n    }\n    return -1;\n  }\n\n  private int partition(int[] nums, int left, int right) {\n    int pivotValue = nums[right];\n    int store = left;\n    for (int i = left; i < right; i++) {\n      if (nums[i] <= pivotValue) swap(nums, store++, i);\n    }\n    swap(nums, store, right);\n    return store;\n  }\n\n  private void swap(int[] nums, int i, int j) {\n    int temp = nums[i];\n    nums[i] = nums[j];\n    nums[j] = temp;\n  }\n}",
+      "source": {
+        "label": "Kth Largest Element in an Array - LeetCode 215",
+        "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+      }
+    },
+    {
+      "name": "Top K Frequent Elements",
+      "question": "Given an integer array nums and integer k, return any order of the k most frequent elements.",
+      "constraints": "1 <= nums.length <= 100000; k is in range [1, number of unique values].",
+      "examples": [
+        {
+          "input": "nums = [1,1,1,2,2,3], k = 2",
+          "output": "[1,2]",
+          "explanation": "1 appears three times and 2 appears twice."
+        },
+        {
+          "input": "nums = [1], k = 1",
+          "output": "[1]",
+          "explanation": "Only one unique value exists."
+        },
+        {
+          "input": "nums = [4,4,6,6,7], k = 2",
+          "output": "any two of [4,6]",
+          "explanation": "4 and 6 tie for highest frequency."
+        }
+      ],
+      "optimizedComplexity": "Time O(n + u); Space O(n + u). Frequency buckets avoid sorting unique values.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int[] topKFrequent(int[] nums, int k) {\n    Map<Integer, Integer> frequency = new HashMap<>();\n    for (int value : nums) frequency.put(value, frequency.getOrDefault(value, 0) + 1);\n    List<Integer>[] buckets = new ArrayList[nums.length + 1];\n    for (Map.Entry<Integer, Integer> entry : frequency.entrySet()) {\n      int count = entry.getValue();\n      if (buckets[count] == null) buckets[count] = new ArrayList<>();\n      buckets[count].add(entry.getKey());\n    }\n    int[] answer = new int[k];\n    int index = 0;\n    for (int count = buckets.length - 1; count >= 0 && index < k; count--) {\n      if (buckets[count] == null) continue;\n      for (int value : buckets[count]) {\n        answer[index++] = value;\n        if (index == k) break;\n      }\n    }\n    return answer;\n  }\n}",
+      "source": {
+        "label": "Top K Frequent Elements - LeetCode 347",
+        "url": "https://leetcode.com/problems/top-k-frequent-elements/"
+      }
+    },
+    {
+      "name": "Largest Number",
+      "question": "Given a list of non-negative integers, arrange them so they form the largest possible number as a string.",
+      "constraints": "1 <= nums.length <= 100; 0 <= nums[i] <= 1000000000.",
+      "examples": [
+        {
+          "input": "nums = [10,2]",
+          "output": "\"210\"",
+          "explanation": "2 before 10 makes 210 larger than 102."
+        },
+        {
+          "input": "nums = [3,30,34,5,9]",
+          "output": "\"9534330\"",
+          "explanation": "Pairwise concatenation decides the custom order."
+        },
+        {
+          "input": "nums = [0,0]",
+          "output": "\"0\"",
+          "explanation": "Leading zeros collapse to one zero."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n * d); Space O(n*d). Sort string forms by a+b versus b+a.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public String largestNumber(int[] nums) {\n    String[] values = new String[nums.length];\n    for (int i = 0; i < nums.length; i++) values[i] = String.valueOf(nums[i]);\n    Arrays.sort(values, (a, b) -> (b + a).compareTo(a + b));\n    if (values[0].equals(\"0\")) return \"0\";\n    StringBuilder answer = new StringBuilder();\n    for (String value : values) answer.append(value);\n    return answer.toString();\n  }\n}",
+      "source": {
+        "label": "Largest Number - LeetCode 179",
+        "url": "https://leetcode.com/problems/largest-number/"
+      }
+    },
+    {
+      "name": "Meeting Rooms",
+      "question": "Given meeting time intervals, return true if one person can attend all meetings.",
+      "constraints": "0 <= intervals.length <= 10000; intervals[i] = [start,end] and start < end.",
+      "examples": [
+        {
+          "input": "intervals = [[0,30],[5,10],[15,20]]",
+          "output": "false",
+          "explanation": "The meeting starting at 5 overlaps [0,30]."
+        },
+        {
+          "input": "intervals = [[7,10],[2,4]]",
+          "output": "true",
+          "explanation": "After sorting, 4 <= 7 so there is no overlap."
+        },
+        {
+          "input": "intervals = [[1,2],[2,3]]",
+          "output": "true",
+          "explanation": "Touching endpoints do not overlap."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(log n). Sort by start and scan adjacent intervals.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public boolean canAttendMeetings(int[][] intervals) {\n    Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));\n    for (int i = 1; i < intervals.length; i++) {\n      if (intervals[i][0] < intervals[i - 1][1]) return false;\n    }\n    return true;\n  }\n}",
+      "source": {
+        "label": "Meeting Rooms - LeetCode 252",
+        "url": "https://leetcode.com/problems/meeting-rooms/"
+      }
+    },
+    {
+      "name": "Meeting Rooms II",
+      "question": "Given meeting time intervals, return the minimum number of conference rooms required.",
+      "constraints": "0 <= intervals.length <= 10000; intervals[i] = [start,end] and start < end.",
+      "examples": [
+        {
+          "input": "intervals = [[0,30],[5,10],[15,20]]",
+          "output": "2",
+          "explanation": "At most two meetings overlap."
+        },
+        {
+          "input": "intervals = [[7,10],[2,4]]",
+          "output": "1",
+          "explanation": "Meetings do not overlap."
+        },
+        {
+          "input": "intervals = [[1,5],[2,6],[3,7]]",
+          "output": "3",
+          "explanation": "All three overlap around time 3."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(n). Sort starts and ends, then sweep with two pointers.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int minMeetingRooms(int[][] intervals) {\n    int n = intervals.length;\n    int[] starts = new int[n];\n    int[] ends = new int[n];\n    for (int i = 0; i < n; i++) {\n      starts[i] = intervals[i][0];\n      ends[i] = intervals[i][1];\n    }\n    Arrays.sort(starts);\n    Arrays.sort(ends);\n    int rooms = 0;\n    int best = 0;\n    int end = 0;\n    for (int start = 0; start < n; start++) {\n      while (end < n && ends[end] <= starts[start]) {\n        rooms--;\n        end++;\n      }\n      rooms++;\n      best = Math.max(best, rooms);\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "Meeting Rooms II - LeetCode 253",
+        "url": "https://leetcode.com/problems/meeting-rooms-ii/"
+      }
+    },
+    {
+      "name": "Merge Intervals",
+      "question": "Given intervals, merge all overlapping intervals and return the non-overlapping result.",
+      "constraints": "1 <= intervals.length <= 10000; intervals[i].length == 2; 0 <= start <= end <= 10000.",
+      "examples": [
+        {
+          "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+          "output": "[[1,6],[8,10],[15,18]]",
+          "explanation": "[1,3] overlaps [2,6]."
+        },
+        {
+          "input": "intervals = [[1,4],[4,5]]",
+          "output": "[[1,5]]",
+          "explanation": "Touching intervals merge."
+        },
+        {
+          "input": "intervals = [[1,4],[0,0]]",
+          "output": "[[0,0],[1,4]]",
+          "explanation": "Sorting places disjoint intervals in output order."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(n). Sort by start and scan once.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int[][] merge(int[][] intervals) {\n    Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));\n    List<int[]> merged = new ArrayList<>();\n    for (int[] interval : intervals) {\n      if (merged.isEmpty() || merged.get(merged.size() - 1)[1] < interval[0]) {\n        merged.add(new int[]{interval[0], interval[1]});\n      } else {\n        int[] last = merged.get(merged.size() - 1);\n        last[1] = Math.max(last[1], interval[1]);\n      }\n    }\n    return merged.toArray(new int[merged.size()][]);\n  }\n}",
+      "source": {
+        "label": "Merge Intervals - LeetCode 56",
+        "url": "https://leetcode.com/problems/merge-intervals/"
+      }
+    },
+    {
+      "name": "Non-overlapping Intervals",
+      "question": "Given intervals, return the minimum number of intervals to remove so the rest are non-overlapping.",
+      "constraints": "1 <= intervals.length <= 100000; intervals[i].length == 2; start < end.",
+      "examples": [
+        {
+          "input": "intervals = [[1,2],[2,3],[3,4],[1,3]]",
+          "output": "1",
+          "explanation": "Remove [1,3]."
+        },
+        {
+          "input": "intervals = [[1,2],[1,2],[1,2]]",
+          "output": "2",
+          "explanation": "Only one duplicate interval can remain."
+        },
+        {
+          "input": "intervals = [[1,2],[2,3]]",
+          "output": "0",
+          "explanation": "Touching endpoints do not overlap."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(log n). Sort by end and greedily keep compatible intervals.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int eraseOverlapIntervals(int[][] intervals) {\n    Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));\n    int removals = 0;\n    int lastEnd = Integer.MIN_VALUE;\n    for (int[] interval : intervals) {\n      if (interval[0] >= lastEnd) lastEnd = interval[1];\n      else removals++;\n    }\n    return removals;\n  }\n}",
+      "source": {
+        "label": "Non-overlapping Intervals - LeetCode 435",
+        "url": "https://leetcode.com/problems/non-overlapping-intervals/"
+      }
+    },
+    {
+      "name": "H-Index",
+      "question": "Given citations where citations[i] is citations for a paper, return the researcher h-index.",
+      "constraints": "1 <= citations.length <= 5000; 0 <= citations[i] <= 1000.",
+      "examples": [
+        {
+          "input": "citations = [3,0,6,1,5]",
+          "output": "3",
+          "explanation": "Three papers have at least three citations."
+        },
+        {
+          "input": "citations = [1,3,1]",
+          "output": "1",
+          "explanation": "Only one paper has at least one citation after thresholding."
+        },
+        {
+          "input": "citations = [0,0]",
+          "output": "0",
+          "explanation": "No paper has at least one citation."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(n). Bucket citation counts capped at n.",
+      "optimizedCode": "class Solution {\n  public int hIndex(int[] citations) {\n    int n = citations.length;\n    int[] buckets = new int[n + 1];\n    for (int citation : citations) buckets[Math.min(citation, n)]++;\n    int papers = 0;\n    for (int h = n; h >= 0; h--) {\n      papers += buckets[h];\n      if (papers >= h) return h;\n    }\n    return 0;\n  }\n}",
+      "source": {
+        "label": "H-Index - LeetCode 274",
+        "url": "https://leetcode.com/problems/h-index/"
+      }
+    },
+    {
+      "name": "Wiggle Sort",
+      "question": "Given an unsorted array nums, reorder it in-place so nums[0] <= nums[1] >= nums[2] <= nums[3] and so on.",
+      "constraints": "1 <= nums.length <= 50000; values fit in 32-bit signed integer; any valid wiggle order is accepted.",
+      "examples": [
+        {
+          "input": "nums = [3,5,2,1,6,4]",
+          "output": "a valid wiggle order such as [3,5,1,6,2,4]",
+          "explanation": "Every odd index is at least its neighbors."
+        },
+        {
+          "input": "nums = [1,2,3,4]",
+          "output": "[1,3,2,4] or another valid order",
+          "explanation": "Only adjacent wiggle inequalities must hold."
+        },
+        {
+          "input": "nums = [2,2,2]",
+          "output": "[2,2,2]",
+          "explanation": "Equal values satisfy non-strict inequalities."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). One pass fixes each local violation by swapping adjacent values.",
+      "optimizedCode": "class Solution {\n  public void wiggleSort(int[] nums) {\n    for (int i = 1; i < nums.length; i++) {\n      boolean shouldRise = i % 2 == 1;\n      if (shouldRise && nums[i] < nums[i - 1]) swap(nums, i, i - 1);\n      if (!shouldRise && nums[i] > nums[i - 1]) swap(nums, i, i - 1);\n    }\n  }\n\n  private void swap(int[] nums, int i, int j) {\n    int temp = nums[i];\n    nums[i] = nums[j];\n    nums[j] = temp;\n  }\n}",
+      "source": {
+        "label": "Wiggle Sort - LeetCode 280",
+        "url": "https://leetcode.com/problems/wiggle-sort/"
+      }
+    },
+    {
+      "name": "Wiggle Sort II",
+      "question": "Given nums, reorder it in-place so nums[0] < nums[1] > nums[2] < nums[3] and so on.",
+      "constraints": "1 <= nums.length <= 50000; a valid answer is guaranteed for the input.",
+      "examples": [
+        {
+          "input": "nums = [1,5,1,1,6,4]",
+          "output": "a valid result such as [1,6,1,5,1,4]",
+          "explanation": "Odd indices are local peaks."
+        },
+        {
+          "input": "nums = [1,3,2,2,3,1]",
+          "output": "a valid result such as [2,3,1,3,1,2]",
+          "explanation": "Duplicates are separated around peaks."
+        },
+        {
+          "input": "nums = [1,1,2,2,3,3]",
+          "output": "any strict wiggle order",
+          "explanation": "The median split prevents equal neighbors where possible."
+        }
+      ],
+      "optimizedComplexity": "Average Time O(n), worst O(n^2); Space O(1). Quickselect median, then virtual-index 3-way partition.",
+      "optimizedCode": "class Solution {\n  public void wiggleSort(int[] nums) {\n    int median = select(nums.clone(), nums.length / 2);\n    int left = 0;\n    int index = 0;\n    int right = nums.length - 1;\n    while (index <= right) {\n      int mapped = map(index, nums.length);\n      if (nums[mapped] > median) {\n        swap(nums, map(left++, nums.length), mapped);\n        index++;\n      } else if (nums[mapped] < median) {\n        swap(nums, mapped, map(right--, nums.length));\n      } else {\n        index++;\n      }\n    }\n  }\n\n  private int select(int[] nums, int target) {\n    int left = 0, right = nums.length - 1;\n    while (left <= right) {\n      int pivot = partition(nums, left, right);\n      if (pivot == target) return nums[pivot];\n      if (pivot < target) left = pivot + 1;\n      else right = pivot - 1;\n    }\n    return nums[target];\n  }\n\n  private int partition(int[] nums, int left, int right) {\n    int pivot = nums[right];\n    int store = left;\n    for (int i = left; i < right; i++) if (nums[i] <= pivot) swap(nums, store++, i);\n    swap(nums, store, right);\n    return store;\n  }\n\n  private int map(int index, int n) {\n    return (1 + 2 * index) % (n | 1);\n  }\n\n  private void swap(int[] nums, int i, int j) {\n    int temp = nums[i];\n    nums[i] = nums[j];\n    nums[j] = temp;\n  }\n}",
+      "source": {
+        "label": "Wiggle Sort II - LeetCode 324",
+        "url": "https://leetcode.com/problems/wiggle-sort-ii/"
+      }
+    },
+    {
+      "name": "Sort List",
+      "question": "Given the head of a linked list, sort the list in ascending order and return the sorted head.",
+      "constraints": "0 <= number of nodes <= 50000; -100000 <= Node.val <= 100000.",
+      "examples": [
+        {
+          "input": "head = [4,2,1,3]",
+          "output": "[1,2,3,4]",
+          "explanation": "Merge sort orders the linked nodes."
+        },
+        {
+          "input": "head = [-1,5,3,4,0]",
+          "output": "[-1,0,3,4,5]",
+          "explanation": "Negative and positive values are both sorted."
+        },
+        {
+          "input": "head = []",
+          "output": "[]",
+          "explanation": "An empty list stays empty."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(1) extra links. Bottom-up merge sort relinks nodes iteratively.",
+      "optimizedCode": "class ListNode {\n  int val;\n  ListNode next;\n  ListNode() {}\n  ListNode(int val) { this.val = val; }\n  ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\nclass Solution {\n  public ListNode sortList(ListNode head) {\n    int length = 0;\n    for (ListNode node = head; node != null; node = node.next) length++;\n    ListNode dummy = new ListNode(0, head);\n    for (int size = 1; size < length; size *= 2) {\n      ListNode current = dummy.next;\n      ListNode tail = dummy;\n      while (current != null) {\n        ListNode left = current;\n        ListNode right = split(left, size);\n        current = split(right, size);\n        tail = merge(left, right, tail);\n      }\n    }\n    return dummy.next;\n  }\n\n  private ListNode split(ListNode head, int size) {\n    for (int i = 1; head != null && i < size; i++) head = head.next;\n    if (head == null) return null;\n    ListNode second = head.next;\n    head.next = null;\n    return second;\n  }\n\n  private ListNode merge(ListNode a, ListNode b, ListNode tail) {\n    while (a != null && b != null) {\n      if (a.val <= b.val) {\n        tail.next = a;\n        a = a.next;\n      } else {\n        tail.next = b;\n        b = b.next;\n      }\n      tail = tail.next;\n    }\n    tail.next = (a != null) ? a : b;\n    while (tail.next != null) tail = tail.next;\n    return tail;\n  }\n}",
+      "source": {
+        "label": "Sort List - LeetCode 148",
+        "url": "https://leetcode.com/problems/sort-list/"
+      }
+    },
+    {
+      "name": "Insertion Sort List",
+      "question": "Given the head of a linked list, sort it using insertion sort and return the sorted head.",
+      "constraints": "0 <= number of nodes <= 5000; -5000 <= Node.val <= 5000.",
+      "examples": [
+        {
+          "input": "head = [4,2,1,3]",
+          "output": "[1,2,3,4]",
+          "explanation": "Each node is inserted into the sorted prefix."
+        },
+        {
+          "input": "head = [-1,5,3,4,0]",
+          "output": "[-1,0,3,4,5]",
+          "explanation": "Nodes are re-linked in ascending order."
+        },
+        {
+          "input": "head = [1]",
+          "output": "[1]",
+          "explanation": "A single node is already sorted."
+        }
+      ],
+      "optimizedComplexity": "Time O(n^2); Space O(1). Insert each node into a sorted linked prefix.",
+      "optimizedCode": "class ListNode {\n  int val;\n  ListNode next;\n  ListNode() {}\n  ListNode(int val) { this.val = val; }\n  ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\nclass Solution {\n  public ListNode insertionSortList(ListNode head) {\n    ListNode dummy = new ListNode(0);\n    ListNode current = head;\n    while (current != null) {\n      ListNode next = current.next;\n      ListNode prev = dummy;\n      while (prev.next != null && prev.next.val < current.val) prev = prev.next;\n      current.next = prev.next;\n      prev.next = current;\n      current = next;\n    }\n    return dummy.next;\n  }\n}",
+      "source": {
+        "label": "Insertion Sort List - LeetCode 147",
+        "url": "https://leetcode.com/problems/insertion-sort-list/"
+      }
+    },
+    {
+      "name": "Relative Sort Array",
+      "question": "Given arr1 and arr2 where arr2 has distinct values appearing in arr1, sort arr1 so values in arr2 appear first in arr2 order and remaining values appear ascending.",
+      "constraints": "1 <= arr1.length, arr2.length <= 1000; 0 <= arr1[i], arr2[i] <= 1000; arr2 values are distinct.",
+      "examples": [
+        {
+          "input": "arr1 = [2,3,1,3,2,4,6,7,9,2,19], arr2 = [2,1,4,3,9,6]",
+          "output": "[2,2,2,1,4,3,3,9,6,7,19]",
+          "explanation": "Reference values come first in arr2 order."
+        },
+        {
+          "input": "arr1 = [28,6,22,8,44,17], arr2 = [22,28,8,6]",
+          "output": "[22,28,8,6,17,44]",
+          "explanation": "Leftovers 17 and 44 are ascending."
+        },
+        {
+          "input": "arr1 = [1,1,2], arr2 = [1]",
+          "output": "[1,1,2]",
+          "explanation": "Repeated reference values are emitted together."
+        }
+      ],
+      "optimizedComplexity": "Time O(n + range); Space O(range). Count values in the bounded domain and emit in required order.",
+      "optimizedCode": "class Solution {\n  public int[] relativeSortArray(int[] arr1, int[] arr2) {\n    int[] count = new int[1001];\n    for (int value : arr1) count[value]++;\n    int index = 0;\n    for (int value : arr2) {\n      while (count[value]-- > 0) arr1[index++] = value;\n    }\n    for (int value = 0; value < count.length; value++) {\n      while (count[value]-- > 0) arr1[index++] = value;\n    }\n    return arr1;\n  }\n}",
+      "source": {
+        "label": "Relative Sort Array - LeetCode 1122",
+        "url": "https://leetcode.com/problems/relative-sort-array/"
+      }
+    },
+    {
+      "name": "Sort Characters By Frequency",
+      "question": "Given a string s, sort its characters in decreasing frequency and return the resulting string.",
+      "constraints": "1 <= s.length <= 500000; s contains uppercase/lowercase English letters and digits.",
+      "examples": [
+        {
+          "input": "s = \"tree\"",
+          "output": "\"eert\" or \"eetr\"",
+          "explanation": "e appears twice and comes first."
+        },
+        {
+          "input": "s = \"cccaaa\"",
+          "output": "\"cccaaa\" or \"aaaccc\"",
+          "explanation": "c and a tie, so either order is valid."
+        },
+        {
+          "input": "s = \"Aabb\"",
+          "output": "\"bbAa\" or \"bbaA\"",
+          "explanation": "Uppercase and lowercase are different characters."
+        }
+      ],
+      "optimizedComplexity": "Time O(n + u); Space O(n + u). Bucket characters by frequency.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public String frequencySort(String s) {\n    Map<Character, Integer> frequency = new HashMap<>();\n    for (char ch : s.toCharArray()) frequency.put(ch, frequency.getOrDefault(ch, 0) + 1);\n    List<Character>[] buckets = new ArrayList[s.length() + 1];\n    for (char ch : frequency.keySet()) {\n      int count = frequency.get(ch);\n      if (buckets[count] == null) buckets[count] = new ArrayList<>();\n      buckets[count].add(ch);\n    }\n    StringBuilder answer = new StringBuilder();\n    for (int count = buckets.length - 1; count >= 0; count--) {\n      if (buckets[count] == null) continue;\n      for (char ch : buckets[count]) {\n        for (int i = 0; i < count; i++) answer.append(ch);\n      }\n    }\n    return answer.toString();\n  }\n}",
+      "source": {
+        "label": "Sort Characters By Frequency - LeetCode 451",
+        "url": "https://leetcode.com/problems/sort-characters-by-frequency/"
+      }
+    },
+    {
+      "name": "Maximum Gap",
+      "question": "Given an integer array nums, return the maximum difference between two successive elements in sorted order.",
+      "constraints": "1 <= nums.length <= 100000; 0 <= nums[i] <= 1000000000; target linear time and space.",
+      "examples": [
+        {
+          "input": "nums = [3,6,9,1]",
+          "output": "3",
+          "explanation": "Sorted order is [1,3,6,9], max gap is 3."
+        },
+        {
+          "input": "nums = [10]",
+          "output": "0",
+          "explanation": "No adjacent pair exists."
+        },
+        {
+          "input": "nums = [1,10000000]",
+          "output": "9999999",
+          "explanation": "The only sorted gap is the answer."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(n). Use min/max buckets sized by pigeonhole lower bound.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int maximumGap(int[] nums) {\n    if (nums.length < 2) return 0;\n    int min = nums[0], max = nums[0];\n    for (int value : nums) {\n      min = Math.min(min, value);\n      max = Math.max(max, value);\n    }\n    if (min == max) return 0;\n    int bucketSize = Math.max(1, (max - min) / (nums.length - 1));\n    int bucketCount = (max - min) / bucketSize + 1;\n    int[] bucketMin = new int[bucketCount];\n    int[] bucketMax = new int[bucketCount];\n    Arrays.fill(bucketMin, Integer.MAX_VALUE);\n    Arrays.fill(bucketMax, Integer.MIN_VALUE);\n    for (int value : nums) {\n      int bucket = (value - min) / bucketSize;\n      bucketMin[bucket] = Math.min(bucketMin[bucket], value);\n      bucketMax[bucket] = Math.max(bucketMax[bucket], value);\n    }\n    int best = 0;\n    int previous = min;\n    for (int i = 0; i < bucketCount; i++) {\n      if (bucketMin[i] == Integer.MAX_VALUE) continue;\n      best = Math.max(best, bucketMin[i] - previous);\n      previous = bucketMax[i];\n    }\n    return best;\n  }\n}",
+      "source": {
+        "label": "Maximum Gap - LeetCode 164",
+        "url": "https://leetcode.com/problems/maximum-gap/"
+      }
+    },
+    {
+      "name": "Count of Smaller Numbers After Self",
+      "question": "Given nums, return counts where counts[i] is the number of smaller elements to the right of nums[i].",
+      "constraints": "1 <= nums.length <= 100000; -10000 <= nums[i] <= 10000.",
+      "examples": [
+        {
+          "input": "nums = [5,2,6,1]",
+          "output": "[2,1,1,0]",
+          "explanation": "5 has smaller values 2 and 1 after it."
+        },
+        {
+          "input": "nums = [-1]",
+          "output": "[0]",
+          "explanation": "No values appear after the only element."
+        },
+        {
+          "input": "nums = [-1,-1]",
+          "output": "[0,0]",
+          "explanation": "Equal values are not smaller."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(n). Fenwick tree over coordinate-compressed values scans from right.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<Integer> countSmaller(int[] nums) {\n    int[] sorted = nums.clone();\n    Arrays.sort(sorted);\n    Map<Integer, Integer> rank = new HashMap<>();\n    int id = 1;\n    for (int value : sorted) if (!rank.containsKey(value)) rank.put(value, id++);\n    int[] tree = new int[id + 1];\n    Integer[] answer = new Integer[nums.length];\n    for (int i = nums.length - 1; i >= 0; i--) {\n      int r = rank.get(nums[i]);\n      answer[i] = query(tree, r - 1);\n      update(tree, r, 1);\n    }\n    return Arrays.asList(answer);\n  }\n\n  private void update(int[] tree, int index, int delta) {\n    while (index < tree.length) {\n      tree[index] += delta;\n      index += index & -index;\n    }\n  }\n\n  private int query(int[] tree, int index) {\n    int sum = 0;\n    while (index > 0) {\n      sum += tree[index];\n      index -= index & -index;\n    }\n    return sum;\n  }\n}",
+      "source": {
+        "label": "Count of Smaller Numbers After Self - LeetCode 315",
+        "url": "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
+      }
+    },
+    {
+      "name": "Reverse Pairs",
+      "question": "Given nums, return the number of reverse pairs where i < j and nums[i] > 2 * nums[j].",
+      "constraints": "1 <= nums.length <= 50000; -2^31 <= nums[i] <= 2^31 - 1.",
+      "examples": [
+        {
+          "input": "nums = [1,3,2,3,1]",
+          "output": "2",
+          "explanation": "The reverse pairs are formed by values 3 with later 1s."
+        },
+        {
+          "input": "nums = [2,4,3,5,1]",
+          "output": "3",
+          "explanation": "Three pairs satisfy nums[i] > 2*nums[j]."
+        },
+        {
+          "input": "nums = [-5,-5]",
+          "output": "1",
+          "explanation": "-5 > 2*(-5) is true for the first value before the second."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(n). Fenwick tree with compressed values counts prior values greater than 2*x.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int reversePairs(int[] nums) {\n    TreeSet<Long> values = new TreeSet<>();\n    for (int value : nums) {\n      values.add((long) value);\n      values.add(2L * value);\n    }\n    Map<Long, Integer> rank = new HashMap<>();\n    int id = 1;\n    for (long value : values) rank.put(value, id++);\n    int[] tree = new int[id + 1];\n    int pairs = 0;\n    for (int i = 0; i < nums.length; i++) {\n      int lessOrEqualDouble = query(tree, rank.get(2L * nums[i]));\n      pairs += i - lessOrEqualDouble;\n      update(tree, rank.get((long) nums[i]), 1);\n    }\n    return pairs;\n  }\n\n  private void update(int[] tree, int index, int delta) {\n    while (index < tree.length) {\n      tree[index] += delta;\n      index += index & -index;\n    }\n  }\n\n  private int query(int[] tree, int index) {\n    int sum = 0;\n    while (index > 0) {\n      sum += tree[index];\n      index -= index & -index;\n    }\n    return sum;\n  }\n}",
+      "source": {
+        "label": "Reverse Pairs - LeetCode 493",
+        "url": "https://leetcode.com/problems/reverse-pairs/"
+      }
+    },
+    {
+      "name": "Queue Reconstruction by Height",
+      "question": "Given people as [height, k], reconstruct the queue where k is the number of people in front with height at least height.",
+      "constraints": "1 <= people.length <= 2000; 0 <= height <= 1000000; 0 <= k < people.length.",
+      "examples": [
+        {
+          "input": "people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]",
+          "output": "[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]",
+          "explanation": "Each person has exactly k taller-or-equal people before them."
+        },
+        {
+          "input": "people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]",
+          "output": "[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]",
+          "explanation": "Taller-first insertion satisfies all counts."
+        },
+        {
+          "input": "people = [[7,0]]",
+          "output": "[[7,0]]",
+          "explanation": "A single person is already valid."
+        }
+      ],
+      "optimizedComplexity": "Time O(n^2 + n log n); Space O(n). Sort by height descending/k ascending and insert at k.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int[][] reconstructQueue(int[][] people) {\n    Arrays.sort(people, (a, b) -> a[0] == b[0] ? Integer.compare(a[1], b[1]) : Integer.compare(b[0], a[0]));\n    List<int[]> queue = new ArrayList<>();\n    for (int[] person : people) queue.add(person[1], person);\n    return queue.toArray(new int[queue.size()][]);\n  }\n}",
+      "source": {
+        "label": "Queue Reconstruction by Height - LeetCode 406",
+        "url": "https://leetcode.com/problems/queue-reconstruction-by-height/"
+      }
+    }
+  ]
+}

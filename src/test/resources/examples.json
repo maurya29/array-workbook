@@ -1,0 +1,3673 @@
+[
+  {
+    "topic": "arrays-hashing",
+    "number": 1,
+    "className": "ArraysHashingBasic",
+    "title": "Two Sum",
+    "id": "arrays-hashing-1",
+    "method": "twoSum",
+    "args": [
+      [
+        2,
+        7,
+        11,
+        15
+      ],
+      9
+    ],
+    "mode": "equal",
+    "expected": [
+      0,
+      1
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 2,
+    "className": "ArraysHashingBasic",
+    "title": "Contains Duplicate",
+    "id": "arrays-hashing-2",
+    "method": "containsDuplicate",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 3,
+    "className": "ArraysHashingBasic",
+    "title": "Valid Anagram",
+    "id": "arrays-hashing-3",
+    "method": "isAnagram",
+    "args": [
+      "anagram",
+      "nagaram"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 4,
+    "className": "ArraysHashingBasic",
+    "title": "Group Anagrams",
+    "id": "arrays-hashing-4",
+    "method": "groupAnagrams",
+    "args": [
+      [
+        "eat",
+        "tea",
+        "tan",
+        "ate",
+        "nat",
+        "bat"
+      ]
+    ],
+    "mode": "groups",
+    "expected": [
+      [
+        "bat"
+      ],
+      [
+        "tan",
+        "nat"
+      ],
+      [
+        "eat",
+        "tea",
+        "ate"
+      ]
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 5,
+    "className": "ArraysHashingBasic",
+    "title": "Top K Frequent Elements",
+    "id": "arrays-hashing-5",
+    "method": "topKFrequent",
+    "args": [
+      [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      2
+    ],
+    "mode": "unordered",
+    "expected": [
+      1,
+      2
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 6,
+    "className": "ArraysHashingBasic",
+    "title": "Product of Array Except Self",
+    "id": "arrays-hashing-6",
+    "method": "productExceptSelf",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      24,
+      12,
+      8,
+      6
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 7,
+    "className": "ArraysHashingBasic",
+    "title": "Subarray Sum Equals K",
+    "id": "arrays-hashing-7",
+    "method": "subarraySum",
+    "args": [
+      [
+        1,
+        1,
+        1
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 8,
+    "className": "ArraysHashingBasic",
+    "title": "Longest Consecutive Sequence",
+    "id": "arrays-hashing-8",
+    "method": "longestConsecutive",
+    "args": [
+      [
+        100,
+        4,
+        200,
+        1,
+        3,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 9,
+    "className": "ArraysHashingBasic",
+    "title": "Majority Element",
+    "id": "arrays-hashing-9",
+    "method": "majorityElement",
+    "args": [
+      [
+        3,
+        2,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 10,
+    "className": "ArraysHashingBasic",
+    "title": "Find All Numbers Disappeared in an Array",
+    "id": "arrays-hashing-10",
+    "method": "findDisappearedNumbers",
+    "args": [
+      [
+        4,
+        3,
+        2,
+        7,
+        8,
+        2,
+        3,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      5,
+      6
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 11,
+    "className": "ArraysHashingBasic",
+    "title": "Intersection of Two Arrays",
+    "id": "arrays-hashing-11",
+    "method": "intersection",
+    "args": [
+      [
+        1,
+        2,
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      2
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 12,
+    "className": "ArraysHashingBasic",
+    "title": "First Unique Character in a String",
+    "id": "arrays-hashing-12",
+    "method": "firstUniqChar",
+    "args": [
+      "leetcode"
+    ],
+    "mode": "equal",
+    "expected": 0
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 13,
+    "className": "ArraysHashingModerate",
+    "title": "Encode and Decode Strings",
+    "id": "arrays-hashing-13",
+    "method": "encode",
+    "args": [
+      [
+        "lint",
+        "code",
+        "love",
+        "you"
+      ]
+    ],
+    "mode": "roundTrip",
+    "expected": [
+      "lint",
+      "code",
+      "love",
+      "you"
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 14,
+    "className": "ArraysHashingModerate",
+    "title": "Longest Substring Without Repeating Characters",
+    "id": "arrays-hashing-14",
+    "method": "lengthOfLongestSubstring",
+    "args": [
+      "abcabcbb"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 15,
+    "className": "ArraysHashingModerate",
+    "title": "Minimum Window Substring",
+    "id": "arrays-hashing-15",
+    "method": "minWindow",
+    "args": [
+      "ADOBECODEBANC",
+      "ABC"
+    ],
+    "mode": "equal",
+    "expected": "BANC"
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 16,
+    "className": "ArraysHashingModerate",
+    "title": "Find All Anagrams in a String",
+    "id": "arrays-hashing-16",
+    "method": "findAnagrams",
+    "args": [
+      "cbaebabacd",
+      "abc"
+    ],
+    "mode": "equal",
+    "expected": [
+      0,
+      6
+    ]
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 17,
+    "className": "ArraysHashingModerate",
+    "title": "Contiguous Array",
+    "id": "arrays-hashing-17",
+    "method": "findMaxLength",
+    "args": [
+      [
+        0,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 18,
+    "className": "ArraysHashingModerate",
+    "title": "Longest Harmonious Subsequence",
+    "id": "arrays-hashing-18",
+    "method": "findLHS",
+    "args": [
+      [
+        1,
+        3,
+        2,
+        2,
+        5,
+        2,
+        3,
+        7
+      ]
+    ],
+    "mode": "equal",
+    "expected": 5
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 19,
+    "className": "ArraysHashingModerate",
+    "title": "Subarrays Divisible by K",
+    "id": "arrays-hashing-19",
+    "method": "subarraysDivByK",
+    "args": [
+      [
+        4,
+        5,
+        0,
+        -2,
+        -3,
+        1
+      ],
+      5
+    ],
+    "mode": "equal",
+    "expected": 7
+  },
+  {
+    "topic": "arrays-hashing",
+    "number": 20,
+    "className": "ArraysHashingModerate",
+    "title": "Insert Delete GetRandom O(1)",
+    "id": "arrays-hashing-20",
+    "special": true
+  },
+  {
+    "topic": "two-pointers",
+    "number": 1,
+    "className": "TwoPointersBasic",
+    "title": "Two Sum II - Input Array Is Sorted",
+    "id": "two-pointers-1",
+    "method": "twoSum",
+    "args": [
+      [
+        2,
+        7,
+        11,
+        15
+      ],
+      9
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      2
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 2,
+    "className": "TwoPointersBasic",
+    "title": "Valid Palindrome",
+    "id": "two-pointers-2",
+    "method": "isPalindrome",
+    "args": [
+      "A man, a plan, a canal: Panama"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "two-pointers",
+    "number": 3,
+    "className": "TwoPointersBasic",
+    "title": "Remove Duplicates from Sorted Array",
+    "id": "two-pointers-3",
+    "method": "removeDuplicates",
+    "args": [
+      [
+        1,
+        1,
+        2
+      ]
+    ],
+    "length": 2,
+    "prefix": [
+      1,
+      2
+    ],
+    "mode": "prefix",
+    "expected": 2
+  },
+  {
+    "topic": "two-pointers",
+    "number": 4,
+    "className": "TwoPointersBasic",
+    "title": "Remove Element",
+    "id": "two-pointers-4",
+    "method": "removeElement",
+    "args": [
+      [
+        3,
+        2,
+        2,
+        3
+      ],
+      3
+    ],
+    "length": 2,
+    "prefix": [
+      2,
+      2
+    ],
+    "mode": "prefix",
+    "expected": 2
+  },
+  {
+    "topic": "two-pointers",
+    "number": 5,
+    "className": "TwoPointersBasic",
+    "title": "Move Zeroes",
+    "id": "two-pointers-5",
+    "method": "moveZeroes",
+    "args": [
+      [
+        0,
+        1,
+        0,
+        3,
+        12
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      1,
+      3,
+      12,
+      0,
+      0
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 6,
+    "className": "TwoPointersBasic",
+    "title": "Squares of a Sorted Array",
+    "id": "two-pointers-6",
+    "method": "sortedSquares",
+    "args": [
+      [
+        -4,
+        -1,
+        0,
+        3,
+        10
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      0,
+      1,
+      9,
+      16,
+      100
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 7,
+    "className": "TwoPointersBasic",
+    "title": "Reverse String",
+    "id": "two-pointers-7",
+    "method": "reverseString",
+    "args": [
+      [
+        "h",
+        "e",
+        "l",
+        "l",
+        "o"
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      "o",
+      "l",
+      "l",
+      "e",
+      "h"
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 8,
+    "className": "TwoPointersBasic",
+    "title": "Merge Sorted Array",
+    "id": "two-pointers-8",
+    "method": "merge",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        0,
+        0,
+        0
+      ],
+      3,
+      [
+        2,
+        5,
+        6
+      ],
+      3
+    ],
+    "mode": "mutated",
+    "expected": [
+      1,
+      2,
+      2,
+      3,
+      5,
+      6
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 9,
+    "className": "TwoPointersBasic",
+    "title": "Linked List Cycle",
+    "id": "two-pointers-9",
+    "special": true
+  },
+  {
+    "topic": "two-pointers",
+    "number": 10,
+    "className": "TwoPointersBasic",
+    "title": "Middle of the Linked List",
+    "id": "two-pointers-10",
+    "method": "middleNode",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 11,
+    "className": "TwoPointersBasic",
+    "title": "Container With Most Water",
+    "id": "two-pointers-11",
+    "method": "maxArea",
+    "args": [
+      [
+        1,
+        8,
+        6,
+        2,
+        5,
+        4,
+        8,
+        3,
+        7
+      ]
+    ],
+    "mode": "equal",
+    "expected": 49
+  },
+  {
+    "topic": "two-pointers",
+    "number": 12,
+    "className": "TwoPointersBasic",
+    "title": "3Sum",
+    "id": "two-pointers-12",
+    "method": "threeSum",
+    "args": [
+      [
+        -1,
+        0,
+        1,
+        2,
+        -1,
+        -4
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        -1,
+        -1,
+        2
+      ],
+      [
+        -1,
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 13,
+    "className": "TwoPointersModerate",
+    "title": "3Sum Closest",
+    "id": "two-pointers-13",
+    "method": "threeSumClosest",
+    "args": [
+      [
+        -1,
+        2,
+        1,
+        -4
+      ],
+      1
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "two-pointers",
+    "number": 14,
+    "className": "TwoPointersModerate",
+    "title": "4Sum",
+    "id": "two-pointers-14",
+    "method": "fourSum",
+    "args": [
+      [
+        1,
+        0,
+        -1,
+        0,
+        -2,
+        2
+      ],
+      0
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        -2,
+        -1,
+        1,
+        2
+      ],
+      [
+        -2,
+        0,
+        0,
+        2
+      ],
+      [
+        -1,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 15,
+    "className": "TwoPointersModerate",
+    "title": "Sort Colors",
+    "id": "two-pointers-15",
+    "method": "sortColors",
+    "args": [
+      [
+        2,
+        0,
+        2,
+        1,
+        1,
+        0
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      0,
+      0,
+      1,
+      1,
+      2,
+      2
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 16,
+    "className": "TwoPointersModerate",
+    "title": "Trapping Rain Water",
+    "id": "two-pointers-16",
+    "method": "trap",
+    "args": [
+      [
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        3,
+        2,
+        1,
+        2,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "topic": "two-pointers",
+    "number": 17,
+    "className": "TwoPointersModerate",
+    "title": "Linked List Cycle II",
+    "id": "two-pointers-17",
+    "special": true
+  },
+  {
+    "topic": "two-pointers",
+    "number": 18,
+    "className": "TwoPointersModerate",
+    "title": "Remove Nth Node From End of List",
+    "id": "two-pointers-18",
+    "method": "removeNthFromEnd",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      2,
+      3,
+      5
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 19,
+    "className": "TwoPointersModerate",
+    "title": "Partition List",
+    "id": "two-pointers-19",
+    "method": "partition",
+    "args": [
+      [
+        1,
+        4,
+        3,
+        2,
+        5,
+        2
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      2,
+      2,
+      4,
+      3,
+      5
+    ]
+  },
+  {
+    "topic": "two-pointers",
+    "number": 20,
+    "className": "TwoPointersModerate",
+    "title": "Boats to Save People",
+    "id": "two-pointers-20",
+    "method": "numRescueBoats",
+    "args": [
+      [
+        1,
+        2
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "topic": "sliding-window",
+    "number": 1,
+    "className": "SlidingWindowBasic",
+    "title": "Maximum Average Subarray I",
+    "id": "sliding-window-1",
+    "method": "findMaxAverage",
+    "args": [
+      [
+        1,
+        12,
+        -5,
+        -6,
+        50,
+        3
+      ],
+      4
+    ],
+    "mode": "equal",
+    "expected": 12.75
+  },
+  {
+    "topic": "sliding-window",
+    "number": 2,
+    "className": "SlidingWindowBasic",
+    "title": "Contains Duplicate II",
+    "id": "sliding-window-2",
+    "method": "containsNearbyDuplicate",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        1
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "sliding-window",
+    "number": 3,
+    "className": "SlidingWindowBasic",
+    "title": "Longest Substring Without Repeating Characters",
+    "id": "sliding-window-3",
+    "method": "lengthOfLongestSubstring",
+    "args": [
+      "abcabcbb"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "sliding-window",
+    "number": 4,
+    "className": "SlidingWindowBasic",
+    "title": "Minimum Size Subarray Sum",
+    "id": "sliding-window-4",
+    "method": "minSubArrayLen",
+    "args": [
+      7,
+      [
+        2,
+        3,
+        1,
+        2,
+        4,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "sliding-window",
+    "number": 5,
+    "className": "SlidingWindowBasic",
+    "title": "Permutation in String",
+    "id": "sliding-window-5",
+    "method": "checkInclusion",
+    "args": [
+      "ab",
+      "eidbaooo"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "sliding-window",
+    "number": 6,
+    "className": "SlidingWindowBasic",
+    "title": "Find All Anagrams in a String",
+    "id": "sliding-window-6",
+    "method": "findAnagrams",
+    "args": [
+      "cbaebabacd",
+      "abc"
+    ],
+    "mode": "equal",
+    "expected": [
+      0,
+      6
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "number": 7,
+    "className": "SlidingWindowBasic",
+    "title": "Fruit Into Baskets",
+    "id": "sliding-window-7",
+    "method": "totalFruit",
+    "args": [
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "sliding-window",
+    "number": 8,
+    "className": "SlidingWindowBasic",
+    "title": "Max Consecutive Ones III",
+    "id": "sliding-window-8",
+    "method": "longestOnes",
+    "args": [
+      [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "topic": "sliding-window",
+    "number": 9,
+    "className": "SlidingWindowBasic",
+    "title": "Longest Repeating Character Replacement",
+    "id": "sliding-window-9",
+    "method": "characterReplacement",
+    "args": [
+      "ABAB",
+      2
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "topic": "sliding-window",
+    "number": 10,
+    "className": "SlidingWindowBasic",
+    "title": "Grumpy Bookstore Owner",
+    "id": "sliding-window-10",
+    "method": "maxSatisfied",
+    "args": [
+      [
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        7,
+        5
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 16
+  },
+  {
+    "topic": "sliding-window",
+    "number": 11,
+    "className": "SlidingWindowBasic",
+    "title": "Sliding Window Maximum",
+    "id": "sliding-window-11",
+    "method": "maxSlidingWindow",
+    "args": [
+      [
+        1,
+        3,
+        -1,
+        -3,
+        5,
+        3,
+        6,
+        7
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": [
+      3,
+      3,
+      5,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "topic": "sliding-window",
+    "number": 12,
+    "className": "SlidingWindowBasic",
+    "title": "Minimum Window Substring",
+    "id": "sliding-window-12",
+    "method": "minWindow",
+    "args": [
+      "ADOBECODEBANC",
+      "ABC"
+    ],
+    "mode": "equal",
+    "expected": "BANC"
+  },
+  {
+    "topic": "sliding-window",
+    "number": 13,
+    "className": "SlidingWindowModerate",
+    "title": "Subarray Product Less Than K",
+    "id": "sliding-window-13",
+    "method": "numSubarrayProductLessThanK",
+    "args": [
+      [
+        10,
+        5,
+        2,
+        6
+      ],
+      100
+    ],
+    "mode": "equal",
+    "expected": 8
+  },
+  {
+    "topic": "sliding-window",
+    "number": 14,
+    "className": "SlidingWindowModerate",
+    "title": "Longest Subarray of 1s After Deleting One Element",
+    "id": "sliding-window-14",
+    "method": "longestSubarray",
+    "args": [
+      [
+        1,
+        1,
+        0,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "sliding-window",
+    "number": 15,
+    "className": "SlidingWindowModerate",
+    "title": "Number of Substrings Containing All Three Characters",
+    "id": "sliding-window-15",
+    "method": "numberOfSubstrings",
+    "args": [
+      "abcabc"
+    ],
+    "mode": "equal",
+    "expected": 10
+  },
+  {
+    "topic": "sliding-window",
+    "number": 16,
+    "className": "SlidingWindowModerate",
+    "title": "Count Number of Nice Subarrays",
+    "id": "sliding-window-16",
+    "method": "numberOfSubarrays",
+    "args": [
+      [
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "sliding-window",
+    "number": 17,
+    "className": "SlidingWindowModerate",
+    "title": "Max Consecutive Ones",
+    "id": "sliding-window-17",
+    "method": "findMaxConsecutiveOnes",
+    "args": [
+      [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "sliding-window",
+    "number": 18,
+    "className": "SlidingWindowModerate",
+    "title": "Maximum Points You Can Obtain from Cards",
+    "id": "sliding-window-18",
+    "method": "maxScore",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        1
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 12
+  },
+  {
+    "topic": "sliding-window",
+    "number": 19,
+    "className": "SlidingWindowModerate",
+    "title": "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit",
+    "id": "sliding-window-19",
+    "method": "longestSubarray",
+    "args": [
+      [
+        8,
+        2,
+        4,
+        7
+      ],
+      4
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "sliding-window",
+    "number": 20,
+    "className": "SlidingWindowModerate",
+    "title": "Minimum Operations to Reduce X to Zero",
+    "id": "sliding-window-20",
+    "method": "minOperations",
+    "args": [
+      [
+        1,
+        1,
+        4,
+        2,
+        3
+      ],
+      5
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 1,
+    "className": "PrefixSumBasic",
+    "title": "Running Sum of 1d Array",
+    "id": "prefix-sum-1",
+    "method": "runningSum",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      3,
+      6,
+      10
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 2,
+    "className": "PrefixSumBasic",
+    "title": "Find Pivot Index",
+    "id": "prefix-sum-2",
+    "method": "pivotIndex",
+    "args": [
+      [
+        1,
+        7,
+        3,
+        6,
+        5,
+        6
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 3,
+    "className": "PrefixSumBasic",
+    "title": "Find the Highest Altitude",
+    "id": "prefix-sum-3",
+    "method": "largestAltitude",
+    "args": [
+      [
+        -5,
+        1,
+        5,
+        0,
+        -7
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 4,
+    "className": "PrefixSumBasic",
+    "title": "Minimum Value to Get Positive Step by Step Sum",
+    "id": "prefix-sum-4",
+    "method": "minStartValue",
+    "args": [
+      [
+        -3,
+        2,
+        -3,
+        4,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 5
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 5,
+    "className": "PrefixSumBasic",
+    "title": "Range Sum Query - Immutable",
+    "id": "prefix-sum-5",
+    "special": true
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 6,
+    "className": "PrefixSumBasic",
+    "title": "Range Sum Query 2D - Immutable",
+    "id": "prefix-sum-6",
+    "special": true
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 7,
+    "className": "PrefixSumBasic",
+    "title": "Matrix Block Sum",
+    "id": "prefix-sum-7",
+    "method": "matrixBlockSum",
+    "args": [
+      [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8,
+          9
+        ]
+      ],
+      1
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        12,
+        21,
+        16
+      ],
+      [
+        27,
+        45,
+        33
+      ],
+      [
+        24,
+        39,
+        28
+      ]
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 8,
+    "className": "PrefixSumBasic",
+    "title": "Left and Right Sum Differences",
+    "id": "prefix-sum-8",
+    "method": "leftRightDifference",
+    "args": [
+      [
+        10,
+        4,
+        8,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      15,
+      1,
+      11,
+      22
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 9,
+    "className": "PrefixSumBasic",
+    "title": "Find the Middle Index in Array",
+    "id": "prefix-sum-9",
+    "method": "findMiddleIndex",
+    "args": [
+      [
+        2,
+        3,
+        -1,
+        8,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 10,
+    "className": "PrefixSumBasic",
+    "title": "Sum of All Odd Length Subarrays",
+    "id": "prefix-sum-10",
+    "method": "sumOddLengthSubarrays",
+    "args": [
+      [
+        1,
+        4,
+        2,
+        5,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": 58
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 11,
+    "className": "PrefixSumBasic",
+    "title": "Number of Ways to Split Array",
+    "id": "prefix-sum-11",
+    "method": "waysToSplitArray",
+    "args": [
+      [
+        10,
+        4,
+        -8,
+        7
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 12,
+    "className": "PrefixSumBasic",
+    "title": "Maximum Population Year",
+    "id": "prefix-sum-12",
+    "method": "maximumPopulation",
+    "args": [
+      [
+        [
+          1993,
+          1999
+        ],
+        [
+          2000,
+          2010
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1993
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 13,
+    "className": "PrefixSumModerate",
+    "title": "Subarray Sum Equals K",
+    "id": "prefix-sum-13",
+    "method": "subarraySum",
+    "args": [
+      [
+        1,
+        1,
+        1
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 14,
+    "className": "PrefixSumModerate",
+    "title": "Continuous Subarray Sum",
+    "id": "prefix-sum-14",
+    "method": "checkSubarraySum",
+    "args": [
+      [
+        23,
+        2,
+        4,
+        6,
+        7
+      ],
+      6
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 15,
+    "className": "PrefixSumModerate",
+    "title": "Subarray Sums Divisible by K",
+    "id": "prefix-sum-15",
+    "method": "subarraysDivByK",
+    "args": [
+      [
+        4,
+        5,
+        0,
+        -2,
+        -3,
+        1
+      ],
+      5
+    ],
+    "mode": "equal",
+    "expected": 7
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 16,
+    "className": "PrefixSumModerate",
+    "title": "Contiguous Array",
+    "id": "prefix-sum-16",
+    "method": "findMaxLength",
+    "args": [
+      [
+        0,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 17,
+    "className": "PrefixSumModerate",
+    "title": "Maximum Size Subarray Sum Equals k",
+    "id": "prefix-sum-17",
+    "method": "maxSubArrayLen",
+    "args": [
+      [
+        1,
+        -1,
+        5,
+        -2,
+        3
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 18,
+    "className": "PrefixSumModerate",
+    "title": "Corporate Flight Bookings",
+    "id": "prefix-sum-18",
+    "method": "corpFlightBookings",
+    "args": [
+      [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          2,
+          3,
+          20
+        ],
+        [
+          2,
+          5,
+          25
+        ]
+      ],
+      5
+    ],
+    "mode": "equal",
+    "expected": [
+      10,
+      55,
+      45,
+      25,
+      25
+    ]
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 19,
+    "className": "PrefixSumModerate",
+    "title": "Car Pooling",
+    "id": "prefix-sum-19",
+    "method": "carPooling",
+    "args": [
+      [
+        [
+          2,
+          1,
+          5
+        ],
+        [
+          3,
+          3,
+          7
+        ]
+      ],
+      4
+    ],
+    "mode": "equal",
+    "expected": false
+  },
+  {
+    "topic": "prefix-sum",
+    "number": 20,
+    "className": "PrefixSumModerate",
+    "title": "Shifting Letters II",
+    "id": "prefix-sum-20",
+    "method": "shiftingLetters",
+    "args": [
+      "abc",
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": "ace"
+  },
+  {
+    "topic": "binary-search",
+    "number": 1,
+    "className": "BinarySearchBasic",
+    "title": "Binary Search",
+    "id": "binary-search-1",
+    "method": "search",
+    "args": [
+      [
+        -1,
+        0,
+        3,
+        5,
+        9,
+        12
+      ],
+      9
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "topic": "binary-search",
+    "number": 2,
+    "className": "BinarySearchBasic",
+    "title": "First Bad Version",
+    "id": "binary-search-2",
+    "special": true
+  },
+  {
+    "topic": "binary-search",
+    "number": 3,
+    "className": "BinarySearchBasic",
+    "title": "Search Insert Position",
+    "id": "binary-search-3",
+    "method": "searchInsert",
+    "args": [
+      [
+        1,
+        3,
+        5,
+        6
+      ],
+      5
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "binary-search",
+    "number": 4,
+    "className": "BinarySearchBasic",
+    "title": "Find First and Last Position of Element in Sorted Array",
+    "id": "binary-search-4",
+    "method": "searchRange",
+    "args": [
+      [
+        5,
+        7,
+        7,
+        8,
+        8,
+        10
+      ],
+      8
+    ],
+    "mode": "equal",
+    "expected": [
+      3,
+      4
+    ]
+  },
+  {
+    "topic": "binary-search",
+    "number": 5,
+    "className": "BinarySearchBasic",
+    "title": "Sqrt(x)",
+    "id": "binary-search-5",
+    "method": "mySqrt",
+    "args": [
+      4
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "binary-search",
+    "number": 6,
+    "className": "BinarySearchBasic",
+    "title": "Valid Perfect Square",
+    "id": "binary-search-6",
+    "method": "isPerfectSquare",
+    "args": [
+      16
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "binary-search",
+    "number": 7,
+    "className": "BinarySearchBasic",
+    "title": "Search in Rotated Sorted Array",
+    "id": "binary-search-7",
+    "method": "searchRotated",
+    "args": [
+      [
+        4,
+        5,
+        6,
+        7,
+        0,
+        1,
+        2
+      ],
+      0
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "topic": "binary-search",
+    "number": 8,
+    "className": "BinarySearchBasic",
+    "title": "Find Minimum in Rotated Sorted Array",
+    "id": "binary-search-8",
+    "method": "findMin",
+    "args": [
+      [
+        3,
+        4,
+        5,
+        1,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "topic": "binary-search",
+    "number": 9,
+    "className": "BinarySearchBasic",
+    "title": "Find Peak Element",
+    "id": "binary-search-9",
+    "method": "findPeakElement",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "binary-search",
+    "number": 10,
+    "className": "BinarySearchBasic",
+    "title": "Peak Index in a Mountain Array",
+    "id": "binary-search-10",
+    "method": "peakIndexInMountainArray",
+    "args": [
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "topic": "binary-search",
+    "number": 11,
+    "className": "BinarySearchBasic",
+    "title": "Single Element in a Sorted Array",
+    "id": "binary-search-11",
+    "method": "singleNonDuplicate",
+    "args": [
+      [
+        1,
+        1,
+        2,
+        3,
+        3,
+        4,
+        4,
+        8,
+        8
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "binary-search",
+    "number": 12,
+    "className": "BinarySearchBasic",
+    "title": "Find Smallest Letter Greater Than Target",
+    "id": "binary-search-12",
+    "method": "nextGreatestLetter",
+    "args": [
+      [
+        "c",
+        "f",
+        "j"
+      ],
+      "a"
+    ],
+    "mode": "equal",
+    "expected": "c"
+  },
+  {
+    "topic": "binary-search",
+    "number": 13,
+    "className": "BinarySearchModerate",
+    "title": "Koko Eating Bananas",
+    "id": "binary-search-13",
+    "method": "minEatingSpeed",
+    "args": [
+      [
+        3,
+        6,
+        7,
+        11
+      ],
+      8
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "topic": "binary-search",
+    "number": 14,
+    "className": "BinarySearchModerate",
+    "title": "Capacity To Ship Packages Within D Days",
+    "id": "binary-search-14",
+    "method": "shipWithinDays",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      5
+    ],
+    "mode": "equal",
+    "expected": 15
+  },
+  {
+    "topic": "binary-search",
+    "number": 15,
+    "className": "BinarySearchModerate",
+    "title": "Split Array Largest Sum",
+    "id": "binary-search-15",
+    "method": "splitArray",
+    "args": [
+      [
+        7,
+        2,
+        5,
+        10,
+        8
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": 18
+  },
+  {
+    "topic": "binary-search",
+    "number": 16,
+    "className": "BinarySearchModerate",
+    "title": "Minimized Maximum of Products Distributed to Any Store",
+    "id": "binary-search-16",
+    "method": "minimizedMaximum",
+    "args": [
+      6,
+      [
+        11,
+        6
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "binary-search",
+    "number": 17,
+    "className": "BinarySearchModerate",
+    "title": "Magnetic Force Between Two Balls",
+    "id": "binary-search-17",
+    "method": "maxDistance",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "binary-search",
+    "number": 18,
+    "className": "BinarySearchModerate",
+    "title": "Aggressive Cows",
+    "id": "binary-search-18",
+    "method": "aggressiveCows",
+    "args": [
+      [
+        1,
+        2,
+        4,
+        8,
+        9
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "binary-search",
+    "number": 19,
+    "className": "BinarySearchModerate",
+    "title": "Median of Two Sorted Arrays",
+    "id": "binary-search-19",
+    "method": "findMedianSortedArrays",
+    "args": [
+      [
+        1,
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2.0
+  },
+  {
+    "topic": "binary-search",
+    "number": 20,
+    "className": "BinarySearchModerate",
+    "title": "Kth Missing Positive Number",
+    "id": "binary-search-20",
+    "method": "findKthPositive",
+    "args": [
+      [
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      5
+    ],
+    "mode": "equal",
+    "expected": 9
+  },
+  {
+    "topic": "matrix",
+    "number": 1,
+    "className": "MatrixBasic",
+    "title": "Set Matrix Zeroes",
+    "id": "matrix-1",
+    "method": "setZeroes",
+    "args": [
+      [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "topic": "matrix",
+    "number": 2,
+    "className": "MatrixBasic",
+    "title": "Spiral Matrix",
+    "id": "matrix-2",
+    "method": "spiralOrder",
+    "args": [
+      [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8,
+          9
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      2,
+      3,
+      6,
+      9,
+      8,
+      7,
+      4,
+      5
+    ]
+  },
+  {
+    "topic": "matrix",
+    "number": 3,
+    "className": "MatrixBasic",
+    "title": "Spiral Matrix II",
+    "id": "matrix-3",
+    "method": "generateMatrix",
+    "args": [
+      3
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        8,
+        9,
+        4
+      ],
+      [
+        7,
+        6,
+        5
+      ]
+    ]
+  },
+  {
+    "topic": "matrix",
+    "number": 4,
+    "className": "MatrixBasic",
+    "title": "Rotate Image",
+    "id": "matrix-4",
+    "method": "rotate",
+    "args": [
+      [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8,
+          9
+        ]
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      [
+        7,
+        4,
+        1
+      ],
+      [
+        8,
+        5,
+        2
+      ],
+      [
+        9,
+        6,
+        3
+      ]
+    ]
+  },
+  {
+    "topic": "matrix",
+    "number": 5,
+    "className": "MatrixBasic",
+    "title": "Search a 2D Matrix",
+    "id": "matrix-5",
+    "method": "searchMatrix",
+    "args": [
+      [
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          10,
+          11,
+          16,
+          20
+        ],
+        [
+          23,
+          30,
+          34,
+          60
+        ]
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "matrix",
+    "number": 6,
+    "className": "MatrixBasic",
+    "title": "Search a 2D Matrix II",
+    "id": "matrix-6",
+    "method": "searchMatrixII",
+    "args": [
+      [
+        [
+          1,
+          4,
+          7,
+          11,
+          15
+        ],
+        [
+          2,
+          5,
+          8,
+          12,
+          19
+        ],
+        [
+          3,
+          6,
+          9,
+          16,
+          22
+        ],
+        [
+          10,
+          13,
+          14,
+          17,
+          24
+        ],
+        [
+          18,
+          21,
+          23,
+          26,
+          30
+        ]
+      ],
+      5
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "matrix",
+    "number": 7,
+    "className": "MatrixBasic",
+    "title": "Game of Life",
+    "id": "matrix-7",
+    "method": "gameOfLife",
+    "args": [
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ]
+    ]
+  },
+  {
+    "topic": "matrix",
+    "number": 8,
+    "className": "MatrixBasic",
+    "title": "Word Search",
+    "id": "matrix-8",
+    "method": "exist",
+    "args": [
+      [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ],
+        [
+          "S",
+          "F",
+          "C",
+          "S"
+        ],
+        [
+          "A",
+          "D",
+          "E",
+          "E"
+        ]
+      ],
+      "ABCCED"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "matrix",
+    "number": 9,
+    "className": "MatrixBasic",
+    "title": "Number of Islands",
+    "id": "matrix-9",
+    "method": "numIslands",
+    "args": [
+      [
+        [
+          "1",
+          "1",
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "1",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "topic": "matrix",
+    "number": 10,
+    "className": "MatrixBasic",
+    "title": "Max Area of Island",
+    "id": "matrix-10",
+    "method": "maxAreaOfIsland",
+    "args": [
+      [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "topic": "matrix",
+    "number": 11,
+    "className": "MatrixBasic",
+    "title": "Surrounded Regions",
+    "id": "matrix-11",
+    "method": "solve",
+    "args": [
+      [
+        [
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        [
+          "X",
+          "O",
+          "O",
+          "X"
+        ],
+        [
+          "X",
+          "X",
+          "O",
+          "X"
+        ],
+        [
+          "X",
+          "O",
+          "X",
+          "X"
+        ]
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      [
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      [
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      [
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      [
+        "X",
+        "O",
+        "X",
+        "X"
+      ]
+    ]
+  },
+  {
+    "topic": "matrix",
+    "number": 12,
+    "className": "MatrixBasic",
+    "title": "Pacific Atlantic Water Flow",
+    "id": "matrix-12",
+    "method": "pacificAtlantic",
+    "args": [
+      [
+        [
+          1,
+          2,
+          2,
+          3,
+          5
+        ],
+        [
+          3,
+          2,
+          3,
+          4,
+          4
+        ],
+        [
+          2,
+          4,
+          5,
+          3,
+          1
+        ],
+        [
+          6,
+          7,
+          1,
+          4,
+          5
+        ],
+        [
+          5,
+          1,
+          1,
+          2,
+          4
+        ]
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        0
+      ]
+    ]
+  },
+  {
+    "topic": "matrix",
+    "number": 13,
+    "className": "MatrixModerate",
+    "title": "Flood Fill",
+    "id": "matrix-13",
+    "method": "floodFill",
+    "args": [
+      [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      1,
+      1,
+      2
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "topic": "matrix",
+    "number": 14,
+    "className": "MatrixModerate",
+    "title": "01 Matrix",
+    "id": "matrix-14",
+    "method": "updateMatrix",
+    "args": [
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  {
+    "topic": "matrix",
+    "number": 15,
+    "className": "MatrixModerate",
+    "title": "Rotting Oranges",
+    "id": "matrix-15",
+    "method": "orangesRotting",
+    "args": [
+      [
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "topic": "matrix",
+    "number": 16,
+    "className": "MatrixModerate",
+    "title": "Shortest Path in Binary Matrix",
+    "id": "matrix-16",
+    "method": "shortestPathBinaryMatrix",
+    "args": [
+      [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "matrix",
+    "number": 17,
+    "className": "MatrixModerate",
+    "title": "Toeplitz Matrix",
+    "id": "matrix-17",
+    "method": "isToeplitzMatrix",
+    "args": [
+      [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          1,
+          2,
+          3
+        ],
+        [
+          9,
+          5,
+          1,
+          2
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "matrix",
+    "number": 18,
+    "className": "MatrixModerate",
+    "title": "Valid Sudoku",
+    "id": "matrix-18",
+    "special": true
+  },
+  {
+    "topic": "matrix",
+    "number": 19,
+    "className": "MatrixModerate",
+    "title": "Sudoku Solver",
+    "id": "matrix-19",
+    "special": true
+  },
+  {
+    "topic": "matrix",
+    "number": 20,
+    "className": "MatrixModerate",
+    "title": "Diagonal Traverse",
+    "id": "matrix-20",
+    "method": "findDiagonalOrder",
+    "args": [
+      [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8,
+          9
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      2,
+      4,
+      7,
+      5,
+      3,
+      6,
+      8,
+      9
+    ]
+  },
+  {
+    "topic": "strings",
+    "number": 1,
+    "className": "StringsBasic",
+    "title": "Valid Anagram",
+    "id": "strings-1",
+    "method": "isAnagram",
+    "args": [
+      "anagram",
+      "nagaram"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "strings",
+    "number": 2,
+    "className": "StringsBasic",
+    "title": "Valid Palindrome",
+    "id": "strings-2",
+    "method": "isPalindrome",
+    "args": [
+      "A man, a plan, a canal: Panama"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "strings",
+    "number": 3,
+    "className": "StringsBasic",
+    "title": "Longest Substring Without Repeating Characters",
+    "id": "strings-3",
+    "method": "lengthOfLongestSubstring",
+    "args": [
+      "abcabcbb"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "strings",
+    "number": 4,
+    "className": "StringsBasic",
+    "title": "Longest Repeating Character Replacement",
+    "id": "strings-4",
+    "method": "characterReplacement",
+    "args": [
+      "ABAB",
+      2
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "topic": "strings",
+    "number": 5,
+    "className": "StringsBasic",
+    "title": "Minimum Window Substring",
+    "id": "strings-5",
+    "method": "minWindow",
+    "args": [
+      "ADOBECODEBANC",
+      "ABC"
+    ],
+    "mode": "equal",
+    "expected": "BANC"
+  },
+  {
+    "topic": "strings",
+    "number": 6,
+    "className": "StringsBasic",
+    "title": "Group Anagrams",
+    "id": "strings-6",
+    "method": "groupAnagrams",
+    "args": [
+      [
+        "eat",
+        "tea",
+        "tan",
+        "ate",
+        "nat",
+        "bat"
+      ]
+    ],
+    "mode": "groups",
+    "expected": [
+      [
+        "bat"
+      ],
+      [
+        "nat",
+        "tan"
+      ],
+      [
+        "ate",
+        "eat",
+        "tea"
+      ]
+    ]
+  },
+  {
+    "topic": "strings",
+    "number": 7,
+    "className": "StringsBasic",
+    "title": "Encode and Decode Strings",
+    "id": "strings-7",
+    "method": "encode",
+    "args": [
+      [
+        "lint",
+        "code",
+        "love",
+        "you"
+      ]
+    ],
+    "mode": "roundTrip",
+    "expected": [
+      "lint",
+      "code",
+      "love",
+      "you"
+    ]
+  },
+  {
+    "topic": "strings",
+    "number": 8,
+    "className": "StringsBasic",
+    "title": "Longest Palindromic Substring",
+    "id": "strings-8",
+    "method": "longestPalindrome",
+    "args": [
+      "babad"
+    ],
+    "mode": "palindrome",
+    "expected": 3
+  },
+  {
+    "topic": "strings",
+    "number": 9,
+    "className": "StringsBasic",
+    "title": "Palindromic Substrings",
+    "id": "strings-9",
+    "method": "countSubstrings",
+    "args": [
+      "abc"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "strings",
+    "number": 10,
+    "className": "StringsBasic",
+    "title": "Valid Parenthesis String",
+    "id": "strings-10",
+    "method": "checkValidString",
+    "args": [
+      "()"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "strings",
+    "number": 11,
+    "className": "StringsBasic",
+    "title": "Find the Index of the First Occurrence in a String",
+    "id": "strings-11",
+    "method": "strStr",
+    "args": [
+      "sadbutsad",
+      "sad"
+    ],
+    "mode": "equal",
+    "expected": 0
+  },
+  {
+    "topic": "strings",
+    "number": 12,
+    "className": "StringsBasic",
+    "title": "Repeated Substring Pattern",
+    "id": "strings-12",
+    "method": "repeatedSubstringPattern",
+    "args": [
+      "abab"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "topic": "strings",
+    "number": 13,
+    "className": "StringsModerate",
+    "title": "String Compression",
+    "id": "strings-13",
+    "method": "compress",
+    "args": [
+      [
+        "a",
+        "a",
+        "b",
+        "b",
+        "c",
+        "c",
+        "c"
+      ]
+    ],
+    "length": 6,
+    "prefix": [
+      "a",
+      "2",
+      "b",
+      "2",
+      "c",
+      "3"
+    ],
+    "mode": "prefix",
+    "expected": 6
+  },
+  {
+    "topic": "strings",
+    "number": 14,
+    "className": "StringsModerate",
+    "title": "Reverse Words in a String",
+    "id": "strings-14",
+    "method": "reverseWords",
+    "args": [
+      "the sky is blue"
+    ],
+    "mode": "equal",
+    "expected": "blue is sky the"
+  },
+  {
+    "topic": "strings",
+    "number": 15,
+    "className": "StringsModerate",
+    "title": "Zigzag Conversion",
+    "id": "strings-15",
+    "method": "convert",
+    "args": [
+      "PAYPALISHIRING",
+      3
+    ],
+    "mode": "equal",
+    "expected": "PAHNAPLSIIGYIR"
+  },
+  {
+    "topic": "strings",
+    "number": 16,
+    "className": "StringsModerate",
+    "title": "Add Strings",
+    "id": "strings-16",
+    "method": "addStrings",
+    "args": [
+      "11",
+      "123"
+    ],
+    "mode": "equal",
+    "expected": "134"
+  },
+  {
+    "topic": "strings",
+    "number": 17,
+    "className": "StringsModerate",
+    "title": "Decode String",
+    "id": "strings-17",
+    "method": "decodeString",
+    "args": [
+      "3[a]2[bc]"
+    ],
+    "mode": "equal",
+    "expected": "aaabcbc"
+  },
+  {
+    "topic": "strings",
+    "number": 18,
+    "className": "StringsModerate",
+    "title": "Basic Calculator II",
+    "id": "strings-18",
+    "method": "calculate",
+    "args": [
+      "3+2*2"
+    ],
+    "mode": "equal",
+    "expected": 7
+  },
+  {
+    "topic": "strings",
+    "number": 19,
+    "className": "StringsModerate",
+    "title": "Longest Common Prefix",
+    "id": "strings-19",
+    "method": "longestCommonPrefix",
+    "args": [
+      [
+        "flower",
+        "flow",
+        "flight"
+      ]
+    ],
+    "mode": "equal",
+    "expected": "fl"
+  },
+  {
+    "topic": "strings",
+    "number": 20,
+    "className": "StringsModerate",
+    "title": "Compare Version Numbers",
+    "id": "strings-20",
+    "method": "compareVersion",
+    "args": [
+      "1.01",
+      "1.001"
+    ],
+    "mode": "equal",
+    "expected": 0
+  },
+  {
+    "topic": "sorting",
+    "number": 1,
+    "className": "SortingBasic",
+    "title": "Sort Colors",
+    "id": "sorting-1",
+    "method": "sortColors",
+    "args": [
+      [
+        2,
+        0,
+        2,
+        1,
+        1,
+        0
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      0,
+      0,
+      1,
+      1,
+      2,
+      2
+    ]
+  },
+  {
+    "topic": "sorting",
+    "number": 2,
+    "className": "SortingBasic",
+    "title": "Merge Sorted Array",
+    "id": "sorting-2",
+    "method": "merge",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        0,
+        0,
+        0
+      ],
+      3,
+      [
+        2,
+        5,
+        6
+      ],
+      3
+    ],
+    "mode": "mutated",
+    "expected": [
+      1,
+      2,
+      2,
+      3,
+      5,
+      6
+    ]
+  },
+  {
+    "topic": "sorting",
+    "number": 3,
+    "className": "SortingBasic",
+    "title": "Kth Largest Element in an Array",
+    "id": "sorting-3",
+    "method": "findKthLargest",
+    "args": [
+      [
+        3,
+        2,
+        1,
+        5,
+        6,
+        4
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": 5
+  },
+  {
+    "topic": "sorting",
+    "number": 4,
+    "className": "SortingBasic",
+    "title": "Top K Frequent Elements",
+    "id": "sorting-4",
+    "method": "topKFrequent",
+    "args": [
+      [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      2
+    ],
+    "mode": "unordered",
+    "expected": [
+      1,
+      2
+    ]
+  },
+  {
+    "topic": "sorting",
+    "number": 5,
+    "className": "SortingBasic",
+    "title": "Largest Number",
+    "id": "sorting-5",
+    "method": "largestNumber",
+    "args": [
+      [
+        10,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": "210"
+  },
+  {
+    "topic": "sorting",
+    "number": 6,
+    "className": "SortingBasic",
+    "title": "Meeting Rooms",
+    "id": "sorting-6",
+    "method": "canAttendMeetings",
+    "args": [
+      [
+        [
+          0,
+          30
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          15,
+          20
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": false
+  },
+  {
+    "topic": "sorting",
+    "number": 7,
+    "className": "SortingBasic",
+    "title": "Meeting Rooms II",
+    "id": "sorting-7",
+    "method": "minMeetingRooms",
+    "args": [
+      [
+        [
+          0,
+          30
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          15,
+          20
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "sorting",
+    "number": 8,
+    "className": "SortingBasic",
+    "title": "Merge Intervals",
+    "id": "sorting-8",
+    "method": "merge",
+    "args": [
+      [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          15,
+          18
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        1,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        15,
+        18
+      ]
+    ]
+  },
+  {
+    "topic": "sorting",
+    "number": 9,
+    "className": "SortingBasic",
+    "title": "Non-overlapping Intervals",
+    "id": "sorting-9",
+    "method": "eraseOverlapIntervals",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "topic": "sorting",
+    "number": 10,
+    "className": "SortingBasic",
+    "title": "H-Index",
+    "id": "sorting-10",
+    "method": "hIndex",
+    "args": [
+      [
+        3,
+        0,
+        6,
+        1,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "sorting",
+    "number": 11,
+    "className": "SortingBasic",
+    "title": "Wiggle Sort",
+    "id": "sorting-11",
+    "method": "wiggleSort",
+    "args": [
+      [
+        3,
+        5,
+        2,
+        1,
+        6,
+        4
+      ]
+    ],
+    "mode": "wiggle",
+    "expected": null
+  },
+  {
+    "topic": "sorting",
+    "number": 12,
+    "className": "SortingBasic",
+    "title": "Wiggle Sort II",
+    "id": "sorting-12",
+    "method": "wiggleSortStrict",
+    "args": [
+      [
+        1,
+        5,
+        1,
+        1,
+        6,
+        4
+      ]
+    ],
+    "mode": "strictWiggle",
+    "expected": null
+  },
+  {
+    "topic": "sorting",
+    "number": 13,
+    "className": "SortingModerate",
+    "title": "Sort List",
+    "id": "sorting-13",
+    "method": "sortList",
+    "args": [
+      [
+        4,
+        2,
+        1,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "topic": "sorting",
+    "number": 14,
+    "className": "SortingModerate",
+    "title": "Insertion Sort List",
+    "id": "sorting-14",
+    "method": "insertionSortList",
+    "args": [
+      [
+        4,
+        2,
+        1,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "topic": "sorting",
+    "number": 15,
+    "className": "SortingModerate",
+    "title": "Relative Sort Array",
+    "id": "sorting-15",
+    "method": "relativeSortArray",
+    "args": [
+      [
+        2,
+        3,
+        1,
+        3,
+        2,
+        4,
+        6,
+        7,
+        9,
+        2,
+        19
+      ],
+      [
+        2,
+        1,
+        4,
+        3,
+        9,
+        6
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      2,
+      2,
+      2,
+      1,
+      4,
+      3,
+      3,
+      9,
+      6,
+      7,
+      19
+    ]
+  },
+  {
+    "topic": "sorting",
+    "number": 16,
+    "className": "SortingModerate",
+    "title": "Sort Characters By Frequency",
+    "id": "sorting-16",
+    "method": "frequencySort",
+    "args": [
+      "tree"
+    ],
+    "mode": "frequency",
+    "expected": null
+  },
+  {
+    "topic": "sorting",
+    "number": 17,
+    "className": "SortingModerate",
+    "title": "Maximum Gap",
+    "id": "sorting-17",
+    "method": "maximumGap",
+    "args": [
+      [
+        3,
+        6,
+        9,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "topic": "sorting",
+    "number": 18,
+    "className": "SortingModerate",
+    "title": "Count of Smaller Numbers After Self",
+    "id": "sorting-18",
+    "method": "countSmaller",
+    "args": [
+      [
+        5,
+        2,
+        6,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      2,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "topic": "sorting",
+    "number": 19,
+    "className": "SortingModerate",
+    "title": "Reverse Pairs",
+    "id": "sorting-19",
+    "method": "reversePairs",
+    "args": [
+      [
+        1,
+        3,
+        2,
+        3,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "topic": "sorting",
+    "number": 20,
+    "className": "SortingModerate",
+    "title": "Queue Reconstruction by Height",
+    "id": "sorting-20",
+    "method": "reconstructQueue",
+    "args": [
+      [
+        [
+          7,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        5,
+        0
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        7,
+        1
+      ]
+    ]
+  }
+]
